@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background: #ffffff
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: fadeInLeftBig;
+    animation-duration: 1s;
+    /* margin-bottom: 70px; */
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    height: 150px;
+
+
+}
+
+header img {
+    /* height: 200px; */
+    height: 300px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 8px 20px rgba(46, 45, 45, 0.5));
+
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    border-bottom: 2px solid rgb(163, 84, 236);
+    cursor: url(./img/cursorPathPurple.png), pointer;
+    filter: drop-shadow(0px 0px 10px rgba(6, 69, 105, 0.5));
+
+}
+
+header a span {
+    color: rgb(163, 84, 236);
+}
+
+header a span:hover {
+    color: #fff;
+
+}
+
+header a:hover {
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    color: rgb(163, 84, 236);
+}
+
+.logo {
+    margin-right: 70px;
+
+}
+
+/* .oferecemos{
+    display: flex;
+    
+    
+}
+
+
+
+.banner{
+    display: flex;
+   
+   
+}
+ */
+
+.first-section {
+
+    display: flex;
+    flex-direction: column;
+    animation: fadeInRightBig;
+    animation-duration: 1s;
+    background-image: url(./img/vecteezy_cute-little-dog-in-pet-carrier-with_24769404.jpg);
+    background-size: cover;
+    height: 100vh;
+    position: relative; /* Para que o pseudo-elemento se posicione em relação a esta seção */
+  
+}
+
+.first-section::before {
+    content: ""; /* Necessário para criar um pseudo-elemento */
+    position: absolute; /* Para que ocupe a mesma posição da seção */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1; /* Para que fique abaixo do conteúdo */
+}
+
+.first-section h1,
+.first-section .img {
+    position: relative; /* Para garantir que fiquem acima da sobreposição */
+    z-index: 2; /* Para que fiquem acima do pseudo-elemento */
+}
+
+.first-section h1 {
+    text-align: center;
+    /* color: rgb(163, 84, 236); */
+    color: #fff;
+    font-size: 36px;
+    font-weight: 800;
+    font-style: italic;
+    margin-bottom: 40px;
+    font-family: "Source Code Pro", monospace;
+}
+
+.first-section img {
+    height: 200px; 
+    
+
+
+}
+
+.first-section .img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+}
+
+.oferecemos {
+    display: flex;
+    justify-content: space-around; /* Para deixar as caixas lado a lado */
+    margin: 70px 0; /* Margem acima e abaixo da seção */
+}
+
+.dados1 , .dados2 {
+    background-color: #fff; /* Cor de fundo da caixa */
+    border: 3px solid rgb(106, 245, 245);
+    border-radius: 20px; /* Bordas arredondadas */
+    width: 300px; /* Largura das caixas */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+}
+
+.dados1 h3{
+    color: rgb(106, 245, 245);
+
+}
+
+.dados2 h3{
+
+    color: rgb(106, 245, 245);
+    
+
+}
+
+.dados1 , .dados2 p{
+    color: #000;
+}
+.dados1 img{
+    height: 80px;
+   margin-top: 40px;
+}
+.second-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 70px;
+
+}
+
+.img-quem-somos {
+    height: 250px;
+    margin-left: 35px;
+}
+
+.second-section img{
+    height: 300px;
+  
+   
+}
+
+
+.second-section .texto {
+    color: rgb(163, 84, 236);
+    width: 50%;
+
+}
+
+.second-section .texto h2 {
+    font-size: 40px;
+    font-weight: 800;
+    /* font-family: "ADLaM Display", system-ui; */
+    font-family: "Source Code Pro", monospace;
+    text-align: center;
+}
+
+.second-section .texto p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+}
+
+/* .img-section2{
+   visibility: hidden;
+
+} */
+
+
+
+.box {
+    display: flex;
+    margin-top: 70px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 100px;
+
+    /* visibility: hidden;
+    */
+
+}
+
+.box span {
+    color: rgb(106, 245, 245);
+    font-weight: bold;
+}
+
+.box img {
+    height: 80px;
+    justify-content: center;
+}
+
+.box h3 {
+    color: rgb(106, 245, 245);
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(106, 245, 245);
+    ;
+    padding-bottom: 10px;
+
+}
+
+.box p {
+    font-size: 18px;
+
+}
+
+.box1 {
+    background-color: #fff;
+    height: 380px;
+    border-radius: 20px;
+    width: 300px;
+    padding: 20px;
+    border: 3px solid rgb(106, 245, 245);
+
+}
+
+.box2 {
+    background-color: #fff;
+    height: 380px;
+    border-radius: 20px;
+    width: 300px;
+    padding: 20px;
+    border: 3px solid rgb(106, 245, 245); 
+  
+  
+
+}
+
+.box3 {
+    background-color: #fff;
+    height: 380px;
+    border-radius: 20px;
+    width: 300px;
+    padding: 20px;
+    border: 3px solid rgb(106, 245, 245);
+
+}
+
+footer {
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+
+    
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+}
+
+.icone img {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.icone p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
