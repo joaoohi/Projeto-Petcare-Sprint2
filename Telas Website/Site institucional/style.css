@@ -83,97 +83,96 @@ header a:hover {
 .first-section {
 
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    /* add this */
+    align-items: center;
     animation: fadeInRightBig;
     animation-duration: 1s;
     background-image: url(./img/vecteezy_cute-little-dog-in-pet-carrier-with_24769404.jpg);
     background-size: cover;
     height: 100vh;
-    position: relative; /* Para que o pseudo-elemento se posicione em relação a esta seção */
-  
+    position: relative;
+    /* Para que o pseudo-elemento se posicione em relação a esta seção */
+
 }
 
 .first-section::before {
-    content: ""; /* Necessário para criar um pseudo-elemento */
-    position: absolute; /* Para que ocupe a mesma posição da seção */
+    content: "";
+    /* Necessário para criar um pseudo-elemento */
+    position: absolute;
+    /* Para que ocupe a mesma posição da seção */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
-    z-index: 1; /* Para que fique abaixo do conteúdo */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cor preta com 50% de opacidade */
+    z-index: 1;
+    /* Para que fique abaixo do conteúdo */
 }
 
-.first-section h1,
-.first-section .img {
-    position: relative; /* Para garantir que fiquem acima da sobreposição */
-    z-index: 2; /* Para que fiquem acima do pseudo-elemento */
-}
-
-.first-section h1 {
-    text-align: center;
-    /* color: rgb(163, 84, 236); */
+.first-section h4 {
+    font-size: 40px;
     color: #fff;
-    font-size: 36px;
-    font-weight: 800;
-    font-style: italic;
-    margin-bottom: 40px;
-    font-family: "Source Code Pro", monospace;
-}
-
-.first-section img {
-    height: 200px; 
-    
+    z-index: 2;
+    text-align: center;
 
 
 }
 
-.first-section .img {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-
-}
 
 .oferecemos {
     display: flex;
-    justify-content: space-around; /* Para deixar as caixas lado a lado */
-    margin: 70px 0; /* Margem acima e abaixo da seção */
+    justify-content: space-around;
+    /* Para deixar as caixas lado a lado */
+    margin: 70px 0;
+    /* Margem acima e abaixo da seção */
 }
 
-.dados1 , .dados2 {
-    background-color: #fff; /* Cor de fundo da caixa */
+.dados1,
+.dados2 {
+    background-color: #fff;
+    /* Cor de fundo da caixa */
     border: 3px solid rgb(106, 245, 245);
-    border-radius: 20px; /* Bordas arredondadas */
-    width: 300px; /* Largura das caixas */
-    padding: 20px; /* Espaçamento interno */
-    text-align: center; /* Centraliza o texto */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    width: 300px;
+    /* Largura das caixas */
+    padding: 20px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Centraliza o texto */
 }
 
-.dados1 h3{
+.dados1 h3 {
     color: rgb(106, 245, 245);
 
 }
 
-.dados2 h3{
+.dados2 h3 {
 
     color: rgb(106, 245, 245);
-    
+
 
 }
 
-.dados1 , .dados2 p{
-    color: #000;
+.dados1,
+.dados2 p {
+    color: #333;
 }
-.dados1 img{
+
+.dados1 img {
     height: 80px;
-   margin-top: 40px;
+    margin-top: 40px;
 }
+
 .second-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 70px;
+    animation: fadeInLeftBig;
+    animation-duration: 1s;
 
 }
 
@@ -182,16 +181,17 @@ header a:hover {
     margin-left: 35px;
 }
 
-.second-section img{
+.second-section img {
     height: 300px;
-  
-   
+
+
 }
 
 
 .second-section .texto {
     color: rgb(163, 84, 236);
     width: 50%;
+    font-size: 50px;
 
 }
 
@@ -222,11 +222,15 @@ header a:hover {
     justify-content: space-around;
     margin-bottom: 20px;
     margin-top: 100px;
+    animation: fadeInRightBig;
+    animation-duration: 1s;
+    height: 500px;
 
     /* visibility: hidden;
     */
 
 }
+
 
 .box span {
     color: rgb(106, 245, 245);
@@ -270,9 +274,9 @@ header a:hover {
     border-radius: 20px;
     width: 300px;
     padding: 20px;
-    border: 3px solid rgb(106, 245, 245); 
-  
-  
+    border: 3px solid rgb(106, 245, 245);
+
+
 
 }
 
@@ -297,7 +301,7 @@ footer {
     padding: 30px;
     filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
 
-    
+
 }
 
 .icone {
@@ -316,3 +320,181 @@ footer {
     font-weight: bold;
 }
 
+
+.integrantes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff font-family: "Poppins", sans-serif;
+
+}
+
+.integrantes h3 {
+    font-size: 50px;
+    color: rgb(163, 84, 236);
+    margin-bottom: 50px;
+}
+
+.integrantes h4 {
+    color: rgb(163, 84, 236);
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.integrantes p {
+    font-size: 18px;
+    font-weight: 500;
+
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.group {
+    display: inline-block;
+
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+}
+
+.group img {
+    height: 150px;
+    border-radius: 50%;
+}
+
+.group .logo {
+    height: 30px;
+    display: inline-block;
+    margin: 0 5px;
+
+}
+
+.taxi-dog {
+    background-image: url(./img/taxiDog.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.taxi-dog::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* add a black overlay with 50% opacity */
+}
+
+.container-servicos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+}
+
+.container-servicos h2 {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(163, 84, 236);
+}
+
+.container-servicos h4 {
+    color: rgb(106, 245, 245);
+}
+
+.container-servicos div {
+
+    background-color: #fff;
+    height: 380px;
+    border-radius: 20px;
+    width: 300px;
+    padding: 20px;
+    margin: 40px;
+
+}
+
+.passo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+
+
+}
+
+.passo1 h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.passo1 p {
+    margin-bottom: 20px;
+}
+
+.passo1 img {
+    margin-top: 20px;
+}
+
+.passo2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+
+}
+
+.passo2 h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.passo2 p {
+    margin-bottom: 20px;
+}
+
+.passo2 img {
+    margin-top: 20px;
+}
+
+.passo3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.passo3 h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.passo3 p {
+    margin-bottom: 20px;
+}
+
+.passo3 img {
+    margin-top: 20px;
+}
+
+.container-servicos img {
+    height: 100px;
+}
