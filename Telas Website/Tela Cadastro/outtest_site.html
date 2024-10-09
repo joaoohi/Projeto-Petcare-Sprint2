@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="cachorro.png (1).png" class="icone">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="outtest_site.css">
+
+    <style>
+        img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="logopetcarefinal.png" alt="">
+        <a href="#">HOME</a>
+        <a href="#">SOBRE NÓS</a>
+        <a href="#">PETCÁLCULO</a>
+        <a href="#">LOGIN</a>
+    </header>
+
+
+    <div class="container">
+        <div><img src="gatopixeladofinal.png" alt=""></div>
+        <div class="painel">
+            <b>
+                <h1>Cadastrar</h1>
+            </b>
+            <h4>Nome Completo:</h4>
+            <input class="nome_completo" type="text" placeholder="Digite seu nome completo">
+            <h4>Email:</h4>
+            <input oninput="email()" id="input_email" class="email" type="text" placeholder="Digite seu email">
+            <div class="email_validar" id="div_email"></div>
+            <h4>Senha:</h4>
+            <input oninput="analisar()" id="input_senha" class="senha" type="password" placeholder="Digite sua senha">
+            <div class="mensagem" id="div_mensagem"></div>
+            <h4>Confrme sua senha:</h4>
+            <input oninput="confirmar()" id="confirmar_senha" class="confirmar" type="password"
+                placeholder="Confirme sua senha">
+            <div class="confirmar_senha" id="confirmar_mensagem"></div>
+            <br>
+            <button onclick="cadastrar()" class="botao">Cadastrar</button>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="icone">
+            <p>Entre em contato:</p>
+        </div>
+        <div class="icone">
+            <img src="iconcarta.png" alt="">
+            <p>petcare@sptech.school</p>
+        </div>
+        <div class="icone">
+            <a href="https://wa.me/5511998508868" target="_blank">
+                <img src="iconwpp.png" alt="">
+            </a>
+            <p>(11) 99850-8868</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script>
+
+    function analisar() {
+
+        var senha = input_senha.value
+        var mensagem = ' '
+        var tamanho_senha = senha.length
+        var confirmar = confirmar_senha.value
+
+        if (tamanho_senha >= 8) {
+            mensagem += `A senha é forte`
+            div_mensagem.style.color = 'green'
+        } else {
+            mensagem += `A senha é fraca`
+            div_mensagem.style.color = 'red'
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+    function confirmar() {
+        var mensagem = ' '
+        var senha = input_senha.value
+        var confirmar = confirmar_senha.value
+
+        if (senha == confirmar) {
+            mensagem += `Senha Válida`
+            confirmar_mensagem.style.color = 'green'
+        } else {
+            mensagem += `Senha Inválida`
+            confirmar_mensagem.style.color = 'red'
+        }
+
+        confirmar_mensagem.innerHTML = mensagem
+    }
+
+    function email() {
+        var mensagem = ' '
+        var email = input_email.value
+        var email_com = email.endsWith('.com')
+        var email_br = email.endsWith('.br')
+        var email_school = email.endsWith('school')
+        var arroba = email.includes('@')
+
+        if ((email_br || email_com || email_school) && arroba) {
+            mensagem += `Email Válido`
+            div_email.style.color = 'green'
+        } else {
+            mensagem += `Email Inválido`
+            div_email.style.color = 'red'
+        }
+
+        div_email.innerHTML = mensagem
+
+    }
+</script>
