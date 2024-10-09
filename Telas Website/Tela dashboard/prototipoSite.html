@@ -7,6 +7,7 @@
     <title>Document</title>
     <href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
     rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -14,21 +15,58 @@
         <div class="logo">
             <img src="./Logos/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
         </div>
-        <a href="#">HOME</a>
-        <a href="#">SOBRE NÓS</a>
-        <a href="#">PETCÁLCULO</a>
-        <a href="#"><span>LOGIN</span></a>
-        <a href="#">CADASTRO</a>
-
+          <div class="container">
+      <button class="botaoPagina" onclick=""><span class="textobot">Gráficos</span></button>
+      <button class="botaoPagina" onclick=""><span class="textobot">Resultados</span></button>
+      <button class="botaoPagina" onclick=""><span class="textobot">Manutenção</span></button>
+            </div>
     </header>
 
-    <div class="banner">
-        <div class="container">
-    <button class="botaoPagina" onclick=""><span class="textobot">Gráficos</span></button>
-    <button class="botaoPagina" onclick=""><span class="textobot">Resultados</span></button>
-    <button class="botaoPagina" onclick=""><span class="textobot">Manutenção</span></button>
+    
+
+    <div class="dashboard">
+      <div class="container">
+      <div>
+          <canvas id="myChart"></canvas>
+        </div>
+        
+        <script>
+          const ctx = document.getElementById('myChart');
+        
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+              datasets: [{
+                label: 'Temperatura',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+              },
+              {
+                label: 'Umidade',
+                data: [90, 89, 93, 87, 88, 82],
+                borderWidth: 1
+              }]
+              
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+  
+          
+        </script>
+  </div>
+  </div>
+
     </div>
 </div>
+
+
 
 <footer>
     <div class="icone">

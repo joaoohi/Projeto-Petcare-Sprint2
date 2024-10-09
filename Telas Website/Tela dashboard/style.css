@@ -6,14 +6,9 @@ body {
 }
 
 
-
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 150px;
-    margin-bottom: 140px;
-    
+    height: 100vh;
+    width: 20%;
 }
 
 header img {
@@ -49,17 +44,7 @@ header a:hover {
     color: rgb(163, 84, 236);
 }
 
-.banner .container{
-    display: flex;
-    flex-direction:column;
-    margin-bottom: 300px;
-    margin-top: 150px;
-    padding: 200;
-    width: 15%;
-    margin-left: 50px;
-}
-
-.banner .botaoPagina {
+.botaoPagina {
     cursor: pointer;
     border: 2px solid rgb(163, 84, 236);
         border-radius: 17px;
@@ -74,13 +59,34 @@ header a:hover {
     
 }
 
-.banner .textobot{
+.textobot{
 
 
     color: #fff;
     filter: drop-shadow(0px 0px 10px  rgb(134, 38, 223));
     
 }
+
+ .dashboard {
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    left: 350px;
+    height: 100%;
+    top: -500px;
+    width: 70%;
+    margin-top: -400px;
+}
+
+.dashboard .container{
+    width: 1000px;
+    display: flex;
+    flex-direction:column;
+    padding: 200px;
+    height: 100%;
+    
+}
+
 
 footer {
     background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
@@ -89,7 +95,7 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 30px;
-    margin-top: 50px;
+    margin-top: -300px;
     filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
 }
 .icone {
