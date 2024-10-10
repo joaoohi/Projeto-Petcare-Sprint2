@@ -88,7 +88,7 @@ header a:hover {
     align-items: center;
     animation: fadeInRightBig;
     animation-duration: 1s;
-    background-image: url(./assets/vecteezy_cute-little-dog-in-pet-carrier-with_24769404.jpg);
+    background-image: url(../assets//vecteezy_cute-little-dog-in-pet-carrier-with_24769404.jpg);
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -174,7 +174,10 @@ header a:hover {
     animation: fadeInLeftBig;
     animation-duration: 1s;
 
+
 }
+
+
 
 .img-quem-somos {
     height: 250px;
@@ -221,7 +224,7 @@ header a:hover {
     margin-top: 70px;
     justify-content: space-around;
     margin-bottom: 20px;
-    margin-top: 100px;
+    margin-top: 150px;
     animation: fadeInRightBig;
     animation-duration: 1s;
     height: 500px;
@@ -397,10 +400,14 @@ footer {
 .container-servicos {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+     align-items: center;
+     flex-direction: column;  
+    /* flex-wrap: wrap; */
+     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); 
+    /* background-color: #fff; */
 }
+
+
 
 .container-servicos h2 {
     font-size: 50px;
@@ -420,8 +427,10 @@ footer {
     width: 300px;
     padding: 20px;
     margin: 40px;
+    /* border: 3px solid rgb(106, 245, 245); */
 
 }
+
 
 .passo1 {
     display: flex;
@@ -495,11 +504,38 @@ footer {
     margin-top: 20px;
 }
 
+.passo4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.passo4 h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+
+.passo4 p {
+    margin-bottom: 20px;
+}
+
+.passo4 img {
+    margin-top: 20px;
+}
+
 .container-servicos img {
     height: 100px;
 }
+
+
+
 .taxi-dog{
-    background-image: url(./assets/taxiDog.jpg);
+    background-image: url(../assets//taxiDog.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
