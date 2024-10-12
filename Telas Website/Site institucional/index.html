@@ -11,6 +11,7 @@
 
     <!--importando scrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+   
 
     <!-- Poppings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,10 @@
             <!-- <img src="./img/logoHeader.png" alt=""> -->
             <img src="../assets//freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
         </div>
-        <a href="../Site institucional/index.html"><span>HOME</span></a>
+        <!-- <a href="../Site institucional/index.html"><span>HOME</span></a> -->
+        <a href="#home"><span>HOME</span></a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#servicos">SERVIÇOS</a>
         <a href="#">PETCÁLCULO</a>
 
 
@@ -55,8 +59,8 @@
     </header>
 
     <main>
-    
-        <section class="first-section">
+
+        <section class="first-section" id="home">
             <h4>A segurança e o bem-estar do seu Pet é a nossa prioridade!</h4>
 
 
@@ -69,21 +73,31 @@
             </div>  -->
         </section>
         <section class="oferecemos">
-            
-         
+
+
         </section>
 
-        <section class="second-section">
+        <section class="second-section" id="sobre">
             <div class="texto">
-                <h2>Quem somos?</h2>
+                <h2>Sobre</h2>
                 <p>Somos a PetCare, uma empresa criada em 2024 por seis entusiatas em tecnologia, focada no
                     desenvolvimento e implementação de sistemas de monitoramento IoT com o objetivo</p>
                 <p>de captar e enviar dados relacionados a temperatura e bloqueio para vans de PetShop, através de
                     dashboards visuais e fáceis de entender.</p>
 
+                <a href="https://wa.me/5511949144225" target="_blank">
+                    <button>Entre em contato
+                        <img class="img-whats" src="../assets/whatsapp_733641.png" alt="">
+
+
+                    </button>
+                </a>
+
+
             </div>
             <div class="img-pet-carrier">
-                <img src="./img/pet-care_11442826.png" alt="">
+                <!-- <img src="./img/pet-care_11442826.png" alt=""> -->
+                <img src="../assets/dogAndCat.jpg" alt="" class="second-section-img">
             </div>
         </section>
         <section class="box">
@@ -115,37 +129,73 @@
                 </p>
             </div>
         </section>
-        <section class="taxi-dog" ></section>
-       
-        <section class="servicos">
+        <section class="taxi-dog"></section>
+
+        <section class="servicos" id="servicos">
             <div class="container-servicos">
-            
-                   <span class="h2">
+
+                <span class="h2">
+
                     <h2>Serviços</h2>
-                   </span>
-              
+
+                </span>
+
                 <div class="passo1">
                     <h4>Instalação de Sensores de Teperatura e Bloqueio</h4>
                     <p>Instalação de sensores em vans de PetShop para capturar dados em tempo real.</p>
                     <img src="../assets/sensor_10960486.png" alt="">
                 </div>
+                <div class="passo15">
+                    <h4>Coleta de dados em tempo real</h4>
+                    <p>Os dados são capturados tempo real pelo Arduino UNO R3 conectado com os sensores.</p>
+                    <img src="../assets/hand_17509807.png" alt="">
+                </div>
                 <div class="passo2">
-                    <h4>Aplicação Web com Dashboards</h4>
-                    <p>Desenvolvimento de um site onde terá Dashboards para a visualização de dados de forma mais lúdica. </p>
+                    <h4>Aplicação Web com Dashboards interativos</h4>
+                    <p>Desenvolvimento de um site onde terá Dashboards para a visualização de dados de forma mais
+                        lúdica. </p>
                     <img src="../assets/business-report_7900467.png" alt="">
                 </div>
                 <div class="passo3">
                     <h4>Alertas</h4>
-                    <p>Nosso sistema conta com alertas e notificações que serão enviados caso algum parâmetro esteja fora do ideal.</p>
+                    <p>Nosso sistema conta com alertas e notificações que serão enviados caso algum parâmetro esteja
+                        fora do ideal.</p>
                     <img src="../assets//bell_7362124.png" alt="">
                 </div>
                 <div class="passo4">
-                    <h4>Decisão</h4>
-                    <p>Com base nas Dashboards disponibilizadas, você poderá tomar decisões mais assertivas e precisas.</p>
+                    <h4>Decisões assertivas</h4>
+                    <p>Com base nas Dashboards disponibilizadas, você poderá tomar decisões mais precisas em relação ao
+                        seu negócio.</p>
                     <img src="../assets/achieving-goals_16314982.png" alt="">
+
 
                 </div>
             </div>
+        </section>
+        <section class="geral">
+            <div class="container-geral">
+
+                <div class="beneficios">
+                    <h4>beneficios</h4>
+                    <p>Investir em um sistema de monitoramento de temperatura e presença na sua VanPet pode oferecer uma
+                        série de benefícios essenciais. Além de um controle mais
+                        especializado, um monitoramento evitará problemas legais futuros, e irá assegurar que os animais
+                        de estimação que você está transportando sejam plenamente
+                        protegidos.</p>
+
+                </div>
+                <div class="atendimento">
+                    <h4>Atendimento</h4>
+                    <p>Na PetCare, o atendimento ao cliente é a nossa prioridade máxima. Estamos
+                        dedicados a ouvir as suas preocupações, compreender as suas necessidades e oferecer uma
+                        orientação
+                        sólida e personalizada. Nossa equipe está aqui para
+                        representar e proteger os seus interesses, proporcionando um atendimento atencioso e eficiente
+                        em todos os momentos.</p>
+                        
+                </div>
+            </div>
+            
         </section>
         <section class="integrantes">
 
@@ -156,8 +206,10 @@
                         <img src="../assets/users_13065810.png" alt="">
                         <h4>Gustavo Leite</h4>
                         <p>Apaixonado por café e o universo do Front-End</p>
-                       <a href="https://github.com/GustavoSLeite" target="_blank"><img src="../assets//github_3291695.png" alt="" class="logo github"></a>
-                      <a href="https://www.linkedin.com/in/gustavo-dos-santos-leite/"><img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
+                        <a href="https://github.com/GustavoSLeite" target="_blank"><img
+                                src="../assets//github_3291695.png" alt="" class="logo github"></a>
+                        <a href="https://www.linkedin.com/in/gustavo-dos-santos-leite/"><img
+                                src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
                     </div>
                     <div class="group ">
                         <img src="../assets/users_13065810.png" alt="">
@@ -170,7 +222,8 @@
                         <img src="../assets/users_13065810.png" alt="">
                         <h4>Rafael </h4>
                         <p>Apaixonado no São Paulo, mas em primeiro no PetCare</p>
-                        <a href="https://github.com/Rafsbar" target="_blank"><img src="../assets//github_3291695.png" alt="" class="logo github"></a>
+                        <a href="https://github.com/Rafsbar" target="_blank"><img src="../assets//github_3291695.png"
+                                alt="" class="logo github"></a>
                         <img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin">
                     </div>
                 </div>
@@ -179,22 +232,26 @@
                         <img src="../assets/users_13065810.png" alt="">
                         <h4>Leandro Brito</h4>
                         <p>Um grande entusiasta em programação e em fazer doces.</p>
-                      <a href="https://github.com/lmandu1995" target="_blank">  <img src="../assets/github_3291695.png" alt="" class="logo github"></a>
-                       <a href="https://www.linkedin.com/in/leandro-mandu-61140b169" target="_blank"> <img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
+                        <a href="https://github.com/lmandu1995" target="_blank"> <img src="../assets/github_3291695.png"
+                                alt="" class="logo github"></a>
+                        <a href="https://www.linkedin.com/in/leandro-mandu-61140b169" target="_blank"> <img
+                                src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
                     </div>
                     <div class="group ">
                         <img src="../assets/users_13065810.png" alt="">
                         <h4>Patrick Silva</h4>
                         <p>Fã de One Piece e diabético.</p>
-                       <a href=""> <img src="../assets//github_3291695.png" alt="" class="logo github"></a>
-                       <a href="https://www.linkedin.com/in/patricklourenco13571?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
+                        <a href=""> <img src="../assets//github_3291695.png" alt="" class="logo github"></a>
+                        <a href="https://www.linkedin.com/in/patricklourenco13571?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank"><img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin"></a>
 
                     </div>
                     <div class="group ">
                         <img src="../assets/users_13065810.png" alt="">
                         <h4>João Santos</h4>
                         <p>Amante de uma boa música e Riffs de guitarra"</p>
-                        <a href="https://github.com/joaoohi" target="_blank"><img src="../assets//github_3291695.png" alt="" class="logo github"></a>
+                        <a href="https://github.com/joaoohi" target="_blank"><img src="../assets//github_3291695.png"
+                                alt="" class="logo github"></a>
                         <img src="../assets//linkedin_3536569.png" alt="" class="logo linkedin">
                     </div>
                 </div>
@@ -221,7 +278,7 @@
 
     </footer>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

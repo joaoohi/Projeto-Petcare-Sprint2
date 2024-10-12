@@ -171,8 +171,9 @@ header a:hover {
     justify-content: space-around;
     align-items: center;
     margin-top: 70px;
-    animation: fadeInLeftBig;
-    animation-duration: 1s;
+    /* animation: fadeInLeftBig;
+    animation-duration: 1s; */
+    height: 40vh;
 
 
 }
@@ -200,9 +201,9 @@ header a:hover {
 
 .second-section .texto h2 {
     font-size: 40px;
-    font-weight: 800;
+   
     /* font-family: "ADLaM Display", system-ui; */
-    font-family: "Source Code Pro", monospace;
+    /* font-family: "Source Code Pro", monospace; */
     text-align: center;
 }
 
@@ -217,6 +218,54 @@ header a:hover {
 
 } */
 
+.second-section .texto button{
+    border: 2px solid rgb(106, 245, 245);
+    border-radius: 20px;
+    /* height: 50px;
+    width: 200px; */
+    padding: 12px 30px;
+    background-color:  rgb(106, 245, 245);
+    color: #fff;   
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 60px;
+   
+} 
+
+.second-section .texto a{
+    text-decoration: none;
+}
+
+.second-section button img{
+    filter: brightness(0) invert(1);
+    height: 20px;
+   
+    
+}
+
+
+
+.second-section .texto button:hover{
+    background-color: #fff;
+    color: rgb(163, 84, 236);
+   
+
+   
+  
+    
+    
+}
+
+
+
+.second-section-img{
+    border-radius: 20px;
+}
+
 
 
 .box {
@@ -225,8 +274,8 @@ header a:hover {
     justify-content: space-around;
     margin-bottom: 20px;
     margin-top: 150px;
-    animation: fadeInRightBig;
-    animation-duration: 1s;
+    /* animation: fadeInRightBig;
+    animation-duration: 1s; */
     height: 500px;
 
     /* visibility: hidden;
@@ -328,7 +377,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff font-family: "Poppins", sans-serif;
+    background: #fff ;
+    font-family: "Poppins", sans-serif;
 
 }
 
@@ -400,11 +450,15 @@ footer {
 .container-servicos {
     display: flex;
     justify-content: space-around;
-     align-items: center;
-     flex-direction: column;  
-    /* flex-wrap: wrap; */
-     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); 
-    /* background-color: #fff; */
+    align-items: center;
+    flex-direction: column;
+    /* flex-wrap: wrap;  */
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);  */
+    /* background: #00EEEF; */
+    /* background: linear-gradient( #6AF5F5,#00EEEF); */
+    background-color: #fff;
+   
+    
 }
 
 
@@ -440,6 +494,7 @@ footer {
     text-align: center;
     font-size: 19px;
     font-weight: 500;
+    border: 3px solid rgb(106, 245, 245);
 
 
 }
@@ -465,6 +520,7 @@ footer {
     text-align: center;
     font-size: 19px;
     font-weight: 500;
+    border: 3px solid rgb(106, 245, 245);
 
 }
 
@@ -489,7 +545,9 @@ footer {
     text-align: center;
     font-size: 19px;
     font-weight: 500;
+    border: 3px solid rgb(106, 245, 245);
 }
+
 
 .passo3 h4 {
     margin-bottom: 20px;
@@ -504,7 +562,8 @@ footer {
     margin-top: 20px;
 }
 
-.passo4 {
+.passo4,
+.passo15 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -512,21 +571,27 @@ footer {
     text-align: center;
     font-size: 19px;
     font-weight: 500;
+    border: 3px solid rgb(106, 245, 245);
 }
 
-.passo4 h4 {
+.passo4,
+.passo15 h4 {
     margin-bottom: 20px;
     font-size: 20px;
 }
 
 
-.passo4 p {
+.passo4,
+.passo15 p {
     margin-bottom: 20px;
 }
 
-.passo4 img {
+.passo4,
+.passo15 {
     margin-top: 20px;
 }
+
+
 
 .container-servicos img {
     height: 100px;
@@ -534,11 +599,99 @@ footer {
 
 
 
-.taxi-dog{
+.taxi-dog {
     background-image: url(../assets//taxiDog.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
 
 
+}
+
+.gato,
+.van {
+    filter: brightness(0) invert(1);
+}
+
+
+
+.container-geral {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+   
+    /* Usar Flexbox para o layout */
+    /* flex-wrap: wrap; */
+    height: 90vh;
+   
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
+    background-color:  #333;
+    align-items: center;
+   
+}
+
+.beneficios {
+    width: 50%;
+    margin-top: 40px;
+    /* Definir a largura da caixa de benefícios */
+    /* margin-bottom: 20px; */
+    /* Espaçamento entre as caixas */
+   
+}
+
+.atendimento {
+    width: 50%;
+
+    /* Definir a largura da caixa de atendimento */
+    /* margin-left: auto; */
+    /* Alinhar a caixa de atendimento à direita */
+}
+
+.container-geral .beneficios h4 {
+    font-size: 40px;
+    /* color: rgb(163, 84, 236);
+    border-bottom: 2px solid  rgb(163, 84, 236); */
+    color: rgb(106, 245, 245);
+    border-bottom: 2px solid rgb(106, 245, 245);;
+    margin-bottom: 30px;
+
+}
+
+.container-geral .atendimento h4 {
+    font-size: 40px;
+    /* color: rgb(163, 84, 236);
+    border-bottom: 2px solid  rgb(163, 84, 236); */
+    color: rgb(106, 245, 245);
+    border-bottom: 2px solid rgb(106, 245, 245);;
+    margin-bottom: 30px;
+
+}
+
+.container-geral .beneficios p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+
+
+}
+
+.container-geral .atendimento p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.img-geral{
+    height: 50px;
+}
+
+.h2{
+    margin-top: 40px;
+}
+
+.second-section-img , .box , .texto , .box1, .box2, .box3 , .beneficios , .atendimento,
+.passo1 , .passo15 , .passo2 , .passo3 , .passo4
+{
+    visibility: hidden;
 }
