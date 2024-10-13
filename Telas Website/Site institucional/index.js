@@ -2,15 +2,15 @@ window.sr = ScrollReveal({ reset: true});
 
 sr.reveal('.second-section-img', {
     duration: 1000,
-    distance: '90px',
+    distance: '200px',
     delay:400,
     origin: 'right'
 
 });
 
 sr.reveal('.texto', {
-    duration: 1000,
-    distance: '90px',
+    duration: 700,
+    distance: '200px',
     delay:200,
     origin: 'left'
 
@@ -19,6 +19,15 @@ sr.reveal('.texto', {
 sr.reveal('.box', {
     duration: 2000,
     distance: '90px'
+
+});
+
+
+sr.reveal('.h2', {
+    duration: 700,
+    distance: '90px',
+    delay:200,
+    origin: 'top'
 
 });
 
@@ -50,7 +59,7 @@ sr.reveal('.box3', {
 sr.reveal('.beneficios', {
     duration: 1000,
     distance: '90px',
-    origin: 'left',
+    origin: 'top',
     delay: 200
 
 });
@@ -59,10 +68,18 @@ sr.reveal('.beneficios', {
 sr.reveal('.atendimento', {
     duration: 1000,
     distance: '90px',
-    origin: 'right',
+    origin: 'bottom',
     delay: 400
 
 });
+
+sr.reveal('.img-atendimento' , {
+    duration: 1000,
+    distance: '200px',
+    origin: 'right',
+    delay: 250
+})
+
 
 //SEÇÃO SERVIÇOS
 sr.reveal('.passo1', {
@@ -104,6 +121,8 @@ sr.reveal('.passo4', {
     delay: 200
 
 });
+
+
 
 
 
