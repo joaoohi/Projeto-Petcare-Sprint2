@@ -75,16 +75,58 @@ header a:hover {
     height: 100%;
     top: -500px;
     width: 70%;
-    margin-top: -400px;
+    margin-top: -300px;
+}
+
+.dashboard .container .kpi{
+    background-color: black;
+    width: 300px;
+    height: 100px;
+    border-radius: 30px;
+    display: flex;
+    margin-top: -80px;
+    margin-bottom: 50px;
+}
+
+.dashboard .container .kpi2{
+    background-color: rgb(167, 24, 24);
+    width: 300px;
+    height: 100px;
+    border-radius: 30px;
+    display: flex;
+    margin-top: -150px;
+    margin-bottom: 50px;
+    margin-left: 400px;
+}
+
+.dashboard .container .kpi3{
+    background-color: rgb(62, 59, 211);
+    width: 300px;
+    height: 100px;
+    border-radius: 30px;
+    display: flex;
+    margin-top: -150px;
+    margin-bottom: 0px;
+    margin-left: 800px;
 }
 
 .dashboard .container{
-    width: 1000px;
+    width: 600px;
     display: flex;
     flex-direction:column;
-    padding: 200px;
+    padding: 100px;
     height: 100%;
     
+}
+
+.dashboard .container .grafico3{
+   display: flex;
+    width: 800px;
+    right: -600px;
+    margin-left: 500px;
+    padding-left: 250px;
+    height: 450px;
+    margin-top: -500px;
 }
 
 
