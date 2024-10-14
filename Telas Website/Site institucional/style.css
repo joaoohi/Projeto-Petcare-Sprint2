@@ -631,6 +631,8 @@ footer {
 }
 
 
+
+
 /* 
 .container-geral {
     
@@ -705,41 +707,47 @@ footer {
     height: 50px;
 } */
 
-
-.beneficios{
+.beneficios {
     height: 60vh;
-    background-color: #6AF5ED;
+    background-color: #fff;
     display: flex;
+    flex-direction: row; /* add this line */
     align-items: center;
-    justify-content: center;
     padding: 70px;
-    
-}
-
-
-
-.beneficios h4{
+  }
+  
+  .img-beneficios {
+    flex-basis: 40%; /* adjust the width of the image div */
+  }
+  
+  .bene {
+    flex-basis: 50%; /* adjust the width of the text div */
+    margin-left: 20px; /* add some margin between the two divs */
+  }
+  
+  .img-beneficios img {
+    height: 300px;
+  }
+  
+  .beneficios h4 {
     color: rgb(163, 84, 236);
     border-bottom: 2px solid #6AF5ED;
-    width: 50%;
     font-size: 40px;
-}
-
-.beneficios p{
-    width: 50%;
+  }
+  
+  .beneficios p {
     font-size: 20px;
-    color: #fff;
     font-weight: 400;
     margin-top: 20px;
-}
+  }
 
-.img-beneficios img{
-    height: 400px;
-}
+
+
+
 
 .atendimento{
     height: 60vh;
-    background-color: #6AF5ED;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -758,14 +766,15 @@ footer {
 .atendimento p{
     width: 50%;
     font-size: 20px;
-    color: #fff;
     font-weight: 400;
     margin-top: 20px;
 }
 
 .img-atendimento img{
     height: 400px;
+    border-radius: 20px;
 }
+
 .h2{
     margin-top: 40px;
 }
