@@ -1,5 +1,5 @@
 
-.body{
+body{
 
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
     margin: 0;
@@ -74,14 +74,14 @@
         gap: 20px;
     }
     
-    .login .container{
+    /* .login .container{
         display: flex;
         justify-content: flex-start;
         align-items: center;
         height: 100%;
         width: 100%;
      
-     }
+     } */
 
      .card{
         height: 145%;
@@ -95,14 +95,12 @@
         color: rgb(163, 84, 236);
         padding: 20px 25px 0px 25px;
         border: 1px solid #A354EC; 
-        box-shadow: 
-            0 0 10px #A354EC !important;  
-            margin-left: 52%;
-            margin-top: 70px;
+        box-shadow: 0 0 10px #A354EC !important;  
+        margin-right: 50%;
+        margin-top: 70px;
      }
 
      .formulario{
-
         height: 65%;
         display: flex;
         flex-direction: column;
@@ -219,7 +217,7 @@ button:hover {
 #div_mensagem {
     display: none; 
     position: absolute;
-    left: 200px;
+    right: 200px;
     top: 300px;
     width: 300px;
     background-color: #fff;

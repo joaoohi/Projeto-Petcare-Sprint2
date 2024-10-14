@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetCare - PetCálculo</title>
-    <link rel="stylesheet" href="Calculadora.css">
-    <link rel="icon" href="IMAGENS/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" class="icone">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PetCare - PetCálculo</title>
+        <link rel="stylesheet" href="Calculadora.css">
+        <link rel="icon" href="IMAGENS/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" class="icone">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
+        
+    </head>
     
-</head>
-
-<body class="body">
-    <header>
-        <div class="logo">
-            <img src="IMAGENS/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
-        </div>
-        <a href="#">HOME</a>
-        <a href="#">SOBRE NÓS</a>
-        <a href="#"><span>PETCÁLCULO</span></a>
-        <a href="#">LOGIN</a>
-        <a href="#">CADASTRO</a>
-    </header>
-
+    <body>
+        <header>
+            <div class="logo">
+                <img src="../assets/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
+            </div>
+            <a href="../Site institucional/index.html">HOME</a>
+            <a href="#sobre">SOBRE NÓS</a>
+            <a href="#servicos"><span>PETCÁLCULO</span></a>
+            <a href="../LOGIN/LOGINPETCARE.html">LOGIN</a>
+            <a href="../Cadastro/cadastro.html">CADASTRO</a>
+        </header>
+        
+        
     <div class="login">
-        <div class="container">
             <div class="card">
                 <div class="formulario">
                     <br><div class="campo"><span>Preço médio cobrado por km (R$):</span><br><input id="input_transporte" type="number"
                         placeholder="Ex: 15R$"></div> <br>
-                    <br><div class="campo"><span>Média de distância por viagem (km):</span> <br><input id="input_distancia" type="number"
-                        placeholder="Ex: 10km"></div><br>
-                    <br><div class="campo"><span>Média de clientes no ano: </span><br><input id="input_media" type="number" placeholder="Ex: 300"> </div><br>
+                        <br><div class="campo"><span>Média de distância por viagem (km):</span> <br><input id="input_distancia" type="number"
+                            placeholder="Ex: 10km"></div><br>
+                            <br><div class="campo"><span>Média de clientes no ano: </span><br><input id="input_media" type="number" placeholder="Ex: 300"> </div><br>
                     <br><span>Quantidade de sensores necessários:<br> <b>100R$/uni</b></span></div>
                     <br>
                     <div class="campo"><span><select id="select_sensores">
@@ -72,11 +72,9 @@
                     <br><button onclick="A()">Calcular</button> <br>
                 </div>
             </div>
-        </div>
     </div>
-
+    
     <div id="div_mensagem"></div>
-
     <footer>
         <div class="icone">
             <p>Entre em contato:</p>

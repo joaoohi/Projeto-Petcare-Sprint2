@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style(4)D.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Pet-Care Dashboard</title>
     <link rel="icon" href="cachorro.png (1).png" class="icone">
     <href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
@@ -27,15 +27,42 @@
 
     <div class="dashboard">
       <div class="container">
-      <div>
-          <canvas id="myChart"></canvas>
+
+        <div class="kpi">
+          <span>TEXTO AQUI</span>
+
         </div>
+
+        <div class="kpi2">
+          <span>TEXTO AQUI</span>
+
+        </div>
+
+        <div class="kpi3">
+          <span>TEXTO AQUI</span>
+
+        </div>
+
+
+      <div>
+          <canvas id="graficoLinha"></canvas>
+        </div>
+
+        <div>
+          <canvas id="graficoBarra"></canvas>
+        </div>
+
+        <div class="grafico3">
+          <canvas id="graficoPizza"></canvas>
+        </div>
+
+        
         
         <script>
-          const ctx = document.getElementById('myChart');
+          const graficoLinha = document.getElementById('graficoLinha');
         
-          new Chart(ctx, {
-            type: 'bar',
+          new Chart(graficoLinha, {
+            type: 'line',
             data: {
               labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
               datasets: [{
@@ -61,6 +88,70 @@
   
           
         </script>
+
+
+<script>
+  const graficoBarra = document.getElementById('graficoBarra');
+
+  new Chart(graficoBarra, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      },
+      {
+        label: 'Umidade',
+        data: [90, 89, 93, 87, 88, 82],
+        borderWidth: 1
+      }]
+      
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  
+</script>
+
+<script>
+  const graficoPizza = document.getElementById('graficoPizza');
+
+  new Chart(graficoPizza, {
+    type: 'pie',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      },
+      {
+        label: 'Umidade',
+        data: [90, 89, 93, 87, 88, 82],
+        borderWidth: 1
+      }]
+      
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  
+</script>
+
   </div>
   </div>
 
