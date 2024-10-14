@@ -59,16 +59,16 @@ sr.reveal('.box3', {
 sr.reveal('.beneficios', {
     duration: 1000,
     distance: '90px',
-    origin: 'top',
-    delay: 200
+    origin: 'left',
+    delay: 400
 
 });
 
-//SE~ÇÃO ATENDIMENTO
+
 sr.reveal('.atendimento', {
     duration: 1000,
     distance: '90px',
-    origin: 'bottom',
+    origin: 'left',
     delay: 400
 
 });
@@ -77,7 +77,14 @@ sr.reveal('.img-atendimento' , {
     duration: 1000,
     distance: '200px',
     origin: 'right',
-    delay: 250
+    delay: 500
+})
+
+sr.reveal('.img-beneficios' , {
+    duration: 1000,
+    distance: '200px',
+    origin: 'right',
+    delay: 500
 })
 
 

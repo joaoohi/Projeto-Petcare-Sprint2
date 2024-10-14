@@ -619,18 +619,17 @@ footer {
 }
 
 
-
+/* 
 .container-geral {
     
     display: flex;
     flex-direction: column;
     gap: 40px;
    
-    /* Usar Flexbox para o layout */
-    /* flex-wrap: wrap; */
+   
     height: 150vh;
    
-    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
+    
     background-color:  #333;
     align-items: center;
    
@@ -645,24 +644,18 @@ footer {
 .beneficios {
     width: 50%;
     margin-top: 40px;
-    /* Definir a largura da caixa de benefícios */
-    /* margin-bottom: 20px; */
-    /* Espaçamento entre as caixas */
+    
    
 }
 
 .atendimento {
     width: 50%;
 
-    /* Definir a largura da caixa de atendimento */
-    /* margin-left: auto; */
-    /* Alinhar a caixa de atendimento à direita */
 }
 
 .container-geral .beneficios h4 {
     font-size: 40px;
-    /* color: rgb(163, 84, 236);
-    border-bottom: 2px solid  rgb(163, 84, 236); */
+   
     color: rgb(106, 245, 245);
     border-bottom: 2px solid rgb(106, 245, 245);;
     margin-bottom: 30px;
@@ -671,8 +664,7 @@ footer {
 
 .container-geral .atendimento h4 {
     font-size: 40px;
-    /* color: rgb(163, 84, 236);
-    border-bottom: 2px solid  rgb(163, 84, 236); */
+    
     color: rgb(106, 245, 245);
     border-bottom: 2px solid rgb(106, 245, 245);;
     margin-bottom: 30px;
@@ -697,14 +689,75 @@ footer {
 
 .img-geral{
     height: 50px;
+} */
+
+
+.beneficios{
+    height: 60vh;
+    background-color: #6AF5ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+    
 }
 
+
+
+.beneficios h4{
+    color: rgb(163, 84, 236);
+    border-bottom: 2px solid #6AF5ED;
+    width: 50%;
+    font-size: 40px;
+}
+
+.beneficios p{
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.img-beneficios img{
+    height: 400px;
+}
+
+.atendimento{
+    height: 60vh;
+    background-color: #6AF5ED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+
+
+}
+
+.atendimento h4{
+    color: rgb(163, 84, 236);
+    border-bottom: 2px solid #6AF5ED;
+    width: 50%;
+    font-size: 40px;
+}
+
+.atendimento p{
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.img-atendimento img{
+    height: 400px;
+}
 .h2{
     margin-top: 40px;
 }
 
-.second-section-img , .box , .texto , .box1, .box2, .box3 , .beneficios , .atendimento,
-.passo1 , .passo15 , .passo2 , .passo3 , .passo4 , .h2 , .img-atendimento
+.second-section-img , .box , .texto , .box1, .box2, .box3 , 
+.passo1 , .passo15 , .passo2 , .passo3 , .passo4 , .h2 , .beneficios , .img-beneficios , .atendimento , .img-atendimento
 {
     visibility: hidden;
 }
