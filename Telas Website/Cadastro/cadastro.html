@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetCare - Cadastro</title>
-    <link rel="stylesheet" href="style(3)C.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="cachorro.png (1).png" class="icone">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,34 +24,60 @@
 
 <body>
     <header>
-        <img src="logopetcarefinal.png" alt="">
-        <a href="SiteWeb.html"><span>HOME</span></a>
-        <a href="#">PETCÁLCULO</a>
-        <a href="LOGINPETCARE.html">LOGIN</a>
-        <a href="cadastro.html">CADASTRO</a>
-    </header>
+        <div class="logo">
+         <img src="../assets/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
+        </div>
+         <a href="../Site institucional/index.html">HOME</a>
+         <a href="#sobre">SOBRE</a>
+         <a href="#servicos">SERVIÇOS</a>
+         <a href="../PETCALCULO/calculadora.html">PETCÁLCULO</a>
+         <a href="../LOGIN/LOGINPETCARE.html">LOGIN</a>
+         <a href="../Cadastro/cadastro.html"><span>CADASTRO</span></a>
+       
+     </header>
+ 
 
 
     <div class="container">
-        <div><img src="gatopixeladofinal.png" alt=""></div>
+        <div><img src="../assets/gatopixeladofinal.png" alt=""></div>
         <div class="painel">
             <b>
                 <h1>Cadastrar</h1>
             </b>
-            <h4>Nome Completo:</h4>
-            <input class="nome_completo" type="text" placeholder="Digite seu nome completo">
-            <h4>Email:</h4>
-            <input oninput="email()" id="input_email" class="email" type="text" placeholder="Digite seu email">
+            <span>Razão Social:</span>
+            <input class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
+            <div class="razao_validar" id="div_razao"></div> 
+            
+            <span>CNPJ:</span>
+            <input class="input_cadastro" type="number" placeholder="Digite o CNPJ da empresa">
+            <div class="cnpj_validar" id="div_cnpj"></div>
+
+            <span>CEP:</span>
+            <input class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
+            <div class="razao_validar" id="div_cep"></div>
+
+            <span>Telefone:</span>
+            <input class="input_cadastro" type="number" placeholder="Digite o telefone da empresa">
+            <div class="razao_validar" id="div_validar"></div>
+
+            <span>Email:</span>
+            <input oninput="email()" id="input_email"class="input_cadastro"  type="text" placeholder="Digite seu email">
             <div class="email_validar" id="div_email"></div>
-            <h4>Senha:</h4>
-            <input oninput="analisar()" id="input_senha" class="senha" type="password" placeholder="Digite sua senha">
+
+            <span>Senha:</span>
+            <input oninput="analisar()" id="input_senha" class="input_cadastro" type="password" placeholder="Digite sua senha">
             <div class="mensagem" id="div_mensagem"></div>
-            <h4>Confrme sua senha:</h4>
-            <input oninput="confirmar()" id="confirmar_senha" class="confirmar" type="password"
+
+            <span>Confrme sua senha:</span>
+            <input oninput="confirmar()" id="confirmar_senha" class="input_cadastro" type="password"
                 placeholder="Confirme sua senha">
             <div class="confirmar_senha" id="confirmar_mensagem"></div>
+
             <br>
             <button onclick="cadastrar()" class="botao">Cadastrar</button>
+            <div class="cadastro_link">
+                <a href="../LOGIN/LOGINPETCARE.html"> Já tem uma conta?<br>Faça Login</a>
+            </div>
         </div>
     </div>
 
