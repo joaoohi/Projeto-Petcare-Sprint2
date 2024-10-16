@@ -708,7 +708,7 @@ footer {
 } */
 
 .beneficios {
-    height: 60vh;
+    height: 70vh;
     background-color: #fff;
     display: flex;
     flex-direction: row; /* add this line */
@@ -726,7 +726,8 @@ footer {
   }
   
   .img-beneficios img {
-    height: 300px;
+    height: 350px;
+    border-radius: 20px;
   }
   
   .beneficios h4 {
