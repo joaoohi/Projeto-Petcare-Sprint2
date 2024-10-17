@@ -45,6 +45,7 @@ header a:hover {
 }
 
 .botaoPagina {
+    
     cursor: pointer;
     border: 2px solid rgb(163, 84, 236);
         border-radius: 17px;
@@ -61,13 +62,13 @@ header a:hover {
 
 .textobot{
 
-
+    
     color: #fff;
     filter: drop-shadow(0px 0px 10px  rgb(134, 38, 223));
     
 }
 
- .dashboard {
+.dashboard {
     background-color: #fff;
     border-radius: 10px;
     position: relative;
@@ -78,14 +79,28 @@ header a:hover {
     margin-top: -300px;
 }
 
+.dashboard .container{
+    width: 400px;
+    display: flex;
+    flex-direction:column;
+    padding: 200px;
+    
+ 
+    
+}
+
 .dashboard .container .kpi{
-    background-color: black;
+    background-color: rgb(182, 132, 132);
+    
     width: 300px;
     height: 100px;
     border-radius: 30px;
     display: flex;
     margin-top: -80px;
     margin-bottom: 50px;
+    margin-left: -180px;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboard .container .kpi2{
@@ -96,7 +111,9 @@ header a:hover {
     display: flex;
     margin-top: -150px;
     margin-bottom: 50px;
-    margin-left: 400px;
+    margin-left: 120px;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboard .container .kpi3{
@@ -107,26 +124,33 @@ header a:hover {
     display: flex;
     margin-top: -150px;
     margin-bottom: 0px;
-    margin-left: 800px;
+    margin-left: 420px;
+    align-items: center;
+    justify-content: center;
 }
 
-.dashboard .container{
-    width: 600px;
-    display: flex;
-    flex-direction:column;
-    padding: 100px;
-    height: 100%;
+
+.dashboard .container .grafico1{
+   display: flex;
+    width: 60vh;
+    height: 50vh;
+    margin-left: -200px;
+   
     
 }
-
+.dashboard .container .grafico2{
+   display: flex;
+    width: 60vh;
+    height: 50vh;
+    margin-left: -200px;
+    margin-top: -150px;
+}
 .dashboard .container .grafico3{
    display: flex;
-    width: 800px;
-    right: -600px;
-    margin-left: 500px;
-    padding-left: 250px;
-    height: 450px;
-    margin-top: -500px;
+    width: 45vh;
+    padding-left: 90%;
+    height: 45vh;
+    margin-top: -700px;
 }
 
 

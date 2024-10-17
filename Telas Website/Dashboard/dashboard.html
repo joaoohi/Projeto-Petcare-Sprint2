@@ -17,9 +17,9 @@
             <img src="./Logos/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" alt="">
         </div>
           <div class="container">
+      <button class="botaoPagina" onclick=""><span class="textobot">Home</span></button>
       <button class="botaoPagina" onclick=""><span class="textobot">Gráficos</span></button>
-      <button class="botaoPagina" onclick=""><span class="textobot">Resultados</span></button>
-      <button class="botaoPagina" onclick=""><span class="textobot">Manutenção</span></button>
+      <button class="botaoPagina" onclick=""><span class="textobot">Cadastrar Usuários</span></button>
             </div>
     </header>
 
@@ -29,26 +29,32 @@
       <div class="container">
 
         <div class="kpi">
-          <span>TEXTO AQUI</span>
+          <span>TEMEPRATURA MÉDIA DENTRO DA VAN<br>
+            <h2><b>25,2</b></h2>
+          </span>
 
         </div>
 
         <div class="kpi2">
-          <span>TEXTO AQUI</span>
+          <span>QUANTIDADE DE VEZES QUE FORAM NECESSÁRIAS TOMAR AÇÃO
+            <h2><b>4</b></h2>
+          </span>
 
         </div>
 
         <div class="kpi3">
-          <span>TEXTO AQUI</span>
+          <span>VIAGENS REALIZADAS NO MÊS
+            <h2><b>57</b></h2>
+          </span>
 
         </div>
 
 
-      <div>
+      <div class="grafico1">
           <canvas id="graficoLinha"></canvas>
         </div>
 
-        <div>
+        <div class="grafico2">
           <canvas id="graficoBarra"></canvas>
         </div>
 
@@ -70,11 +76,7 @@
                 data: [12, 19, 3, 5, 2, 3],
                 borderWidth: 1
               },
-              {
-                label: 'Umidade',
-                data: [90, 89, 93, 87, 88, 82],
-                borderWidth: 1
-              }]
+        ]
               
             },
             options: {
@@ -94,19 +96,15 @@
   const graficoBarra = document.getElementById('graficoBarra');
 
   new Chart(graficoBarra, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
       datasets: [{
-        label: 'Temperatura',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Presença',
+        data: [0, 1, 1, 1, 1, 1],
         borderWidth: 1
       },
-      {
-        label: 'Umidade',
-        data: [90, 89, 93, 87, 88, 82],
-        borderWidth: 1
-      }]
+      ]
       
     },
     options: {
@@ -127,23 +125,19 @@
   new Chart(graficoPizza, {
     type: 'pie',
     data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      labels: ['Cachorro', 'Gato', 'Outros Animais'],
       datasets: [{
-        label: 'Temperatura',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Porcentagem de animais transportados',
+        data: [52, 45, 3],
         borderWidth: 1
       },
-      {
-        label: 'Umidade',
-        data: [90, 89, 93, 87, 88, 82],
-        borderWidth: 1
-      }]
+      ]
       
     },
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: false
         }
       }
     }
