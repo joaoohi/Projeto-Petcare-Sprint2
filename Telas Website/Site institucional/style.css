@@ -177,7 +177,7 @@ header a:hover {
     margin-top: 70px;
     /* animation: fadeInLeftBig;
     animation-duration: 1s; */
-    height: 100vh;
+    height: 70vh;
    /* background-color: #3A3A3A; */
    
 
@@ -288,15 +288,14 @@ header a:hover {
     display: flex;
     margin-top: 70px;
     justify-content: space-around;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     margin-top: 150px;
     /* animation: fadeInRightBig;
     animation-duration: 1s; */
-    height: 500px;
-
-    /* visibility: hidden;
-    */
-
+    height: 80vh;
+    background-image: url(../assets/PetcareBackground.png);
+    background-size: cover;
+    align-items: center;
 }
 
 
@@ -737,7 +736,9 @@ footer {
 
 .beneficios {
     height: 70vh;
-    background-color: #fff;
+    /* background-color: #3a3a3a; */
+    background-image: url(../assets/PetcareBackground.png);
+    background-size: cover;
     display: flex;
     flex-direction: row; /* add this line */
     align-items: center;
@@ -754,20 +755,22 @@ footer {
   }
   
   .img-beneficios img {
-    height: 350px;
-    border-radius: 20px;
+    height: 400px;
+
   }
   
   .beneficios h4 {
     color: rgb(163, 84, 236);
     border-bottom: 2px solid #6AF5ED;
     font-size: 40px;
+    text-align: center;
   }
   
   .beneficios p {
     font-size: 20px;
     font-weight: 400;
     margin-top: 20px;
+    color: #fff;
   }
 
 
@@ -775,8 +778,9 @@ footer {
 
 
 .atendimento{
-    height: 60vh;
-    background-color: #fff;
+    height: 80vh;
+    background-image: url(../assets/PetcareBackground.png);
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -790,6 +794,7 @@ footer {
     border-bottom: 2px solid #6AF5ED;
     width: 50%;
     font-size: 40px;
+    text-align: center;
 }
 
 .atendimento p{
@@ -797,6 +802,7 @@ footer {
     font-size: 20px;
     font-weight: 400;
     margin-top: 20px;
+    color:#fff ;
 }
 
 .img-atendimento img{

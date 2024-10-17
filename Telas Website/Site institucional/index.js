@@ -83,7 +83,7 @@ sr.reveal('.img-atendimento' , {
 sr.reveal('.img-beneficios' , {
     duration: 1000,
     distance: '200px',
-    origin: 'right',
+    origin: 'left',
     delay: 500
 })
 
