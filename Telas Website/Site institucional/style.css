@@ -150,13 +150,13 @@ header a:hover {
 
 .dados1 h3 {
     color: rgb(106, 245, 245);
-    -webkit-text-stroke: 1px black;
+   
    
 }
 
 .dados2 h3 {
     color: rgb(106, 245, 245);
-    -webkit-text-stroke: 1px black;
+    
    
 }
 
@@ -177,7 +177,7 @@ header a:hover {
     margin-top: 70px;
     /* animation: fadeInLeftBig;
     animation-duration: 1s; */
-    height: 70vh;
+    height: 90vh;
    /* background-color: #3A3A3A; */
    
 
@@ -192,7 +192,7 @@ header a:hover {
 }
 
 .second-section img {
-    height: 300px;
+    height: 350px;
 
 
 }
@@ -233,6 +233,11 @@ header a:hover {
    visibility: hidden;
 
 } */
+
+.p3 span{
+    color: rgb(163, 84, 236);
+    font-weight: bold;
+}
 
 .second-section .texto button{
     border: 2px solid rgb(106, 245, 245);
@@ -312,11 +317,13 @@ header a:hover {
 }
 
 .box h3 {
-    color: rgb(106, 245, 245);
+     color: rgb(106, 245, 245); 
+    /* color: rgb(163, 84, 236); */
     text-align: center;
     font-size: 30px;
     font-weight: bold;
     border-bottom: 2px solid rgb(106, 245, 245);
+    margin-bottom: 20px
     ;
     padding-bottom: 10px;
     
@@ -325,27 +332,27 @@ header a:hover {
 }
 
 .box p {
-    font-size: 18px;
+    font-size: 20px;
 
 }
 
 .box1 {
     background-color: #fff;
-    height: 380px;
+    height: 540px;
     border-radius: 20px;
-    width: 300px;
-    padding: 20px;
-    border: 3px solid rgb(106, 245, 245);
+    width: 350px;
+    padding: 30px;
+    /* border: 3px solid rgb(106, 245, 245); */
 
 }
 
 .box2 {
     background-color: #fff;
-    height: 380px;
+    height: 540px;
     border-radius: 20px;
-    width: 300px;
-    padding: 20px;
-    border: 3px solid rgb(106, 245, 245);
+    width: 350px;
+    padding: 30px;
+    /* border: 3px solid rgb(106, 245, 245); */
 
 
 
@@ -353,11 +360,11 @@ header a:hover {
 
 .box3 {
     background-color: #fff;
-    height: 380px;
+    height: 540px;
     border-radius: 20px;
-    width: 300px;
-    padding: 20px;
-    border: 3px solid rgb(106, 245, 245);
+    width: 350px;
+    padding: 30px;
+    /* border: 3px solid rgb(106, 245, 245); */
 
 }
 
@@ -466,7 +473,7 @@ footer {
     /* add a black overlay with 50% opacity */
 }
 
-.container-servicos {
+/* .container-servicos {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -476,7 +483,7 @@ footer {
    
    
     
-}
+} */
 
 
 
@@ -487,22 +494,33 @@ footer {
 }
 
 
-/* 
-.container-passos{
+
+
+/* .container-passos {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between; 
+    align-items: flex-start;
+    flex-wrap: wrap;
 } */
 
-.container-passos {
+.container-passos{
+    
     display: flex;
-    justify-content: space-between; /* Muda para space-between para distribuir o espaço */
-    align-items: flex-start; /* Alinha no topo */
-    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se necessário */
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+ 
 }
 
+
+
+
+
+
 .container-passos h4 {
-    color: rgb(106, 245, 245);
+    /* color: rgb(106, 245, 245); */
+    color: rgb(163, 84, 236); 
+   
     font-size: 25px;
     font-weight: bold;
    
@@ -523,7 +541,7 @@ footer {
   
 .container-passos div {
     background-color: #fff;
-    height: 420px;
+    height: 480 px;
     border-radius: 20px;
     width: calc(20% - 40px); /* Define a largura com um cálculo para a margem */
     padding: 20px;
@@ -539,13 +557,14 @@ footer {
     font-size: 19px;
     font-weight: 500;
     border: 3px solid rgb(106, 245, 245);
+   
 
 
 }
 
 .passo1 h4 {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .passo1 p {
@@ -565,12 +584,12 @@ footer {
     font-size: 19px;
     font-weight: 500;
     border: 3px solid rgb(106, 245, 245);
-
+   
 }
 
 .passo2 h4 {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .passo2 p {
@@ -595,7 +614,7 @@ footer {
 
 .passo3 h4 {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .passo3 p {
@@ -621,7 +640,7 @@ footer {
 .passo4,
 .passo15 h4 {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 
@@ -735,7 +754,7 @@ footer {
 } */
 
 .beneficios {
-    height: 70vh;
+    height: 100vh;
     /* background-color: #3a3a3a; */
     background-image: url(../assets/PetcareBackground.png);
     background-size: cover;
@@ -752,6 +771,10 @@ footer {
   .bene {
     flex-basis: 50%; /* adjust the width of the text div */
     margin-left: 20px; /* add some margin between the two divs */
+    background-color: #fff;
+    border-radius: 30px ;
+    padding: 50px;
+    
   }
   
   .img-beneficios img {
@@ -761,7 +784,7 @@ footer {
   
   .beneficios h4 {
     color: rgb(163, 84, 236);
-    border-bottom: 2px solid #6AF5ED;
+    /* border-bottom: 2px solid #6AF5ED; */
     font-size: 40px;
     text-align: center;
   }
@@ -770,7 +793,7 @@ footer {
     font-size: 20px;
     font-weight: 400;
     margin-top: 20px;
-    color: #fff;
+    color: #333;
   }
 
 
@@ -778,20 +801,38 @@ footer {
 
 
 .atendimento{
-    height: 80vh;
+    height: 100vh;
     background-image: url(../assets/PetcareBackground.png);
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 70px;
+    
 
 
 }
 
+.atend{
+    background-color: #fff;
+    height: 600px;
+    border-radius: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding-inline: 15px;
+    
+   
+
+    
+}
+
 .atendimento h4{
     color: rgb(163, 84, 236);
-    border-bottom: 2px solid #6AF5ED;
+    /* border-bottom: 2px solid #6AF5ED; */
     width: 50%;
     font-size: 40px;
     text-align: center;
@@ -799,10 +840,10 @@ footer {
 
 .atendimento p{
     width: 50%;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
     margin-top: 20px;
-    color:#fff ;
+    color:#333 ;
 }
 
 .img-atendimento img{
