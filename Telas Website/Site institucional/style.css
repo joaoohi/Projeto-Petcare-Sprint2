@@ -177,7 +177,7 @@ header a:hover {
     margin-top: 70px;
     /* animation: fadeInLeftBig;
     animation-duration: 1s; */
-    height: 90vh;
+    height: 100vh;
    /* background-color: #3A3A3A; */
    
 
@@ -573,7 +573,9 @@ footer {
 
 .passo1 img {
     margin-top: 20px;
+   
 }
+
 
 .passo2 {
     display: flex;
