@@ -782,11 +782,17 @@ footer {
   
   .img-beneficios img {
     height: 400px;
+    filter: drop-shadow(0 8px 20px rgba(163, 84, 236, 0.5));
+
+    
 
   }
   
   .beneficios h4 {
-    color: rgb(163, 84, 236);
+     color: rgb(163, 84, 236); 
+    
+    /* background: linear-gradient(#7F00FF, #E100FF); */
+
     /* border-bottom: 2px solid #6AF5ED; */
     font-size: 40px;
     text-align: center;
