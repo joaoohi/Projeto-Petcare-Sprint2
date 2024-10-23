@@ -8,7 +8,9 @@
 body {
     height: 100%;
     width: 100%;
-    background: #ffffff
+    background: #ffffff;
+    overflow-x: hidden; 
+    
 }
 
 header {
@@ -133,42 +135,8 @@ header a:hover {
     /* Margem acima e abaixo da seção */
 }
 
-.dados1,
-.dados2 {
-    background-color: #fff;
-    /* Cor de fundo da caixa */
-    border: 3px solid rgb(106, 245, 245);
-    border-radius: 20px;
-    /* Bordas arredondadas */
-    width: 300px;
-    /* Largura das caixas */
-    padding: 20px;
-    /* Espaçamento interno */
-    text-align: center;
-    /* Centraliza o texto */
-}
 
-.dados1 h3 {
-    color: rgb(106, 245, 245);
-   
-   
-}
 
-.dados2 h3 {
-    color: rgb(106, 245, 245);
-    
-   
-}
-
-.dados1,
-.dados2 p {
-    color: #333;
-}
-
-.dados1 img {
-    height: 80px;
-    margin-top: 40px;
-}
 
 .second-section {
     display: flex;
@@ -240,12 +208,12 @@ header a:hover {
 }
 
 .second-section .texto button{
-    border: 2px solid rgb(106, 245, 245);
+    /* border: 2px solid rgb(106, 245, 245); */
+    border: none;
     border-radius: 20px;
-    /* height: 50px;
-    width: 200px; */
-    padding: 12px 30px;
-    background-color:  rgb(106, 245, 245);
+     padding: 12px 30px; 
+    /* background-color:  rgb(106, 245, 245); */
+    background: linear-gradient(#7F00FF , #E100FF);
     color: #fff;   
     font-size: 18px;
     font-weight: bold;
@@ -271,8 +239,8 @@ header a:hover {
 
 
 .second-section .texto button:hover{
-    background-color: #fff;
-    color: rgb(163, 84, 236);
+    background:  rgb(106, 245, 245); 
+    color: #FFF;
    
 
    
@@ -297,7 +265,7 @@ header a:hover {
     margin-top: 150px;
     /* animation: fadeInRightBig;
     animation-duration: 1s; */
-    height: 80vh;
+    height: 100vh;
     background-image: url(../assets/PetcareBackground.png);
     background-size: cover;
     align-items: center;
@@ -305,7 +273,8 @@ header a:hover {
 
 
 .box span {
-    color: rgb(106, 245, 245);
+    /* color: rgb(106, 245, 245); */
+    color: rgb(163, 84, 236);
     font-weight: bold;
 
    
@@ -317,8 +286,8 @@ header a:hover {
 }
 
 .box h3 {
-     color: rgb(106, 245, 245); 
-    /* color: rgb(163, 84, 236); */
+     /* color: rgb(106, 245, 245);  */
+     color: rgb(163, 84, 236);
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -824,7 +793,7 @@ footer {
 
 .atend{
     background-color: #fff;
-    height: 600px;
+    height: 500px;
     border-radius: 30px;
     width: 50%;
     display: flex;
@@ -848,7 +817,7 @@ footer {
 }
 
 .atendimento p{
-    width: 50%;
+    /* width: 50%; */
     font-size: 22px;
     font-weight: 400;
     margin-top: 20px;
