@@ -10,6 +10,7 @@ body {
     width: 100%;
     background: #ffffff;
     overflow-x: hidden; 
+    cursor: url('cursor\ normal.png'), auto;
     
 }
 
@@ -47,11 +48,13 @@ header a {
     /* border-bottom: 2px solid rgb(163, 84, 236); */
     cursor: url(./img/cursorPathPurple.png), pointer;
     filter: drop-shadow(0px 0px 10px rgba(6, 69, 105, 0.5));
+    cursor: url('cursor\ pointer.png'), auto !important; 
 
 }
 
 header a span {
     color: rgb(163, 84, 236);
+    
 }
 
 header a span:hover {
