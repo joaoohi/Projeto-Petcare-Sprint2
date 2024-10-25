@@ -194,9 +194,7 @@ footer {
     width: 100%;
 }
 
-.botao:hover {
-    background-color: dodgerblue;
-}
+
 
 .input_cadastro {
     border: 2px solid rgb(106, 245, 245);
@@ -221,4 +219,32 @@ div {
 .confirmar_senha, .email_validar {
     font-size: 11px;
     
+}
+
+
+
+.clicar{
+
+    cursor: url('cursor\ pointer.png'), auto !important;
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+}
+
+.icone img {
+    margin-right: 7px;
+    color: #fff;
+    cursor: url('cursor\ pointer.png'), auto !important;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+}
+
+
+.icone p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
 }
