@@ -105,17 +105,41 @@ aside div {
     
 }
 
+
+
+/* .metricas div{
+    
+    background: #7F00FF;
+} */
+
 section {
 
-    height: 80vh;
+    height: 100vh;
     /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #333;
     gap: 30px;
     margin-top: 200px;
-    /* Corresponde à altura do header */
+   
+}
 
+section .metricas {
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+section .grafico1, section .grafico2, section .grafico3 {
+    border: 3px solid #4cb9eb;
+    border-radius: 20px;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#333;
 }
 
 
@@ -128,22 +152,22 @@ section img {
 section .grafico1{
     border: 3px solid #4cb9eb;
     border-radius: 20px;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
 }
 
 section .grafico2{
     border: 3px solid #4cb9eb;
     border-radius: 20px;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
 }
 
 section .grafico3{
     border: 3px solid #4cb9eb;
     border-radius: 20px;
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
 }
 
 
