@@ -10,6 +10,7 @@ body {
     width: 100%;
     background: #ffffff;
     overflow-x: hidden; 
+    overflow-y: auto; /* Scroll vertical se necessário */
     
 }
 
@@ -192,7 +193,8 @@ header a:hover {
 }
 
 .second-section .texto  .p1 span{
-    color: #6AF5ED;
+    /* color: #6AF5ED; */
+    color: rgb(163, 84, 236);
     font-weight: bold;
 
 }
@@ -211,7 +213,7 @@ header a:hover {
     /* border: 2px solid rgb(106, 245, 245); */
     border: none;
     border-radius: 20px;
-     padding: 12px 30px; 
+     padding: 15px 32px; 
     /* background-color:  rgb(106, 245, 245); */
     background: linear-gradient(#7F00FF , #E100FF);
     color: #fff;   

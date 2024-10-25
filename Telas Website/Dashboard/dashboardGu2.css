@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Roboto Mono", monospace;  */
+    font-family: "Poppins", sans-serif;
+} 
+
+header {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    position: fixed;
+    /* Adiciona fixação */
+    top: 0;
+    /* Alinha no topo */
+    z-index: 1000;
+    /* Certifica-se de que o header fique sobre os outros elementos */
+}
+
+/* header div {
+    height: 150px;
+    width: 220px;
+    background: linear-gradient(#7F00FF, #E100FF);
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+
+} */
+
+header img {
+    height: 100px;
+
+}
+
+/* header h4 {
+    font-size: 22px;
+    padding: 10px;
+} */
+
+aside img {
+    height: 100px;
+    width: 100px;
+
+}
+
+
+
+.container {
+    margin-left: 200px;
+    /* corresponde à largura do aside */
+}
+
+aside {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+}
+
+aside img{
+    height: 120px;
+    width: 120px;
+}
+
+aside h4{
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+aside span{
+    color: #7F00FF;
+    
+}
+
+aside div {
+    height: 130px;
+    width: 180px;
+    /* background: linear-gradient(#7F00FF, #E100FF); */
+    background-color: rgb(163, 84, 236);
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+section {
+
+    height: 80vh;
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 200px;
+    /* Corresponde à altura do header */
+
+}
+
+
+
+section img {
+    height: 200px;
+
+}
+
+section .grafico1{
+    border: 3px solid #4cb9eb;
+    border-radius: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+section .grafico2{
+    border: 3px solid #4cb9eb;
+    border-radius: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+section .grafico3{
+    border: 3px solid #4cb9eb;
+    border-radius: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+
+
+
+
+
