@@ -7,7 +7,8 @@ use Pet_Care;
 -- Tabela onde armazenaremos os dados da empresa
 create table petshop(
 	idPetShop int primary key auto_increment,
-	nome_Empresa varchar(45) not null,
+	razao_social varchar(45) not null,
+    nome_fantasia varchar(45) not null,
     cnpj char(14) not null unique,
     cep char(9) not null,
     telefoneEmpresa char(12),
@@ -20,6 +21,8 @@ create table petshop(
 create table usuario(
 	idUsuario int primary key auto_increment,
     nome varchar(45) not null,
+    cpf char(12) not null,
+    dtNascimento date,
     email varchar(45) not null,
     senha varchar(45) not null,
 	cargo varchar(45) not null,
@@ -32,20 +35,19 @@ create table usuario(
     idTransporte int primary key auto_increment,
     fkPetshop int, constraint fkTransportePetshop foreign key (fkPetShop)
 					references petshop(idPetShop),
-	portePet varchar(45), constraint chkPorte check (portePet in('Pequeno', 'Medio', 'Grande')),
-    QuantidadeGaiolas float,
-    nomeResponsavél varchar(45)
+    QuantidadeGaiolas int,
+    QuantidadeVeiculos int
     );
     
 -- Tabela onde armazenaremos informações do sensores utilizados
 create table sensores(
 	idSensores int primary key auto_increment,
-    tipo varchar(45) not null,
+    tipo varchar(45) not null, 
     modelo varchar(45) not null,
     status_sensor varchar(45), constraint chkStatus_sensor
 							check (status_sensor in('Ativo', 'Inativo', 'Desativado')),
-    fkPetShop int, constraint fkSensoresPetShop foreign key (fkPetShop ) 
-					references petshop(idPetShop)
+    fkTransporte int, constraint fkSensoresTransporte foreign key (fkTransporte) 
+					references transporte(idTransporte)
     );
 -- Tabela onde receberemos e armazenaremos os dados dos sensores
 create table medida(
@@ -54,6 +56,9 @@ fkSensores int,
 primary key(idMedida,fkSensores),
 sensor_analogico float,
 sensor_digital float,
+data_hora datetime default current_timestamp,
 foreign key (fkSensores) references sensores(idSensores)
 );
+
+
 
