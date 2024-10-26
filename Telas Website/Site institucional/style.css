@@ -764,7 +764,17 @@ footer {
     /* add this line */
     align-items: center;
     padding: 70px;
+    /* position: relative; */
 }
+
+ .topico{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px; /* Adiciona espaço à direita da imagem */
+    vertical-align: middle; /* Alinha verticalmente a imagem com o texto */
+
+    
+} 
 
 .img-beneficios {
     flex-basis: 40%;
@@ -782,6 +792,14 @@ footer {
 
 }
 
+.bene span{
+    color: rgb(163, 84, 236);
+    font-size: 22px;
+    font-weight: bold;
+
+
+}
+
 .img-beneficios img {
     height: 400px;
     filter: drop-shadow(0 8px 20px rgba(163, 84, 236, 0.5));
@@ -795,7 +813,6 @@ footer {
 
     /* background: linear-gradient(#7F00FF, #E100FF); */
 
-    /* border-bottom: 2px solid #6AF5ED; */
     font-size: 40px;
     text-align: center;
 }
@@ -806,6 +823,7 @@ footer {
     margin-top: 20px;
     color: #333;
 }
+
 
 
 
@@ -843,7 +861,7 @@ footer {
 
 .atendimento h4 {
     color: rgb(163, 84, 236);
-    /* border-bottom: 2px solid #6AF5ED; */
+     /* border-bottom: 2px solid #6AF5ED;  */
     width: 50%;
     font-size: 40px;
     text-align: center;

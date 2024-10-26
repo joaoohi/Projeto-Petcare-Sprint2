@@ -102,186 +102,197 @@
             </div>  -->
         </header>
 
-        
+
         <section>
             <div class="metricas">
                 <div>
-                    <h4>Temperatura Média</h4>
-                    <h4>24</h4>
+                    <h4>Motorista</h4>
+                    <h4 class="valor">Carlos Ferreira</h4>
                 </div>
                 <div>
-                    <h4> Quantidade de Vans</h4>
-                    <h4>3</h4>
+                    <h4>Temperatura Média</h4>
+                    <h4 class="valor">24°C</h4>
                 </div>
-    
+                <!-- <div>
+                    <h4> Quantidade de Vans</h4>
+                    <h4 class="valor">3</h4>
+                </div> -->
+
+                <div>
+                    <h4>Temperatura Atual</h4>
+                    <h4 class="valor">23°C</h4>
+                </div>
+
                 <div>
                     <h4>Número de alertas</h4>
-                    <h4>2</h4>
+                    <h4 class="valor">2</h4>
                 </div>
             </div>
-            
+
+            <div class="graficos">
+                <div class="grafico1">
+                    <canvas id="graficoLinha"></canvas>
+                </div>
+
+                <div class="grafico2">
+                    <canvas id="graficoBarra"></canvas>
+                </div>
+
+                <div class="grafico3">
+                    <canvas id="graficoPizza"></canvas>
+                </div>
+            </div>
 
 
-    <div class="grafico1">
-        <canvas id="graficoLinha"></canvas>      
-    </div>
 
-    <div class="grafico2">
-        <canvas id="graficoBarra"></canvas>
-    </div>
+            <script>
+                // const graficoLinha = document.getElementById('graficoLinha');
 
-    <div class="grafico3">
-        <canvas id="graficoPizza"></canvas>
-    </div>
+                // new Chart(graficoLinha, {
+                //     type: 'line',
+                //     data: {
+                //         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                //         datasets: [{
+                //             label: 'Temperatura',
+                //             data: [12, 19, 3, 5, 2, 3],
+                //             borderWidth: 1
+                //         },
+                //         ]
 
-    <script>
-        // const graficoLinha = document.getElementById('graficoLinha');
-
-        // new Chart(graficoLinha, {
-        //     type: 'line',
-        //     data: {
-        //         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-        //         datasets: [{
-        //             label: 'Temperatura',
-        //             data: [12, 19, 3, 5, 2, 3],
-        //             borderWidth: 1
-        //         },
-        //         ]
-
-        //     },
-        //     options: {
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true
-        //             }
-        //         }
-        //     }
-        // });
-        new Chart(graficoLinha, {
-    type: 'line',
-    data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-        datasets: [{
-            label: 'Temperatura',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1,
-            borderColor: 'rgba(255, 255, 255, 1)'
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: 'white' // Cor do texto dos dados
-                }
-            }],
-            xAxes: [{
-                ticks: {
-                    fontColor: 'white' // Cor do texto dos dados
-                }
-            }]
-        },
-        legend: {
-            labels: {
-                fontColor: 'white' // Cor do texto da legenda
-            }
-        }
-    }
-});
-
-
-    </script>
-
-
-    <script>
-        const graficoBarra = document.getElementById('graficoBarra');
-
-        new Chart(graficoBarra, {
-            type: 'line',
-            data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                datasets: [{
-                    label: 'Presença',
-                    data: [0, 1, 1, 1, 1, 1],
-                    borderWidth: 1
-                },
-                ]
-
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                //     },
+                //     options: {
+                //         scales: {
+                //             y: {
+                //                 beginAtZero: true
+                //             }
+                //         }
+                //     }
+                // });
+                new Chart(graficoLinha, {
+                    type: 'line',
+                    data: {
+                        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                        datasets: [{
+                            label: 'Temperatura',
+                            data: [12, 19, 3, 5, 2, 3],
+                            borderWidth: 1,
+                            borderColor: 'rgba(255, 255, 255, 1)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: 'white' // Cor do texto dos dados
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: 'white' // Cor do texto dos dados
+                                }
+                            }]
+                        },
+                        legend: {
+                            labels: {
+                                fontColor: 'white' // Cor do texto da legenda
+                            }
+                        }
                     }
-                }
-            }
-        });
+                });
 
 
-    </script>
-
-    <script>
-        // const graficoPizza = document.getElementById('graficoPizza');
-
-        // new Chart(graficoPizza, {
-        //     type: 'pie',
-        //     data: {
-        //         labels: ['Cachorro', 'Gato', 'Outros Animais'],
-        //         datasets: [{
-        //             label: 'Porcentagem de animais transportados',
-        //             data: [52, 45, 3],
-        //             borderWidth: 1
-
-                    
-        //         },
-        //         ]
-
-        //     },
-        //     options: {
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: false
-        //             }
-        //         }
-        //     }
-        // });
-
-        const graficoPizza = document.getElementById('graficoPizza');
-new Chart(graficoPizza, {
-    type: 'pie',
-    data: {
-        labels: ['Cachorro', 'Gato', 'Outros Animais'],
-        datasets: [{
-            label: 'Porcentagem de animais transportados',
-            data: [52, 45, 3],
-            borderWidth: 1,
-            backgroundColor: [
-                '#7F00FF', // Cor para "Cachorro"
-                '#E100FF', // Cor para "Gato"
-                '#4cb9eb'  // Cor para "Outros Animais"
-            ],
-            borderColor: [
-                '#7F00FF',
-                '#E100FF',
-                '#4cb9eb'
-            ]
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    }
-});
+            </script>
 
 
+            <script>
+                const graficoBarra = document.getElementById('graficoBarra');
 
-    </script>
+                new Chart(graficoBarra, {
+                    type: 'line',
+                    data: {
+                        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                        datasets: [{
+                            label: 'Presença',
+                            data: [0, 1, 1, 1, 1, 1],
+                            borderWidth: 1
+                        },
+                        ]
+
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
 
 
-    </section>
+            </script>
+
+            <script>
+                // const graficoPizza = document.getElementById('graficoPizza');
+
+                // new Chart(graficoPizza, {
+                //     type: 'pie',
+                //     data: {
+                //         labels: ['Cachorro', 'Gato', 'Outros Animais'],
+                //         datasets: [{
+                //             label: 'Porcentagem de animais transportados',
+                //             data: [52, 45, 3],
+                //             borderWidth: 1
+
+
+                //         },
+                //         ]
+
+                //     },
+                //     options: {
+                //         scales: {
+                //             y: {
+                //                 beginAtZero: false
+                //             }
+                //         }
+                //     }
+                // });
+
+                const graficoPizza = document.getElementById('graficoPizza');
+                new Chart(graficoPizza, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Cachorro', 'Gato', 'Outros Animais'],
+                        datasets: [{
+                            label: 'Porcentagem de animais transportados',
+                            data: [52, 45, 3],
+                            borderWidth: 1,
+                            backgroundColor: [
+                                '#7F00FF', // Cor para "Cachorro"
+                                '#E100FF', // Cor para "Gato"
+                                '#4cb9eb'  // Cor para "Outros Animais"
+                            ],
+                            borderColor: [
+                                '#7F00FF',
+                                '#E100FF',
+                                '#4cb9eb'
+                            ]
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+
+
+
+            </script>
+
+
+        </section>
 
     </div>
 </body>
