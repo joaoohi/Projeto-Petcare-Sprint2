@@ -2,10 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
 
+
 header {
-    height: 200px;
+    height: 130px;
     width: 100%;
     display: flex;
     justify-content: start;
@@ -46,6 +48,7 @@ header img{
 aside img {
     height: 150px;
     width: 150px;
+    border-radius: 50%;
     
 
 }
@@ -92,6 +95,9 @@ section {
     align-items: center;
     gap: 30px;
     margin-top: 200px; /* Corresponde à altura do header */
+  
+    
+    
 
 }
 

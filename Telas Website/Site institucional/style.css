@@ -161,6 +161,7 @@ header a:hover {
     animation-duration: 1s; */
     height: 90vh;
     /* background-color: #3A3A3A; */
+   
 
 
 
@@ -487,6 +488,7 @@ footer {
     font-size: 50px;
     text-align: center;
     color: rgb(163, 84, 236);
+    
 }
 
 
@@ -756,46 +758,48 @@ footer {
 
 .beneficios {
     height: 100vh;
-    /* background-color: #3a3a3a; */
     background-image: url(../assets/PetcareBackground.png);
     background-size: cover;
     display: flex;
     flex-direction: row;
-    /* add this line */
     align-items: center;
     padding: 70px;
 }
 
+.topico {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px; /* Adiciona espaço à direita da imagem */
+    vertical-align: middle; /* Alinha verticalmente a imagem com o texto */
+}
+
 .img-beneficios {
-    flex-basis: 40%;
-    /* adjust the width of the image div */
+    flex-basis: 40%; /* Ajuste a largura da imagem */
 }
 
 .bene {
-    flex-basis: 50%;
-    /* adjust the width of the text div */
-    margin-left: 20px;
-    /* add some margin between the two divs */
+    
+    margin-left: 20px; /* Adicione um pouco de margem entre as duas divs */
     background-color: #fff;
     border-radius: 30px;
     padding: 50px;
+    max-width: 600px; /* Defina um valor máximo para a largura */
+    max-height: 650px;
+}
 
+.bene span {
+    color: rgb(163, 84, 236);
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .img-beneficios img {
     height: 400px;
     filter: drop-shadow(0 8px 20px rgba(163, 84, 236, 0.5));
-
-
-
 }
 
 .beneficios h4 {
     color: rgb(163, 84, 236);
-
-    /* background: linear-gradient(#7F00FF, #E100FF); */
-
-    /* border-bottom: 2px solid #6AF5ED; */
     font-size: 40px;
     text-align: center;
 }
@@ -843,7 +847,7 @@ footer {
 
 .atendimento h4 {
     color: rgb(163, 84, 236);
-    /* border-bottom: 2px solid #6AF5ED; */
+     /* border-bottom: 2px solid #6AF5ED;  */
     width: 50%;
     font-size: 40px;
     text-align: center;
