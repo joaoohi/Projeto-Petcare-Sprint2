@@ -1,3 +1,4 @@
+
 -- Banco de dados da empresa 
 create database Pet_Care;
 -- Usando 
@@ -29,7 +30,7 @@ create table usuario(
 -- Tabela onde armasenaremos as informações do transporte
     create table transporte(
     idTransporte int primary key auto_increment,
-    fkPetshop int, constraint fkUsuarioPetshop foreign key (fkPetShop)
+    fkPetshop int, constraint fkTransportePetshop foreign key (fkPetShop)
 					references petshop(idPetShop),
 	portePet varchar(45), constraint chkPorte check (portePet in('Pequeno', 'Medio', 'Grande')),
     QuantidadeGaiolas float,
@@ -48,10 +49,11 @@ create table sensores(
     );
 -- Tabela onde receberemos e armazenaremos os dados dos sensores
 create table medida(
-idMedida int primary key auto_increment,
+idMedida int auto_increment,
+fkSensores int,
+primary key(idMedida,fkSensores),
 sensor_analogico float,
 sensor_digital float,
-fkSensores int, constraint fkMedidaSensores foreign key (fkSensores) 
-				references sensores(idSensores)
+foreign key (fkSensores) references sensores(idSensores)
 );
 
