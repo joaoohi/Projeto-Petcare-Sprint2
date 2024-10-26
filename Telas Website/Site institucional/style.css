@@ -776,12 +776,13 @@ footer {
 }
 
 .bene {
-    flex-basis: 40%; /* Ajuste a largura da div bene */
+    
     margin-left: 20px; /* Adicione um pouco de margem entre as duas divs */
     background-color: #fff;
     border-radius: 30px;
     padding: 50px;
     max-width: 600px; /* Defina um valor máximo para a largura */
+    max-height: 800px;
 }
 
 .bene span {
