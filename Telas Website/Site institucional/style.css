@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -197,6 +198,10 @@ header a:hover {
     /* font-family: "ADLaM Display", system-ui; */
     /* font-family: "Source Code Pro", monospace; */
     text-align: center;
+    background: linear-gradient(#7F00FF , #E100FF, #7F00FF , #E100FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .second-section .texto p {
@@ -273,6 +278,8 @@ header a:hover {
 
 
 
+
+
 .box {
     display: flex;
     margin-top: 70px;
@@ -304,17 +311,21 @@ header a:hover {
 
 .box h3 {
     /* color: rgb(106, 245, 245);  */
-    color: rgb(163, 84, 236);
+    /* color: rgb(163, 84, 236); */
     text-align: center;
     font-size: 30px;
     font-weight: bold;
     border-bottom: 2px solid rgb(106, 245, 245);
     margin-bottom: 20px;
     padding-bottom: 10px;
-
-
-
+    background: linear-gradient(#7F00FF , #E100FF , #7F00FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
+
+
+
 
 .box p {
     font-size: 20px;
@@ -366,19 +377,7 @@ header a:hover {
     height: 90px;
 }
 
-footer {
-    /* background-color: rgb(106, 245, 245); */
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
 
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
-    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
-
-
-}
 
 .icone {
     display: flex;
@@ -408,8 +407,12 @@ footer {
 
 .integrantes h3 {
     font-size: 50px;
-    color: rgb(163, 84, 236);
+    /* color: rgb(163, 84, 236); */
     margin-bottom: 50px;
+    background: linear-gradient(#7F00FF , #E100FF, #7F00FF , #E100FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .integrantes h4 {
@@ -487,7 +490,11 @@ footer {
 .container-servicos h2 {
     font-size: 50px;
     text-align: center;
-    color: rgb(163, 84, 236);
+    /* color: rgb(163, 84, 236); */
+    background: linear-gradient(#7F00FF , #E100FF, #7F00FF , #E100FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     
 }
 
@@ -517,7 +524,8 @@ footer {
 
 .container-passos h4 {
     /* color: rgb(106, 245, 245); */
-    color: rgb(163, 84, 236);
+     color: rgb(163, 84, 236); 
+  
 
     font-size: 25px;
     font-weight: bold;
@@ -682,80 +690,6 @@ footer {
 
 
 
-/* 
-.container-geral {
-    
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-   
-   
-    height: 150vh;
-   
-    
-    background-color:  #333;
-    align-items: center;
-   
-}
-
-.img-atendimento img{
-    height:350px;
-    border-radius: 20px;
-    margin: 30px 0;
-}
-
-.beneficios {
-    width: 50%;
-    margin-top: 40px;
-    
-   
-}
-
-.atendimento {
-    width: 50%;
-
-}
-
-.container-geral .beneficios h4 {
-    font-size: 40px;
-   
-    color: rgb(106, 245, 245);
-    border-bottom: 2px solid rgb(106, 245, 245);;
-    margin-bottom: 30px;
-    -webkit-text-stroke: 1px black;
-
-}
-
-.container-geral .atendimento h4 {
-    font-size: 40px;
-    
-    color: rgb(106, 245, 245);
-    border-bottom: 2px solid rgb(106, 245, 245);;
-    margin-bottom: 30px;
-    -webkit-text-stroke: 1px black;
-
-}
-
-.container-geral .beneficios p {
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-
-
-}
-
-.container-geral .atendimento p {
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-}
-
-
-
-.img-geral{
-    height: 50px;
-} */
-
 .beneficios {
     height: 100vh;
     background-image: url(../assets/PetcareBackground.png);
@@ -783,12 +717,13 @@ footer {
     background-color: #fff;
     border-radius: 30px;
     padding: 50px;
-    max-width: 600px; /* Defina um valor máximo para a largura */
-    max-height: 650px;
+    width: 600px; /* Defina um valor máximo para a largura */
+    height: 650px;
 }
 
 .bene span {
     color: rgb(163, 84, 236);
+   
     font-size: 22px;
     font-weight: bold;
 }
@@ -799,9 +734,13 @@ footer {
 }
 
 .beneficios h4 {
-    color: rgb(163, 84, 236);
+    /* color: rgb(163, 84, 236); */
     font-size: 40px;
     text-align: center;
+    background: linear-gradient(#7F00FF , #E100FF, #7F00FF , #E100FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .beneficios p {
@@ -846,12 +785,18 @@ footer {
 }
 
 .atendimento h4 {
-    color: rgb(163, 84, 236);
-     /* border-bottom: 2px solid #6AF5ED;  */
+    /* color: rgb(163, 84, 236); */
+   
     width: 50%;
     font-size: 40px;
     text-align: center;
+    background: linear-gradient(#7F00FF , #E100FF, #7F00FF , #E100FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
+    
+
 
 .atendimento p {
     /* width: 50%; */
@@ -868,6 +813,25 @@ footer {
 
 .h2 {
     margin-top: 40px;
+}
+
+footer {
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+
+
+}
+footer img{
+    height: 30px;
+    width: 30px;
+
 }
 
 .second-section-img,
