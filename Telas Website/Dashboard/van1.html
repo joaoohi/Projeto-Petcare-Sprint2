@@ -60,16 +60,16 @@
 
             <div>
                 <h4>Temperatura Máxima:</h4>
-                <h4>26°C </h4>
+                <h4>24°C </h4>
 
             </div>
             <div>
                 <h4>Temperatura Ideal:</h4>
-                <h4>20°C a 24°C</h4>
+                <h4>22°C</h4>
             </div>
             <div>
                 <h4>Temperatura Miníma:</h4>
-                <h4>18°C</h4>
+                <h4>20°C</h4>
             </div>
         </aside>
 
@@ -118,8 +118,8 @@
                 </div>
 
                 <div>
-                    <h4>Status do Pet</h4>
-                    
+                    <h4>Status das Gaiolas</h4>
+                    <h4 class="valor">Ativo</h4>
                 </div>
 
                 <div>
@@ -171,10 +171,10 @@
                 new Chart(graficoLinha, {
                     type: 'line',
                     data: {
-                        labels: ['1', '2', '3', '4', '5', '6' ,'7','8','9','10' ],
+                        labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00' ],
                         datasets: [{
-                            label: 'Temperatura',
-                            data: [23, 23, 23, 24, 24, 24,24,23,23],
+                            label: 'Temperatura média ao dia',
+                            data: [20, 23, 23, 24, 21, 24,22,24,23],
                             borderWidth: 1,
                             borderColor: 'rgba(255, 255, 255, 1)'
                         }]
@@ -197,8 +197,37 @@
                                 fontColor: 'white' // Cor do texto da legenda
                             }
                         }
+                    },
+                    annotation: {
+                    annotations: [
+                {
+                    type: 'line',
+                    mode: 'horizontal',
+                    scaleID: 'y-axis-0',
+                    value: 19,
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    label: {
+                        content: 'Limite Inferior',
+                        enabled: true,
+                        position: 'right'
                     }
-                });
+                },
+                {
+                    type: 'line',
+                    mode: 'horizontal',
+                    scaleID: 'y-axis-0',
+                    value: 26,
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    label: {
+                        content: 'Limite Superior',
+                        enabled: true,
+                        position: 'right'
+                    }
+                }
+            ]
+                }});
 
 
             </script>
@@ -208,12 +237,12 @@
                 const graficoBarra = document.getElementById('graficoBarra');
 
                 new Chart(graficoBarra, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
                         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
                         datasets: [{
-                            label: 'Presença',
-                            data: [0, 1, 1, 1, 1, 1],
+                            label: 'Números de bloqueios ativos no mês',
+                            data: [0, 150, 120, 100, 160,130],
                             borderWidth: 1
                         },
                         ]
@@ -261,7 +290,7 @@
                 new Chart(graficoPizza, {
                     type: 'pie',
                     data: {
-                        labels: ['Cachorro', 'Gato', 'Outros Animais'],
+                        labels: ['Motorista resolveu os problemas', 'Motorista NÃO precisou de ajuda', 'Motorista precisou de ajuda'],
                         datasets: [{
                             label: 'Porcentagem de animais transportados',
                             data: [52, 45, 3],
@@ -280,9 +309,7 @@
                     },
                     options: {
                         scales: {
-                            y: {
-                                beginAtZero: false
-                            }
+                            
                         }
                     }
                 });
