@@ -394,36 +394,6 @@ header a:hover {
     height: 90px;
 }
 
-footer {
-    /* background-color: rgb(106, 245, 245); */
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
-
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
-    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
-
-
-}
-
-.icone {
-    display: flex;
-    align-items: center;
-}
-
-.icone img {
-    margin-right: 10px;
-    color: #fff;
-}
-
-.icone p {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 
 .integrantes {
     display: flex;
@@ -861,4 +831,40 @@ footer {
 .atendimento,
 .img-atendimento {
     visibility: hidden;
+}
+
+
+footer {
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+
+
+}
+
+footer img{
+    height: 30px;
+    width: 30px;
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+}
+
+.icone img {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.icone p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
 }
