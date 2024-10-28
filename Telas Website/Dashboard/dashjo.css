@@ -12,26 +12,12 @@ header {
     align-items: center;
     gap: 20px;
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
-    position: fixed; /* Adiciona fixação */
-    top: 0; /* Alinha no topo */
-    z-index: 1000; /* Certifica-se de que o header fique sobre os outros elementos */
+    position: fixed; 
+    top: 0; 
+    z-index: 1000; 
 }
 
-/* header div {
-    height: 150px;
-    width: 220px;
-    background: linear-gradient(#7F00FF, #E100FF);
-    border: none;
-    border-radius: 25px;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
- 
 
-} */
 
 header img{
     height: 100px;
