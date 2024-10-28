@@ -1,5 +1,5 @@
 body {
-    
+
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
     margin: 0;
     padding: 0;
@@ -9,17 +9,6 @@ body {
     animation: fadeInLeftBig 1.4s ease-in-out;
 }
 
-@keyframes fadeInLeftBig {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 .container {
     display: flex;
     justify-content: center;
@@ -40,27 +29,36 @@ h4 {
     font-size: 13px;
 }
 
-div img {
+.gato {
     margin-top: -25%;
+    height: 400px;
+    margin-left: -13%;
 }
 .painel {
-    display: flex;
-    flex-direction: column;
-    margin-top: -10%;
+
+    margin-top: -11%;
     background-color: #fff;
+    border-radius: 20px;
     border-top: 1px solid #dadde1;
     box-sizing: border-box;
     padding: 16px;
     position: relative;
     width: 432px;
-    color: rgb(163, 84, 236);
-    border: 1px solid #A354EC; 
-    box-shadow: 0 0 10px #A354EC !important;
-    border-radius: 30px;
-    height: 550px;
+    
 }
 
 
+@keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 
 header {
@@ -70,9 +68,6 @@ header {
     height: 150px;
     margin-bottom: 140px;
 
-}
-header a span {
-    color: rgb(163, 84, 236);
 }
 
 header img {
@@ -109,38 +104,20 @@ header a:hover {
 }
 
 .botao {
-    cursor: pointer;
-    border: 0;
-    border-radius: 15px;
-    color: #ffffff;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
     background-color: rgb(163, 84, 236);
-    font-weight: 700;
-    font-size: 18px;
-    align-self: center;
-    height: 40px;
-    width: 140px;
-    margin-top: -16px;
-    margin-right: 100px;
-}
-.cadastro_link {
-   
-    text-align: center; 
-    margin-top: 10px; 
-}
-
-.cadastro_link a {
-    text-decoration: none;
-    font-weight: normal; 
-    color: rgb(163, 84, 236);
-}
-.cadastro_link a:hover {
-    color: rgb(100, 226, 226);
-    font-weight: normal; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50%;
+    margin-left: 25%;
 }
 
 footer {
     background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 95.5%;
+    width: 96%;
     height: 50px;
     display: flex;
     justify-content: space-around;
@@ -190,9 +167,14 @@ footer {
     width: 100%;
 }
 
+.botao:hover {
+    background-color: dodgerblue;
+}
 
 
-.input_cadastro {
+.email,
+.senha,
+.confirmar {
     border: 2px solid rgb(106, 245, 245);
     text-align: center;
     border-radius: 15px;
@@ -202,10 +184,37 @@ footer {
     padding: 0px;
 }
 
+.nome, .sobrenome{
+    margin-left: 1px;
+    border: 2px solid rgb(106, 245, 245);
+    text-align: center;
+    border-radius: 15px;
+    margin: 10;
+    height: 40px;
+    width: 193px;
+    padding: 0px;
+}
 
 
-div {
-    font-size: 2px 10px ;
+
+.dtnasc {
+    font-size: 12px;
+}
+
+.dia, .mes, .ano{
+    border: 2px solid rgb(106, 245, 245);
+    text-align: center;
+    border-radius: 15px;
+    margin: 10;
+    height: 40px;
+    width: 130px;
+    padding: 0px;
+
+}
+
+.conta{
+    font-size: 14px;
+    margin-left: 150px;
 }
 
 .mensagem {
@@ -214,33 +223,5 @@ div {
 
 .confirmar_senha, .email_validar {
     font-size: 11px;
-    
-}
 
-
-
-.clicar{
-
-    cursor: url('cursor\ pointer.png'), auto !important;
-}
-
-.icone {
-    display: flex;
-    align-items: center;
-}
-
-.icone img {
-    margin-right: 7px;
-    color: #fff;
-    cursor: url('cursor\ pointer.png'), auto !important;
-    margin-top: 6px;
-    display: flex;
-    align-items: center;
-}
-
-
-.icone p {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
 }
