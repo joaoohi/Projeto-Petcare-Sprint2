@@ -82,8 +82,8 @@ body{
  }
 
  .card{
-    height: 115%;
-    width: 40%;   
+    height: 100%;
+    width: 20%;   
     background-color: #fff;
     border-radius: 30px;
     display: flex;
@@ -93,7 +93,7 @@ body{
     padding: 20px 25px 0px 25px;
     border: 1px solid #A354EC; 
     box-shadow: 0 0 10px #A354EC !important;  
-    margin-bottom: 140px;
+    margin-bottom: 300px;
     margin-right: 10%;
  }
 
@@ -145,8 +145,7 @@ body{
 
     display: flex;
     flex-direction: column;
-    padding: 20px;
-
+    
 }
 
 .botao{
@@ -159,11 +158,10 @@ body{
     font-weight: 700;
     font-size: 18px;
     align-self: center;
-    margin-top: 20px;
+    margin-top: -45px;
      height: 40px;
     width: 140px;
     cursor: url('cursor\ pointer.png'), auto !important; 
-    margin-top: 0px;
 }
 
 .card h2{
@@ -174,10 +172,11 @@ body{
 }
 
 .imagemC img {
-    height: 500px !important; 
-    width: 700px !important; 
-    object-fit: contain !important;
-    padding: -50% !important;
+    margin-top: -350px;
+    height: 500px; 
+    width: 700px ; 
+    object-fit: contain;
+    padding: -50%;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
 }
 
@@ -188,7 +187,7 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 30px;
-    margin-top: 50px;
+    margin-top: -100px;
     filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
 }
 .icone {
