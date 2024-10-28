@@ -54,20 +54,20 @@ create table usuario(
     idTransporte int primary key auto_increment,
     fkEmpresaPetShop int, constraint fkTransportePetshop foreign key (fkEmpresaPetShop)
 					references petshop(idPetShop),
-    QuantidadeGaiolas int,
-    QuantidadeVeiculos int
+    QuantidadeVeiculos int,
+    QuantidadeGaiolas int
     );
     
     -- Inserindo dados dos transportes de cada empresa 
     insert into transporte  values
 -- Transportes da empresa 1
-(default, 1, 3, 1),
+(default, 1, 1, 3),
 
 -- Transportes da empresa 2
-(default, 2, 3, 1),
+(default, 2, 1, 3),
 
 -- Transportes da empresa 3
-(default, 3, 3, 1);
+(default, 3, 1, 3);
 
     
 -- Tabela onde armazenaremos informações do sensores utilizados
@@ -126,8 +126,39 @@ select * from sensores;
 
 select * from medida;
 
--- select que ver todas as tabela, apenas o nome
+-- select onde tem um join da tabela petshop com usuario
+select * from petshop join usuario on idPetShop = fkPetShop;
 
+-- select onde tem um join entre o petshop e o transporte
+select * from petshop join transporte on idPetShop = fkEmpresaPetShop ;
+
+-- select onde tem um join entre o tranporte e o sensores
+select * from transporte join sensores on idTransporte = fkTransporte;
+
+-- select onde tem um join entre o sensores e a medida
+select * from sensores join medida on idSensores= fkSensores;
+
+-- select utiliz
+
+select nome as NomeFuncionario,
+		email as EmailFuncionario,
+		cargo as CargoFuncionario from usuario;
+    
+select nome_fantasia as NomeEmpresa,
+		IFNULL(telefoneEmpresa, 'Telefone não cadastrado')as Telefone,
+		emailEmpresa as EmailEmpresa from petshop;
+
+select tipo as TipoSensor,
+case when status_sensor = 'Ativo' then 'Sensor Ativo'
+	when status_sensor = 'Desativado' then 'Sensor Desativado'
+	else 'Status Desconhecido'
+    end as StatusDescricao from sensores;
+
+select p.nome_fantasia, t.idTransporte, m.sensor_analogico,
+    m.sensor_digital, m.data_hora
+from petshop as p join transporte as t on idPetShop = fkEmpresaPetShop
+join sensores  on idTransporte = fkTransporte
+left join medida as m on idSensores = fkSensores;
 
 
 
