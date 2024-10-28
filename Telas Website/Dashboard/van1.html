@@ -174,10 +174,23 @@
                         labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00' ],
                         datasets: [{
                             label: 'Temperatura média ao dia',
-                            data: [20, 23, 23, 24, 21, 24,22,24,23],
+                            data: [18, 23, 23, 24, 21, 26,22,24,23],
                             borderWidth: 2,
                             borderColor: 'rgba(255, 255, 255, 1)'
-                        }]
+                        },
+                        {
+                            label: 'Temperatura mínima ao dia',
+                            data: [19, 19, 19, 19, 19, 19,19,19,19,],
+                            borderWidth: 2,
+                            borderColor: 'rgba(255, 255, 255, 1)'
+                        },
+                        {
+                            label: 'Temperatura máxima ao dia',
+                            data: [24,24,24,24,24,24,24,24,24,],
+                            borderWidth: 2,
+                            borderColor: 'rgba(255, 255, 255, 1)'
+                        }
+                    ],
                     },
                     options: {
                         scales: {
@@ -234,6 +247,11 @@
 
 
             <script>
+
+
+
+
+
                 const graficoBarra = document.getElementById('graficoBarra');
 
                 new Chart(graficoBarra, {
