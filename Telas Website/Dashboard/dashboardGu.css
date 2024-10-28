@@ -69,13 +69,24 @@ aside {
     left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    padding-top: 20px; /* Adiciona padding para espaço no topo */
 }
 
+.img-aside {
+    margin-top: 20px; /* Espaço adicional no topo da imagem */
+}
 
-aside button{
+.buttonsmeio {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os botões dentro da div */
+}
+
+aside button {
     height: 50px;
     width: 180px;
     background: linear-gradient(#7F00FF, #E100FF);
@@ -85,6 +96,7 @@ aside button{
     font-weight: bold;
     margin-top: 20px;
 }
+
 
 section {
    
@@ -129,4 +141,8 @@ section h5 {
     color: rgb(163, 84, 236);
     font-size: 40px;
 
+}
+
+div .van-3{
+    border: 3px solid  #e91a16;
 }
