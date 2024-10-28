@@ -1,4 +1,3 @@
-
 -- Banco de dados da empresa 
 create database petCare;
 -- Usando 
@@ -106,7 +105,7 @@ insert into sensores values
 -- Tabela onde receberemos e armazenaremos os dados dos sensores
 create table medida (
     idMedida int auto_increment,
-    fkSensores int ,
+    fkSensores int default 1,
     sensor_analogico float,
     sensor_digital float,
     data_hora datetime default current_timestamp,
@@ -138,16 +137,17 @@ select * from transporte join sensores on idTransporte = fkTransporte;
 -- select onde tem um join entre o sensores e a medida
 select * from sensores join medida on idSensores= fkSensores;
 
--- select utiliz
+-- select utilizando as
 
 select nome as NomeFuncionario,
 		email as EmailFuncionario,
-		cargo as CargoFuncionario from usuario;
-    
+		cargo as CargoFuncionario 
+        from usuario;
+-- select utilizando ifunull    
 select nome_fantasia as NomeEmpresa,
 		IFNULL(telefoneEmpresa, 'Telefone não cadastrado')as Telefone,
 		emailEmpresa as EmailEmpresa from petshop;
-
+-- select utilizando case
 select tipo as TipoSensor,
 case when status_sensor = 'Ativo' then 'Sensor Ativo'
 	when status_sensor = 'Desativado' then 'Sensor Desativado'
