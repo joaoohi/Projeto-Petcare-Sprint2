@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
+
 }
 
 
@@ -10,13 +10,16 @@ header {
     height: 130px;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
-    position: fixed; /* Adiciona fixação */
-    top: 0; /* Alinha no topo */
-    z-index: 1000; /* Certifica-se de que o header fique sobre os outros elementos */
+    position: fixed;
+    /* Adiciona fixação */
+    top: 0;
+    /* Alinha no topo */
+    z-index: 1000;
+    /* Certifica-se de que o header fique sobre os outros elementos */
 }
 
 /* header div {
@@ -35,21 +38,52 @@ header {
 
 } */
 
-header img{
+
+.metricasGeral {
     height: 100px;
-   
+    width: 150px;
+    background-color: #7F00FF;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Alinha os textos em coluna */
+    align-items: center;
+    /* Centraliza os textos dentro da div */
+    gap: 10px
 }
 
-/* header h4 {
+.metricasGeral h4 {
+   margin-top: 10px;
+    text-align: center; /* Centraliza o texto dentro do h4 */
+    font-size: 20px;
+}
+
+.valor-metrica{
     font-size: 22px;
-    padding: 10px;
-} */
+    font-weight: bold;
+     margin-bottom: 5px;
+}
+
+
+
+
+
+.img-header {
+    display: flex;
+    gap: 20px;
+    height: 100px;
+    
+}
 
 aside img {
     height: 150px;
     width: 150px;
     border-radius: 50%;
+    display: flex;
+   margin-left: 9px;
     
+
 
 }
 
@@ -58,7 +92,8 @@ aside img {
 
 
 .container {
-    margin-left: 200px; /* corresponde à largura do aside */
+    margin-left: 200px;
+    /* corresponde à largura do aside */
 }
 
 aside {
@@ -71,11 +106,13 @@ aside {
     flex-direction: column;
     align-items: center;
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
-    padding-top: 20px; /* Adiciona padding para espaço no topo */
+    padding-top: 20px;
+    /* Adiciona padding para espaço no topo */
 }
 
 .img-aside {
-    margin-top: 20px; /* Espaço adicional no topo da imagem */
+    margin-top: 20px;
+    /* Espaço adicional no topo da imagem */
 }
 
 .buttonsmeio {
@@ -83,7 +120,8 @@ aside {
     margin-bottom: auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os botões dentro da div */
+    align-items: center;
+    /* Centraliza os botões dentro da div */
 }
 
 aside button {
@@ -99,17 +137,18 @@ aside button {
 
 
 section {
-   
+
     height: 80vh;
     /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
-    margin-top: 200px; /* Corresponde à altura do header */
-  
-    
-    
+    margin-top: 200px;
+    /* Corresponde à altura do header */
+
+
+
 
 }
 
@@ -127,10 +166,10 @@ section div {
     align-items: center;
     border-radius: 20px;
     flex-direction: column;
-     border: 3px solid rgb(106, 245, 245); 
+    border: 3px solid rgb(106, 245, 245);
 }
 
-section div:hover{
+section div:hover {
     height: 420px;
     width: 350px;
     transition: all 0.5s ease-in-out;
@@ -143,6 +182,6 @@ section h5 {
 
 }
 
-div .van-3{
-    border: 3px solid  #e91a16;
+div .van-3 {
+    border: 3px solid #e91a16;
 }
