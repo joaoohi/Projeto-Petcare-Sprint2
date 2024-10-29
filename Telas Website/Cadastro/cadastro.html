@@ -110,12 +110,42 @@
         var mensagem = ' '
         var tamanho_senha = senha.length
         var confirmar = confirmar_senha.value
+        var temexclama = senha.includes('!');
+        var temarroba = senha.includes('@');
+        var temhash = senha.includes('#');
+        var temcifrao = senha.includes('$');
+        var temporcen = senha.includes('%');
+        var temchapeu = senha.includes('^');
+        var temezao = senha.includes('&');
+        var temaster = senha.includes('*');
+        var temparentum = senha.includes('(');
+        var temparentois = senha.includes(')');
+        var temvirgula = senha.includes(',');
+        var temponto = senha.includes('.');
+        var teminterrogacao = senha.includes('?');
+        var temaspas = senha.includes('"');
+        var temigual = senha.includes(':');
+        var temcolcheteum = senha.includes('{');
+        var temcolchetedois = senha.includes('}');
+        var tembarrao = senha.includes('|');
+        var temmenorque = senha.includes('<');
+        var temmaiorque = senha.includes('>');
+        var ESPECIAIS = (temexclama || temarroba || temhash || temcifrao || temporcen || temchapeu
+        ||   temezao || temaster || temparentum || temparentois || temvirgula || temponto || teminterrogacao ||
+         temaspas || temigual || temcolcheteum || temcolchetedois || tembarrao || temmenorque || temmaiorque
+        )
+        var Maius = senha.toUpperCase();
+        var Minus = senha.toLowerCase();
+        var temminuscula = senha != Maius;
+        var temmaiuscula = senha != Minus;
 
-        if (tamanho_senha >= 8) {
+
+
+        if (tamanho_senha >= 8 && ESPECIAIS && temmaiuscula && temminuscula) {
             mensagem += `A senha é forte`
             div_mensagem.style.color = 'green'
         } else {
-            mensagem += `A senha é fraca`
+            mensagem += `A senha deve ter pelo menos 8 caracteres, letra maiúscula e minúscula e um caractere especial.`
             div_mensagem.style.color = 'red'
         }
 
@@ -123,20 +153,23 @@
     }
 
     function confirmar() {
-        var mensagem = ' '
-        var senha = input_senha.value
-        var confirmar = confirmar_senha.value
+    var senha = input_senha.value;
+    var confirmar = confirmar_senha.value;
+    var mensagem = ''; 
 
-        if (senha == confirmar) {
-            mensagem += `Senha Válida`
-            confirmar_mensagem.style.color = 'green'
-        } else {
-            mensagem += `Senha Inválida`
-            confirmar_mensagem.style.color = 'red'
-        }
-
-        confirmar_mensagem.innerHTML = mensagem
+    if (senha === confirmar && senha.length > 0) {
+        mensagem = `Senhas coincidem`; 
+        confirmar_mensagem.style.color = 'green';
+    } else if (senha.length > 0) {
+        mensagem = `Senhas devem ser iguais`; 
+        confirmar_mensagem.style.color = 'red';
+    } else {
+        mensagem = ''; 
     }
+
+    confirmar_mensagem.innerHTML = mensagem;
+}
+
 
     function email() {
         var mensagem = ' '
