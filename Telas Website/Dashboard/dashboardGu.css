@@ -7,12 +7,12 @@
 
 
 header {
-    height: 130px;
+    height: 200px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    
     background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
     position: fixed;
     /* Adiciona fixação */
@@ -22,70 +22,70 @@ header {
     /* Certifica-se de que o header fique sobre os outros elementos */
 }
 
-/* header div {
-    height: 150px;
-    width: 220px;
-    background: linear-gradient(#7F00FF, #E100FF);
-    border: none;
-    border-radius: 25px;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
- 
-
-} */
 
 
 .metricasGeral {
-    height: 100px;
-    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    
+    align-items: center;
+   
+   
+}
+.metricasGeral div {
+    height: 170px;
+    width: 190px;
     background-color: #7F00FF;
     border: none;
     border-radius: 20px;
+    margin-left: -1px;
     display: flex;
     flex-direction: column;
-    /* Alinha os textos em coluna */
-    align-items: center;
-    /* Centraliza os textos dentro da div */
-    gap: 10px
+    justify-content: center;
+    text-align: center;
+    
+   
+  
+   
 }
 
 .metricasGeral h4 {
-   margin-top: 10px;
+   
     text-align: center; /* Centraliza o texto dentro do h4 */
-    font-size: 20px;
+    font-size: 22px;
+    color: #fff;
+   
+    
 }
 
 .valor-metrica{
-    font-size: 23px;
+    font-size: 40px;
     font-weight: bold;
-     margin-bottom: 5px;
+     margin-top: 20px;
+     color: #fff;
+     font-weight: bold;
+}
+
+.valor-metrica h5{
+    font-size: 40px;
+    font-weight: bold;
+     margin-top: 20px;
+     color: #fff;
+     font-weight: bold;
+     
+   
+
 }
 
 
 
 
 
-.img-header {
-    display: flex;
-    gap: 20px;
-    height: 100px;
-    
-}
-
-aside img {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    display: flex;
-   margin-left: 9px;
-    
 
 
-}
+
+
 
 
 
@@ -111,8 +111,10 @@ aside {
     /* Adiciona padding para espaço no topo */
 }
 
-.img-aside {
+aside img{
     margin-top: 20px;
+    border-radius: 50%;
+    margin-left: 20px;
     /* Espaço adicional no topo da imagem */
 }
 
@@ -167,7 +169,7 @@ section div {
     align-items: center;
     border-radius: 20px;
     flex-direction: column;
-    border: 3px solid rgb(106, 245, 245);
+    border: 3px solid #000;
 }
 
 section div:hover {
@@ -178,11 +180,24 @@ section div:hover {
 
 section h5 {
     margin-bottom: 25px;
-    color: rgb(163, 84, 236);
+    color: #000;
     font-size: 40px;
 
 }
 
 div .van-3 {
-    border: 3px solid #e91a16;
+  
+    background-color: #e91a16;
+    
 }
+
+.metrica1 h5{
+    font-size: 25px;
+    font-weight: bold;
+     margin-top: 20px;
+     color: #fff;
+     font-weight: bold;
+
+}
+
+
