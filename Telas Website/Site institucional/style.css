@@ -697,7 +697,8 @@ header a:hover {
 
 
 .beneficios {
-    height: 100vh;
+    /* height: 100vh; */
+    height: 130vh;
     background-image: url(../assets/PetcareBackground.png);
     background-size: cover;
     display: flex;
