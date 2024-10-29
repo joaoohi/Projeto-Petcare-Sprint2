@@ -27,7 +27,7 @@ body {
     margin: 95px auto;
     margin-left: 0%;
     width: 100%;
-    padding: 5px 0px 0px;
+    /* padding: 5px 0px 0px; */
 }
 
 
@@ -46,18 +46,18 @@ div img {
 .painel {
     display: flex;
     flex-direction: column;
+    width: 450px;
+    height: 550px;
     margin-top: -10%;
     background-color: #fff;
     border-top: 1px solid #dadde1;
     box-sizing: border-box;
     padding: 16px;
     position: relative;
-    width: 432px;
     color: rgb(163, 84, 236);
     border: 1px solid #A354EC; 
     box-shadow: 0 0 10px #A354EC !important;
     border-radius: 30px;
-    height: 550px;
 }
 
 
@@ -68,7 +68,7 @@ header {
     align-items: center;
     justify-content: space-evenly;
     height: 150px;
-    margin-bottom: 140px;
+    margin-bottom: 40px;
 
 }
 header a span {
