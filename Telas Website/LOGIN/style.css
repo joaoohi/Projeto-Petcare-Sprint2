@@ -5,6 +5,7 @@ body{
     padding: 0;
     font-family: "Poppins", sans-serif;
     height: 100%;
+    width: 100%;
     cursor: url('cursor\ normal.png'), auto;
     animation: fadeInLeftBig 1.4s ease-in-out;
     
@@ -27,7 +28,7 @@ body{
         align-items: center;
         justify-content: space-evenly;
         height: 150px;
-        margin-bottom: 140px;
+        margin-bottom: 40px;
         
     }
     
@@ -65,14 +66,14 @@ body{
 
 .login{
 
-    height: 85vh;
+    height: 100vh;
     display: flex; 
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.login .container{
+ .container{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -82,8 +83,8 @@ body{
  }
 
  .card{
-    height: 100%;
-    width: 20%;   
+    height: 450px;
+    width: 450px;   
     background-color: #fff;
     border-radius: 30px;
     display: flex;
@@ -114,11 +115,10 @@ body{
 }
 
 .formulario{
-
-    height: 90%;
+    height: 80%;
+    width: 70%;
     display: flex;
     flex-direction: column;
-    width: 80%;
     justify-content: space-around;
     cursor: url('cursor\ pointer.png'), auto !important; 
 }
@@ -135,8 +135,8 @@ body{
     border: 2px solid rgb(106, 245, 245);
     text-align: center;
     border-radius: 15px;
-    margin: 10;
-    height: 40px;
+    margin: 5px;
+    height: 20px;
     width: 100%;
 
 }
@@ -152,12 +152,12 @@ body{
     cursor: pointer;
     border: 0;
     border-radius: 15px;
-     color: #ffffff;
+    color: #ffffff;
     background-color: rgb(163, 84, 236);
     font-weight: 700;
     font-size: 18px;
     align-self: center;
-    margin-top: -45px;
+    /* margin-top: -45px; */
      height: 40px;
     width: 140px;
     cursor: url('cursor\ pointer.png'), auto !important; 
@@ -181,7 +181,7 @@ body{
 
 footer {
     background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 96%;
+    width: 95.3%;
     height: 50px;
     display: flex;
     justify-content: space-around;
