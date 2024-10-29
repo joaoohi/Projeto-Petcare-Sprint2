@@ -246,32 +246,37 @@
             </script>
 
 
-            <script>
-                 const graficoBarra = document.getElementById('graficoBarra');
+          
 
-                new Chart(graficoBarra, {
-                type: 'bar',
-                data: {
-                    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                    datasets: [{
-                     label: 'Números de bloqueios ativos no mês',
-                    data: [0, 100, 140, 180, 130,155],
-                    borderWidth: 1
-            },
-            ]
+-->
 
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+<script>
+    const graficoBarra = document.getElementById('graficoBarra');
+
+new Chart(graficoBarra, {
+type: 'line',
+data: {
+labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00','18:00','19:00'],
+datasets: [{
+label: 'Gaiola com animal',
+data: [0, 1, 1, 1, 1,1,1,1,1,0,0,0],
+borderWidth: 1
+},
+]
+
+},
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
 });
 
 
-            </script>
+</script>
+
 
             <script>
                 // const graficoPizza = document.getElementById('graficoPizza');

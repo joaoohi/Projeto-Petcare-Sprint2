@@ -58,16 +58,15 @@
             </span>
             <img src="../assets/van_8692766.png" alt="">
 
-            <div>
+            <div class="maxima">
                 <h4>Temperatura Máxima:</h4>
                 <h4>24°C </h4>
-
             </div>
-            <div>
+            <div class="ideal">
                 <h4>Temperatura Ideal:</h4>
                 <h4>22°C</h4>
             </div>
-            <div>
+            <div class="minima">
                 <h4>Temperatura Miníma:</h4>
                 <h4>20°C</h4>
             </div>
@@ -98,7 +97,7 @@
                     <h4>Número de alertas</h4>
                     <h4 class="valor">0</h4>
                 </div>
-            </div>
+            </div>  
 
        
         </header>
@@ -154,19 +153,19 @@
                             label: 'Temperatura média ao dia',
                             data: [18, 23, 23, 24, 21, 26,22,24,23],
                             borderWidth: 2,
-                            borderColor: 'rgba(255, 255, 255, 1)'
+                            borderColor: 'black'
                         },
                         {
                             label: 'Temperatura mínima ao dia',
                             data: [20, 20, 20, 20, 20, 20,20,20,20],
                             borderWidth: 2,
-                            borderColor: 'rgba(255, 255, 255, 1)'
+                            borderColor: 'green'
                         },
                         {
                             label: 'Temperatura máxima ao dia',
                             data: [24,24,24,24,24,24,24,24,24,],
                             borderWidth: 2,
-                            borderColor: 'rgba(255, 255, 255, 1)'
+                            borderColor: 'green'
                         }
                     ],
                     },
@@ -230,31 +229,57 @@
 
 
 
-                const graficoBarra = document.getElementById('graficoBarra');
+            //     const graficoBarra = document.getElementById('graficoBarra');
 
-                new Chart(graficoBarra, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-                        datasets: [{
-                            label: 'Números de bloqueios ativos no mês',
-                            data: [0, 150, 120, 100, 160,130],
-                            borderWidth: 1
-                        },
-                        ]
+            //     new Chart(graficoBarra, {
+            //         type: 'bar',
+            //         data: {
+            //             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            //             datasets: [{
+            //                 label: 'Números de bloqueios ativos no mês',
+            //                 data: [0, 150, 120, 100, 160,130],
+            //                 borderWidth: 1
+            //             },
+            //             ]
 
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
+            //         },
+            //         options: {
+            //             scales: {
+            //                 y: {
+            //                     beginAtZero: true
+            //                 }
+            //             }
+            //         }
+            //     });
 
 
-            </script>
+            // </script>
+<script>
+    const graficoBarra = document.getElementById('graficoBarra');
+
+new Chart(graficoBarra, {
+type: 'line',
+data: {
+labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00','18:00','19:00'],
+datasets: [{
+label: 'Gaiola com animal',
+data: [0, 1, 1, 1, 1,1,1,1,1,0,0,0],
+borderWidth: 1
+},
+]
+
+},
+options: {
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+});
+
+
+</script>
 
             <script>
                 // const graficoPizza = document.getElementById('graficoPizza');
