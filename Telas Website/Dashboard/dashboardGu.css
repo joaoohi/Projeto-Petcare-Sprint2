@@ -60,7 +60,7 @@ header {
 }
 
 .valor-metrica{
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
      margin-bottom: 5px;
 }
@@ -94,6 +94,7 @@ aside img {
 .container {
     margin-left: 200px;
     /* corresponde à largura do aside */
+   
 }
 
 aside {
