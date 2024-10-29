@@ -145,7 +145,6 @@ body{
 
     display: flex;
     flex-direction: column;
-    
 }
 
 .botao{
@@ -182,7 +181,7 @@ body{
 
 footer {
     background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 95.5%;
+    width: 96%;
     height: 50px;
     display: flex;
     justify-content: space-around;
