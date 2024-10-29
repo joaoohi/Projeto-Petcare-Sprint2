@@ -68,19 +68,16 @@ body{
         display: flex; 
         justify-content: center;
         align-items: center;
+       
+    }
+
+    .campo{
+        margin-bottom: 10px;
     }
     
-    /* .login .container{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-     
-     } */
 
      .card{
-        height: 450px;
+        height: 500px;
         width: 450px;   
         background-color: #fff;
         border-radius: 30px;
@@ -93,7 +90,8 @@ body{
         border: 1px solid #A354EC; 
         box-shadow: 0 0 10px #A354EC !important;  
         margin-left: 50%;
-        margin-top: 70px;
+        margin-bottom: 10px;
+        margin-top: 90px;
      }
 
      .formulario{
@@ -117,16 +115,12 @@ body{
         border: 2px solid rgb(106, 245, 245);
         text-align: center;
         border-radius: 15px;
-        /* margin: 2px; */
+        
         height: 40px;
         width: 100%;
     
     }
-    /* .campo{
-        display: flex;
-        flex-direction: column;
-    
-    } */
+   
     
 #select_sensores {
     overflow-y: auto;
@@ -147,18 +141,12 @@ footer {
     align-items: center;
 }
 
-.icone img {
-    margin-right: 7px;
-    color: #fff;
-    cursor: url('cursor\ pointer.png'), auto !important;
-    margin-top: 6px;
+.botaoCalc{
+
+height: 20px !important;
+width: 100px;
 }
 
-.icone p {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-}
 
 div{
     font-size: 2px 10px !important;
@@ -203,7 +191,7 @@ button:hover {
 #div_mensagem {
     display: none; 
     position: absolute;
-    right: 50%;
+    right: 44%;
     bottom: 22px;
     width: 30%;
     background-color: #fff;
@@ -213,5 +201,12 @@ button:hover {
     color: #000;
     font-size: 16px;
     filter: drop-shadow(0px  0px 10px rgba(6, 69, 105, 0.5));
+}
+
+.tabela img{
+    display: flex;
+    justify-content: flex-start;
+    margin-right: -200px;
+    border-radius: 50px;
 }
 
