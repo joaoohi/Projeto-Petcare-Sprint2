@@ -39,12 +39,9 @@ aside span{
 
 .aside-metrica{
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    
-    
     
 }
 
@@ -56,7 +53,7 @@ aside span{
     margin-left: 200px; /* corresponde à largura do aside */
     margin-top: 130px; /* Compensa a altura do header */
     height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
 }
 
 aside {
@@ -102,8 +99,8 @@ aside button {
 
 
 section {
-    background-color: #2E2E2E; 
-    height: 100vh;
+    background-color: whitesmoke;
+    height: 129vh;
 }
 
 /* Estilos gerais para a seção de métricas e gráficos */
@@ -118,6 +115,7 @@ section.metricas-graficos {
     display: flex; /* Ativa o layout flexbox para as métricas */
     justify-content: space-around; /* Espaça as métricas horizontalmente */
     margin-bottom: 20px; /* Espaço entre métricas e gráficos */
+    width: 80%;
 }
 
 .metricas > div {
@@ -141,6 +139,7 @@ section.metricas-graficos {
     gap: 20px; /* Espaço entre os gráficos */
     margin-top: 20px; /* Espaço acima dos gráficos */
     flex-direction: column;
+    align-items: center;
     
 }
 
@@ -148,9 +147,10 @@ section.metricas-graficos {
     border: 3px solid #4cb9eb; /* Borda para os gráficos */
     border-radius: 20px; /* Cantos arredondados */
     height: 300px; /* Define a altura dos gráficos */
-    background-color: #333; /* Cor de fundo dos gráficos */
-    width: 89%; /* Ajuste a largura dos gráficos aqui */
+    background-color:white; /* Cor de fundo dos gráficos */
+    width: 80%; /* Ajuste a largura dos gráficos aqui */
     display: flex; /* Centraliza o canvas dentro do gráfico */
     justify-content: center; /* Centraliza horizontalmente o conteúdo */
     align-items: center; /* Centraliza verticalmente o conteúdo */
 }
+
