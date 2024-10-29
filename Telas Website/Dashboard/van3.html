@@ -121,11 +121,11 @@
                 </div>
                 <div>
                     <h4>Status das Gaiolas</h4>
-                    <h4 class="valor">Inativo</h4>
+                    <h4 class="valor">Ativo</h4>
                 </div>
                 <div>
                     <h4>Número de alertas</h4>
-                    <h4 class="valor">1</h4>
+                    <h4 class="valor">3</h4>
                 </div>
             </div>
 
@@ -173,8 +173,20 @@
                     data: {
                         labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00','18:00','19:00'],
                         datasets: [{
-                            label: 'Temperatura média ao dia',
-                            data: [20, 21, 21, 20, 22, 20,19,23,22,21,19,18],
+                            label: 'Temperatura atual no carro',
+                            data: [20, 21, 21, 27, 22, 30,19,23,22,21,18,20],
+                            borderWidth: 1,
+                            borderColor: 'rgba(255, 255, 255, 1)'
+                        },
+                        {
+                            label: 'Temperatura mínima permitida no carro',
+                            data: [20,20,20,20,20,20,20,20,20,20,20,20],
+                            borderWidth: 1,
+                            borderColor: 'rgba(255, 255, 255, 1)'
+                        },
+                        {
+                            label: 'Temperatura máxima permitida no carro',
+                            data: [24,24,24,24,24,24,24,24,24,24,24,24],
                             borderWidth: 1,
                             borderColor: 'rgba(255, 255, 255, 1)'
                         }]
@@ -237,12 +249,12 @@
                  const graficoBarra = document.getElementById('graficoBarra');
 
 new Chart(graficoBarra, {
-type: 'bar',
+type: 'line',
 data: {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+    labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00' ,'14:00','15:00','16:00','17:00','18:00','19:00'],
     datasets: [{
-     label: 'Números de bloqueios ativos no mês',
-    data: [0, 70, 90, 50, 80,50],
+     label: 'Gaiola com animal',
+    data: [0, 1, 1, 1, 1,1,1,1,1,0,0,0],
     borderWidth: 1
 },
 ]
@@ -290,10 +302,10 @@ beginAtZero: true
                 new Chart(graficoPizza, {
                     type: 'pie',
                     data: {
-                        labels: ['Motorista resolveu os problemas', 'Motorista NÃO precisou de ajuda', 'Motorista precisou de ajuda'],
+                        labels: ['Porcentagem de alertas de temperatura no mês', 'Porcentagem de alertas de presença no mês'],
                         datasets: [{
-                            label: 'Porcentagem de animais transportados',
-                            data: [20, 20, 10],
+                            label: 'Porcentagem de avisos no mes',
+                            data: [50, 30],
                             borderWidth: 1,
                             backgroundColor: [
                                 '#7F00FF', // Cor para "Cachorro"
