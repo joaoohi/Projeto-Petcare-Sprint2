@@ -165,6 +165,22 @@ div{
     font-weight: bold;
     box-shadow: 0 0 10px #A354EC;
 }
+ 
+#select_temp{
+
+    border: 2px solid rgb(106, 245, 245);
+    border-radius: 15px;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    cursor: url('cursor\ pointer.png'), auto !important;
+    background-color: #fff;
+    color: rgb(163, 84, 236);
+    font-weight: bold;
+    box-shadow: 0 0 10px #A354EC;
+
+
+}
 
 button {
     background-color: rgb(163, 84, 236);
