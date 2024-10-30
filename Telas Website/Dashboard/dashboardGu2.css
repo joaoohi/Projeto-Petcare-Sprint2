@@ -167,5 +167,18 @@ section.metricas-graficos {
     margin-top: 30px;
 }
 
+.valormotorista {
+    color: black;
+}
+
+.valoratual {
+    color: yellow;
+}
+
+.valorgaiola, .valoralerta {
+    color: green;
+}
+
+
 
 
