@@ -101,8 +101,9 @@ body{
         width: 90%;
         justify-content: space-around;
         cursor: url('cursor\ pointer.png'), auto !important; 
-        padding: -20px;
+        padding: -10px;
         text-align: center;
+        
     }
     
     .formulario span{
