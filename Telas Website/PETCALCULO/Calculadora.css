@@ -1,5 +1,5 @@
 body{
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    background: linear-gradient(260deg, #B3EFFF 0%, #4cb9eb 100%);
     margin: 0px;
     padding: 0px;
     font-family: "Poppins", sans-serif;
@@ -126,20 +126,7 @@ body{
     overflow-y: auto;
 }
 
-footer {
-    background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    /* padding: 30px; */
-    margin-top: 100px;   
-    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
-}
-.icone {
-    display: flex;
-    align-items: center;
-}
+
 
 .botaoCalc{
 
@@ -224,5 +211,40 @@ button:hover {
     justify-content: flex-start;
     margin-right: -200px;
     border-radius: 50px;
+}
+
+footer {
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    width: 98.5%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+    margin-top: 10%;
+    
+}
+
+footer img{
+    height: 30px;
+    width: 30px;
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+}
+
+.icone img {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.icone p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
 }
 

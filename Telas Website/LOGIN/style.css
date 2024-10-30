@@ -1,6 +1,6 @@
 body{
     font-size: 2px 200px !important;
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    background: linear-gradient(260deg, #B3EFFF 0%, #4cb9eb 100%);
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
@@ -94,7 +94,7 @@ body{
     padding: 20px 25px 0px 25px;
     border: 1px solid #A354EC; 
     box-shadow: 0 0 10px #A354EC !important;  
-    margin-bottom: 300px;
+    margin-bottom: 230px;
     margin-right: 10%;
  }
 
@@ -171,7 +171,7 @@ body{
 }
 
 .imagemC img {
-    margin-top: -350px;
+    margin-top: -200px;
     height: 500px; 
     width: 700px ; 
     object-fit: contain;
@@ -180,25 +180,31 @@ body{
 }
 
 footer {
-    background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 95.3%;
-    height: 50px;
+    /* background-color: rgb(106, 245, 245); */
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+
+    width: 98.5%;
+    height: 90px;
     display: flex;
-    justify-content: space-around;
-    padding: 30px;
-    margin-top: -100px;
+    justify-content: space-between;
+    padding: 10px;
     filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+    margin-top: -70px;
 }
+
+footer img{
+    height: 30px;
+    width: 30px;
+}
+
 .icone {
     display: flex;
     align-items: center;
 }
 
 .icone img {
-    margin-right: 7px;
+    margin-right: 10px;
     color: #fff;
-    cursor: url('cursor\ pointer.png'), auto !important;
-    margin-top: 6px;
 }
 
 .icone p {
@@ -206,6 +212,8 @@ footer {
     font-size: 18px;
     font-weight: bold;
 }
+
+
 
 .input-container {
     position: relative;

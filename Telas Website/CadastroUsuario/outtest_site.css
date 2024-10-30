@@ -115,34 +115,6 @@ header a:hover {
     margin-left: 25%;
 }
 
-footer {
-    background: linear-gradient(180deg, #4cb9eb 0%, #8bd6eb 100%);
-    width: 96%;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    padding: 30px;
-    margin-top: -5%;
-    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
-}
-
-.icone {
-    display: flex;
-    align-items: center;
-}
-
-.icone img {
-    margin-right: 7px;
-    color: #fff;
-    cursor: url('cursor\ pointer.png'), auto !important;
-    margin-top: 6px;
-}
-
-.icone p {
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-}
 
 .input-container {
     position: relative;
@@ -230,3 +202,4 @@ div {
     font-size: 11px;
     
 }
+
