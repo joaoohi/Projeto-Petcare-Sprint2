@@ -13,7 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="outtest_site.css">
 
     <style>
         img:hover {
@@ -45,16 +44,16 @@
                 <h1>Cadastrar</h1>
             </b>
             <span>Razão Social:</span>
-            <input class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
+            <input oninput="razao()" id="input_razao" class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
             <div class="razao_validar" id="div_razao"></div> 
             
             <span>CNPJ:</span>
-            <input class="input_cadastro" type="number" placeholder="Digite o CNPJ da empresa">
+            <input id="input_cnpj" oninput="cnpj()" class="input_cadastro" type="number" placeholder="Digite o CNPJ da empresa">
             <div class="cnpj_validar" id="div_cnpj"></div>
 
             <span>CEP:</span>
-            <input class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
-            <div class="razao_validar" id="div_cep"></div>
+            <input id="input_cep" oninput="cep()" class="input_cadastro" type="text" placeholder="Digite o nome da empresa">
+            <div class="cep_validar" id="div_cep"></div>
 
             <span>Telefone:</span>
             <input class="input_cadastro" type="number" placeholder="Digite o telefone da empresa">
@@ -141,7 +140,7 @@
         var Minus = senha.toLowerCase();
         var temminuscula = senha != Maius;
         var temmaiuscula = senha != Minus;
-
+    
 
 
         if (tamanho_senha >= 8 && ESPECIAIS && temmaiuscula && temminuscula) {
@@ -192,5 +191,53 @@
 
         div_email.innerHTML = mensagem
 
+    }
+
+    function razao(){
+        var mensagem = '';
+        var razao_social = input_razao.value;
+        var tamanho_razao = razao_social.length;
+
+        if (tamanho_razao < 2){
+            mensagem += `A Razão Social tem que ter no mínimo 2 caracteres`
+            div_razao.style.color = 'red'
+        } else {
+            mensagem += 'Válido'
+            div_razao.style.color = 'green'
+        }
+
+        div_razao.innerHTML = mensagem
+    }
+
+    function cnpj (){
+        var mensagem = '';
+        var cnpj = input_cnpj.value;
+        var tamanho_cnpj = cnpj.length;
+
+        if (tamanho_cnpj < 14 || tamanho_cnpj >= 15){
+            mensagem += `CNPJ deve conter 14 digitos.`
+            div_cnpj.style.color = 'red'
+        } else {
+            mensagem += `CNPJ válido.`
+            div_cnpj.style.color = 'green'
+        }
+
+        div_cnpj.innerHTML = mensagem
+    }
+
+    function cep(){
+        var mensagem = '';
+        var cep = input_cep.value;
+        var tamanho_cep = cep.length;
+
+        if (tamanho_cep < 8 || tamanho_cep >=9){
+            mensagem += `CEP deve conter 8 digitos.`
+            div_cep.style.color = 'red'
+        } else {
+            mensagem += `CEP válido.`
+            div_cep.style.color = 'green'
+        }
+
+        div_cep.innerHTML = mensagem
     }
 </script>
