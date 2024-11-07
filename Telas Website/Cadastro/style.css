@@ -47,7 +47,7 @@ div img {
     display: flex;
     flex-direction: column;
     width: 450px;
-    height: 550px;
+    height: 700px;
     margin-top: -10%;
     background-color: #fff;
     border-top: 1px solid #dadde1;
@@ -120,7 +120,7 @@ header a:hover {
     height: 40px;
     width: 140px;
     margin-top: -16px;
-    margin-right: 100px;
+    margin-right: 10px;
 }
 .cadastro_link {
    
