@@ -56,8 +56,8 @@
             <div class="cep_validar" id="div_cep"></div>
 
             <span>Telefone:</span>
-            <input class="input_cadastro" type="number" placeholder="Digite o telefone da empresa">
-            <div class="razao_validar" id="div_validar"></div>
+            <input oninput="telefone()" id="input_telefone" class="input_cadastro" type="number" placeholder="Digite o telefone da empresa">
+            <div class="telefone_validar" id="div_telefone"></div>
 
             <span>Email:</span>
             <input oninput="email()" id="input_email"class="input_cadastro"  type="text" placeholder="Digite seu email">
@@ -202,7 +202,7 @@
             mensagem += `A Razão Social tem que ter no mínimo 2 caracteres`
             div_razao.style.color = 'red'
         } else {
-            mensagem += 'Válido'
+            mensagem += 'Razão Social válido'
             div_razao.style.color = 'green'
         }
 
@@ -240,4 +240,22 @@
 
         div_cep.innerHTML = mensagem
     }
+
+    function telefone (){
+        var mensagem = '';
+        var telefone = input_telefone.value;
+        var tamanho_telefone = telefone.length;
+
+        if (tamanho_telefone < 10 || tamanho_telefone >= 11){
+            mensagem += `Telefone inválido. Siga esse modelo: DDDXXXXXXXX`
+            div_telefone.style.color = 'red'
+        } else {
+            mensagem += `Telefone Válido`
+            div_telefone.style.color = 'green'
+        }
+
+        div_telefone.innerHTML = mensagem
+    }
+
+
 </script>

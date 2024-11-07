@@ -27,7 +27,7 @@ body {
     margin: 95px auto;
     margin-left: 0%;
     width: 100%;
-    /* padding: 5px 0px 0px; */
+    
 }
 
 
@@ -185,7 +185,7 @@ div {
     font-size: 11px;
 }
 
-.confirmar_senha, .email_validar, .razao_validar, .cnpj_validar, .cep_validar {
+.confirmar_senha, .email_validar, .razao_validar, .cnpj_validar, .cep_validar, .telefone_validar {
     font-size: 11px;
     
 }
