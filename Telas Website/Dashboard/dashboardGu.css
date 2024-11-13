@@ -148,7 +148,19 @@ section div {
     align-items: center;
     border-radius: 20px;
     flex-direction: column;
-     border: 3px solid rgb(106, 245, 245); 
+     
+}
+
+.van-1{
+    background-color: blue
+}
+
+.van-2{
+    background-color: red;
+}
+
+.van-3{
+    background-color: yellow;
 }
 
 section div:hover{
@@ -164,6 +176,3 @@ section h5 {
 
 }
 
-div .van-3{
-    border: 3px solid  #e91a16;
-}
