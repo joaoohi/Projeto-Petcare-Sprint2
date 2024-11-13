@@ -127,11 +127,7 @@ section {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    margin-top: 10px; /* Corresponde à altura do header */
-  
-    
-    
-
+    margin-top: -30px; /* Corresponde à altura do header */
 }
 
 section img {
