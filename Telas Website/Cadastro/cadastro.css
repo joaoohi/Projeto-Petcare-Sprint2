@@ -98,9 +98,11 @@ body {
 .input-row {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
-    gap: 20px; /* Aumenta o espaçamento horizontal entre os campos */
+    column-gap: 40px; /* Espaçamento horizontal entre as colunas */
+    row-gap: 20px; /* Espaçamento vertical entre as linhas */
     margin-bottom: 20px; /* Espaçamento maior entre as linhas */
 }
+
 
 /* Botão de Cadastro */
 .btn {
