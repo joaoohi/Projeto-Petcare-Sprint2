@@ -28,7 +28,7 @@ header {
     /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);  */
     /* 
    background-image: url(../assets/PetcareBackground.png); */
-    background-image: url(../assets/gradient_1920_1080\ \(2\).png);
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
     background-size: cover;
 
     height: 80px;
@@ -98,7 +98,7 @@ header a:hover {
  
     /* background-image: url(../assets//vecteezy_cute-little-dog-in-pet-carrier-with_24769404.jpg);
     background-size: cover; */
-    background-image: url(../assets/banner.jpg);
+    background-image: url(../assets/imgs/banner.jpg);
     background-size: cover;
     height: 80vh;
     min-width: 100vw;
@@ -304,7 +304,7 @@ header a:hover {
     margin-top: 150px;
     height: 100vh;
     width: 100vw;
-    background-image: url(../assets/gradient_1920_1080\ \(2\).png);
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
     background-size: cover;
     gap: 20px;
     padding: 40px;
@@ -487,7 +487,7 @@ header a:hover {
 
 
 .taxi-dog {
-    background-image: url(./img/taxiDog.jpg);
+    background-image: url(./assets/imgs/taxiDog.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -608,7 +608,7 @@ header a:hover {
 
 
 .taxi-dog {
-    background-image: url(../assets//taxiDog.jpg);
+    background-image: url(../assets/imgs/taxiDog.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -631,7 +631,7 @@ header a:hover {
 .card-container {
     width: 80vw;
     height: 300px; /* Definido um valor fixo para altura */
-    background-image: url(../assets/PetcareBackground.png);
+    background-image: url(../assets/imgs/PetcareBackground.png);
     background-size: cover;
     display: flex;
     flex-direction: column; /* Alinha os conteúdos dos cards verticalmente */
@@ -837,7 +837,7 @@ header a:hover {
 footer {
     /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);  */
 
-    background-image: url(../assets/gradient_1920_1080\ \(2\).png);
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
     background-size: cover;
 
     width: 100%;
