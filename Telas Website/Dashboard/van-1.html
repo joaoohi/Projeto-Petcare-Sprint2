@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Presença</title>
+    <title>Dashboard de Presença e Temperatura</title>
     <link rel="stylesheet" href="vans.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -27,15 +27,20 @@
         </aside>
 
         <section>
-            <canvas id="lineChart" width="400" height="400"></canvas>
+           <div>
+            <canvas id="lineChart" width="400" height="200"></canvas>
+           </div>
+           <div>
+            <canvas id="temperatureChart" width="400" height="200" style="margin-top: 20px;"></canvas>
+           </div>
         </section>
     </div>
 
     <script>
-        // Configuração inicial do gráfico
+        // Configuração do gráfico de presença
         window.onload = function () {
-            const ctx = document.getElementById('lineChart').getContext('2d');
-            const lineChart = new Chart(ctx, {
+            const ctx1 = document.getElementById('lineChart').getContext('2d');
+            const lineChart = new Chart(ctx1, {
                 type: 'line',
                 data: {
                     labels: [], // Labels atualizadas em tempo real
@@ -52,7 +57,7 @@
                 options: {
                     animation: {
                         duration: 1000,
-                        easing: 'linear' // Suavidade durante atualização
+                        easing: 'linear'
                     },
                     scales: {
                         x: {
@@ -61,7 +66,7 @@
                                 text: 'Tempo',
                                 color: 'black'
                             },
-                            type: 'category', // Eixo X categórico
+                            type: 'category',
                             ticks: {
                                 color: 'black'
                             }
@@ -95,28 +100,93 @@
                 }
             });
 
-            // Atualização dos dados simulados
+            // Configuração do gráfico de temperatura
+            const ctx2 = document.getElementById('temperatureChart').getContext('2d');
+            const temperatureChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Temperatura na Van (°C)',
+                        data: [],
+                        borderWidth: 2,
+                        fill: false,
+                        pointBackgroundColor: [], // Cores dos pontos
+                        lineTension: 0.2
+                    }]
+                },
+                options: {
+                    animation: {
+                        duration: 1000,
+                        easing: 'linear'
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tempo',
+                                color: 'black'
+                            },
+                            type: 'category',
+                            ticks: {
+                                color: 'black'
+                            }
+                        },
+                        y: {
+                            min: 16,
+                            max: 28,
+                            ticks: {
+                                stepSize: 2,
+                                callback: function (value) {
+                                    return `${value}°C`;
+                                },
+                                color: 'black'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Temperatura (°C)',
+                                color: 'black'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Função para atualizar dados simulados
             function updateMockData() {
                 const now = new Date();
-                const formattedTime = now.toLocaleTimeString(); // Horário atual como label
+                const formattedTime = now.toLocaleTimeString();
 
-                const newStatus = Math.round(Math.random()); // Simula a presença (0 ou 1)
-
-                // Mantém no máximo 10 pontos no gráfico
+                // Simula presença
+                const newStatus = Math.round(Math.random());
                 if (lineChart.data.labels.length > 10) {
                     lineChart.data.labels.shift();
                     lineChart.data.datasets[0].data.shift();
                 }
-
-                // Adiciona novos valores
                 lineChart.data.labels.push(formattedTime);
                 lineChart.data.datasets[0].data.push(newStatus);
-
-                // Atualiza o gráfico
                 lineChart.update();
+
+                // Simula temperatura
+                const newTemperature = Math.floor(Math.random() * 12) + 16; // Gera valores entre 16 e 28
+                const pointColor = 
+                    newTemperature < 18 || newTemperature > 26 ? 'red' : // Perigo
+                    newTemperature === 20 || newTemperature === 24 ? 'yellow' : // Min/Máx
+                    newTemperature === 22 ? 'green' : 'blue'; // Ideal ou outros
+
+                if (temperatureChart.data.labels.length > 10) {
+                    temperatureChart.data.labels.shift();
+                    temperatureChart.data.datasets[0].data.shift();
+                    temperatureChart.data.datasets[0].pointBackgroundColor.shift();
+                }
+                temperatureChart.data.labels.push(formattedTime);
+                temperatureChart.data.datasets[0].data.push(newTemperature);
+                temperatureChart.data.datasets[0].pointBackgroundColor.push(pointColor);
+
+                temperatureChart.update();
             }
 
-            // Atualiza a cada 1 segundo
+            // Atualiza ambos os gráficos a cada 1 segundo
             setInterval(updateMockData, 1000);
         };
     </script>
