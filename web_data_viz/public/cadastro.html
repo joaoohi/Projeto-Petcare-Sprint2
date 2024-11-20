@@ -20,7 +20,13 @@
         <a href="../Cadastro/cadastro.html">CADASTRO</a>
     </header>
 
+            
     <div class="login-container">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+              <span id="mensagem_erro"></span>
+            </div>
+          </div>
         <h1>Cadastro</h1>
         <div class="input-row">
             <div class="input-group">
@@ -70,7 +76,7 @@
         <div class="signup-link">
             <a href="../LOGIN/login.html">Já tem conta? <span>Entrar</span></a>
         </div>
-    
+        <div id="div_erros_login"></div>
     </div>    
     </div>
     
@@ -125,7 +131,11 @@
         senhaVar== "" ||
         confirmarVar== "" 
     ) {
-    alert('Preencha todos os campos')
+        cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
       return false;
     }else  {
       setInterval(sumirMensagem, 5000);
@@ -135,22 +145,38 @@
             emailArroba == -1 ||
             emailCaracteres >= 0 ||
             tamanhoSenha <= 6 ||
+            tamanhoCnpj < 14 && tamanhoCnpj > 14 ||
+            tamanhoTelefone < 12 && tamanhoTelefone > 12||
+            tamanhoCelular < 12 && tamanhoCelular >12 ||
             senhaVar != senhaVar||
             tamanhoCep == 9  
     ){
-     
-      alert(`Mensagem de erro, campos não validados!
-      O nome tem que ser maior que 1!
-      O email tem que ter Arroba '@'!
-      O cpf tem que conter 11 numeros!
-      E a senha tem que ser igual no confirmar senha!`);
+        cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+      `Mensagem de erro, campos não validados!<br>
+      O nome tem que ser maior que 1!<br>
+      O email tem que ter Arroba '@'!<br>
+      O cpf tem que conter 11 numeros!<br>
+      E a senha tem que ser igual no confirmar senha!`;
 
+      finalizarAguardar();
       return false;
     } else{
       setInterval(sumirMensagem, 5000);
     }
 
-    
+     // Verificando se o código de ativação é de alguma empresa cadastrada
+     for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        console.log("Código de ativação válido.");
+        break;
+      } else {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        finalizarAguardar();
+      }
+    }
 
     // Enviando o valor da nova input
     fetch("/empresa/cadastrar", {
@@ -185,15 +211,15 @@
             window.location = "login.html";
           }, "2000");
 
-        //   limparFormulario();
-        //   finalizarAguardar();
+          limparFormulario();
+          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
+        finalizarAguardar();
       });
 
     return false;
@@ -219,5 +245,7 @@
       });
   }
 
-  
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
 </script>
