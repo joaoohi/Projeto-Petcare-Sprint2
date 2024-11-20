@@ -112,6 +112,8 @@ insert into empresa values
     insert into van values
 -- Transportes da empresa 1
 (default, 1, 'Lenovo', '500mb'),
+(default, 1, 'Lenovo', '500mb'),
+(default, 1, 'Lenovo', '500mb'),
 
 -- Transportes da empresa 2
 (default, 2, 'Positivo', '500mb'),
@@ -219,7 +221,7 @@ case when status_sensor = 'Ativo' then 'Sensor Ativo'
 
 select e.nome_fantasia, v.idVan, t.sensor_analogico,
      t.momento, g.*, p.sensor_digital, p.momento
-from empresa as e join van as v on idEmpresa = fkEmpresaVan
+from empresa as e left join van as v on idEmpresa = fkEmpresaVan
 join sensorTemperatura on idVan = fkVanSensor
 join gaiola as g on v.idVan = g.fkVanGaiola
 join sensorPresenca on idGaiola = fkGaiolaSensorPresenca
