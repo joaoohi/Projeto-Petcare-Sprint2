@@ -1,5 +1,5 @@
-var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var empresaModel = require("../models/empresaModel");
+var cadastroModel = require("../models/cadastroModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -11,7 +11,7 @@ function autenticar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        empresaModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -20,19 +20,23 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        cadastroModel.buscarUsuario(resultadoAutenticar[0].idEmpresa)
+                            .then((resultadoEmpresa) => {
+                                if (resultadoEmpresa.length > 0) {
                                     res.json({
-                                        id: resultadoAutenticar[0].id,
+                                        idEmpresa: resultadoAutenticar[0].idEmpresa,
                                         email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
+                                        razao: resultadoAutenticar[0].razao,
+                                        cnpj: resultadoAutenticar[0].cnpj,
                                         senha: resultadoAutenticar[0].senha,
-                                        cpf: resultadoAutenticar[0].cpf,
-                                        aquarios: resultadoAquarios
+                                        cep: resultadoAutenticar[0].cep,
+                                        telefone: resultadoAutenticar[0].telefone,
+                                        celular:resultadoAutenticar[0].celular,
+                                        Empresa: resultadoEmpresa
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ Empresa: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {
@@ -54,27 +58,41 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
+    var idEmpresa = req.body.idEmpresaServer;
     var email = req.body.emailServer;
+    var nome = req.body.nomeServer;
+    var razao = req.body.razaoServer;
+    var cnpj = req.body.cnpjServer;
     var senha = req.body.senhaServer;
-    var cpf = req.body.cpfServer;
-    var fkEmpresa = req.body.idEmpresaVincularServer;
+    var cep = req.body.cepServer;
+    var telefone = req.body.telefoneServer;
+    var celular = req.body.celularServer;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+    if (idEmpresa == undefined) {
+        res.status(400).send("Sua empresa está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
+    } else if (nome == undefined) {
+        res.status(400).send("Seu Nome Fantasia está undefined!");
+    }else if (razao == undefined) {
+        res.status(400).send("Sua razao social está undefined!");
+     } else if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    }else if (cpf == undefined) {
-        res.status(400).send("Seu cpf está undefined!");
-     } else if (fkEmpresa == undefined) {
-        res.status(400).send("Sua empresa a vincular está undefined!");
-    } else {
+    } else if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (celular == undefined) {
+        res.status(400).send("Seu celular está undefined!");
+    } else  {  
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cpf, fkEmpresa)
+        // Passe os valores como parâmetro e vá para o arquivo empresaModel.js
+        empresaModel.cadastrar(
+            idEmpresa, email, nome, razao, cnpj, senha, cep, telefone, celular
+        )
             .then(
                 function (resultado) {
                     res.json(resultado);
