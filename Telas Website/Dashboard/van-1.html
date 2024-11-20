@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Tela</title>
-    <link rel="stylesheet" href="dashboardGu.css">
+    <title>Dashboard de Presença</title>
+    <link rel="stylesheet" href="vans.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca Chart.js -->
 </head>
 
 <body>
     <div class="container">
-
         <aside>
             <div class="img-aside">
                 <img src="../assets/frizzaimg.jpg" alt="">
@@ -27,10 +27,99 @@
         </aside>
 
         <section>
-            <!-- Seção vazia com as mesmas estilizações -->
+            <canvas id="lineChart" width="400" height="400"></canvas>
         </section>
-
     </div>
+
+    <script>
+        // Configuração inicial do gráfico
+        window.onload = function () {
+            const ctx = document.getElementById('lineChart').getContext('2d');
+            const lineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [], // Labels atualizadas em tempo real
+                    datasets: [{
+                        label: 'Presença do Pet na Van',
+                        data: [], // Dados atualizados em tempo real
+                        backgroundColor: 'rgba(106, 245, 237, 0.2)', // Fundo
+                        borderColor: 'rgba(106, 245, 237, 1)', // Cor da linha
+                        borderWidth: 2,
+                        fill: true,
+                        lineTension: 0.2 // Suavidade da linha
+                    }]
+                },
+                options: {
+                    animation: {
+                        duration: 1000,
+                        easing: 'linear' // Suavidade durante atualização
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tempo',
+                                color: 'black'
+                            },
+                            type: 'category', // Eixo X categórico
+                            ticks: {
+                                color: 'black'
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 1,
+                            ticks: {
+                                stepSize: 1,
+                                callback: function (value) {
+                                    return value === 1 ? 'Presente' : 'Ausente';
+                                },
+                                color: 'black'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Status',
+                                color: 'black'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return context.raw === 1 ? 'Presente' : 'Ausente';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Atualização dos dados simulados
+            function updateMockData() {
+                const now = new Date();
+                const formattedTime = now.toLocaleTimeString(); // Horário atual como label
+
+                const newStatus = Math.round(Math.random()); // Simula a presença (0 ou 1)
+
+                // Mantém no máximo 10 pontos no gráfico
+                if (lineChart.data.labels.length > 10) {
+                    lineChart.data.labels.shift();
+                    lineChart.data.datasets[0].data.shift();
+                }
+
+                // Adiciona novos valores
+                lineChart.data.labels.push(formattedTime);
+                lineChart.data.datasets[0].data.push(newStatus);
+
+                // Atualiza o gráfico
+                lineChart.update();
+            }
+
+            // Atualiza a cada 1 segundo
+            setInterval(updateMockData, 1000);
+        };
+    </script>
 </body>
 
 </html>
