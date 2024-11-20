@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* Cor de fundo geral */
+}
+
+.container {
+    margin-left: 200px; /* Espaço para o aside */
+    margin-top: 130px; /* Compensa a altura do header se existir */
+    height: 100vh;
+}
+
+/* Estilização do aside */
+aside {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+}
+
+.img-aside img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    margin-top: 20px;
+}
+
+.bemvindo {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buttonsmeio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os botões */
+    margin-top: 20px;
+}
+
+aside button {
+    height: 50px;
+    width: 180px;
+    background: linear-gradient(#7F00FF, #E100FF);
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+aside button:hover {
+    background: linear-gradient(#E100FF, #7F00FF);
+}
+
+/* Estilização da section */
+section {
+    background-color: whitesmoke;
+    height: 129vh; /* Ajuste de altura */
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar a seção */
+}
