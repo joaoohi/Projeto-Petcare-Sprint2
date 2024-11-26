@@ -1,0 +1,223 @@
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header img {
+    height: 200px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+header a span {
+    color: rgb(163, 84, 236);
+}
+
+header a span:hover {
+    color: #fff;
+}
+
+header a:hover {
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    color: rgb(163, 84, 236);
+    border-bottom: 2px solid rgb(163, 84, 236);
+}
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajuste para altura da tela */
+    padding-top: 80px; /* Espaço para o header fixo */
+}
+
+/* Login Container */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50px);
+    padding: 40px; /* Aumentado para mais espaçamento interno */
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Aumenta a largura máxima do container */
+    text-align: center;
+    margin-top: 20px;
+    min-height: 70vh; /* Altura mínima para garantir visibilidade */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+}
+
+
+.login-container h1 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 15px; /* Adiciona espaçamento inferior entre os inputs */
+}
+
+
+/* Organização em Grid */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas iguais */
+    column-gap: 40px; /* Espaçamento horizontal entre as colunas */
+    row-gap: 20px; /* Espaçamento vertical entre as linhas */
+    margin-bottom: 20px; /* Espaçamento maior entre as linhas */
+}
+
+
+/* Botão de Cadastro */
+.btn {
+    padding: 8px 30px;
+    background-color: rgb(163, 84, 236);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #379dc7;
+}
+
+/* Link para Login */
+.signup-link {
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.signup-link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.signup-link a span {
+    color: rgb(163, 84, 236);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .input-row {
+        grid-template-columns: 1fr; /* Alinha os campos em uma única coluna */
+    }
+
+    .login-container {
+        max-width: 100%; /* Garante que o container ocupe toda a largura da tela em telas menores */
+    }
+}
+
+
+/* css de avisos */
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #ED145B 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .formulario .tipo_campo {
+    font-size: 20px;
+    font-weight: 600 !important;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    border: 2px solid #32b9cd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .btn {
+    font-family: "Barlow", sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #ED145B;
+    width: 120px;
+    align-self: center;
+    margin-top: 5px;
+  }
+  
+  .loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+  

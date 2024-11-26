@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+
+header {
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    position: fixed; /* Adiciona fixação */
+    top: 0; /* Alinha no topo */
+    z-index: 1000; /* Certifica-se de que o header fique sobre os outros elementos */
+}
+
+/* header div {
+    height: 150px;
+    width: 220px;
+    background: linear-gradient(#7F00FF, #E100FF);
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
+
+} */
+
+header img{
+    height: 100px;
+   
+}
+
+/* header h4 {
+    font-size: 22px;
+    padding: 10px;
+} */
+
+aside img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-top: -420px;
+}
+
+aside .buttonhome {
+    justify-content: top;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+.container {
+    margin-left: 200px; /* corresponde à largura do aside */
+}
+
+aside {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+}
+
+
+aside button{
+    height: 50px;
+    width: 180px;
+    background: linear-gradient(#7F00FF, #E100FF);
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+section {
+   
+    height: 95.5vh;
+    background-color: black;
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 50px; /* Corresponde à altura do header */
+
+}
+
+section img {
+    height: 200px;
+
+}
+
+section div {
+    background-color: #fff;
+    height: 400px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    flex-direction: column;
+     border: 3px solid rgb(106, 245, 245); 
+}
+section .van-3 {
+    border-color: red;
+}
+section div:hover{
+    height: 420px;
+    width: 350px;
+    transition: all 0.5s ease-in-out;
+}
+
+section h5 {
+    margin-bottom: 25px;
+    color: rgb(163, 84, 236);
+    font-size: 40px;
+
+}

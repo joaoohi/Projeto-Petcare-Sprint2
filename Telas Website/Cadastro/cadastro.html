@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - PetCare</title>
+    <link rel="stylesheet" href="./cadastro.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="../assets/logoPetCareAtualizada2.png" alt="Logo PetCare">
+        </div>
+        <a href="../Site institucional/index.html"><span>HOME</span></a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#servicos">SERVIÇOS</a>
+        <a href="../PETCALCULO/calculadora.html">PETCÁLCULO</a>
+        <a href="../LOGIN/login.html">LOGIN</a>
+        <a href="../Cadastro/cadastro.html">CADASTRO</a>
+    </header>
+
+    <div class="login-container">
+        <h1>Cadastro</h1>
+        <div class="input-row">
+            <div class="input-group">
+                <label for="razao-social">Razão Social</label>
+                <input type="text" id="razao-social" name="razao-social">
+            </div>
+            <div class="input-group">
+                <label for="nome-fantasia">Nome Fantasia</label>
+                <input type="text" id="nome-fantasia" name="nome-fantasia">
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj">
+            </div>
+            <div class="input-group">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep">
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-group">
+                <label for="telefone-empresa">Telefone Empresa</label>
+                <input type="text" id="telefone-empresa" name="telefone-empresa">
+            </div>
+            <div class="input-group">
+                <label for="telefone-celular">Telefone Celular</label>
+                <input type="text" id="telefone-celular" name="telefone-celular">
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="input-row">
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
+            </div>
+            <div class="input-group">
+                <label for="confirmar-senha">Confirme sua Senha</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha">
+            </div>
+        </div>
+        <button class="btn">Cadastrar</button>
+        <div class="signup-link">
+            <a href="../LOGIN/login.html">Já tem conta? <span>Entrar</span></a>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+<script>
+
+    function analisar() {
+
+        var senha = input_senha.value
+        var mensagem = ' '
+        var tamanho_senha = senha.length
+        var confirmar = confirmar_senha.value
+        var temexclama = senha.includes('!');
+        var temarroba = senha.includes('@');
+        var temhash = senha.includes('#');
+        var temcifrao = senha.includes('$');
+        var temporcen = senha.includes('%');
+        var temchapeu = senha.includes('^');
+        var temezao = senha.includes('&');
+        var temaster = senha.includes('*');
+        var temparentum = senha.includes('(');
+        var temparentois = senha.includes(')');
+        var temvirgula = senha.includes(',');
+        var temponto = senha.includes('.');
+        var teminterrogacao = senha.includes('?');
+        var temaspas = senha.includes('"');
+        var temigual = senha.includes(':');
+        var temcolcheteum = senha.includes('{');
+        var temcolchetedois = senha.includes('}');
+        var tembarrao = senha.includes('|');
+        var temmenorque = senha.includes('<');
+        var temmaiorque = senha.includes('>');
+        var ESPECIAIS = (temexclama || temarroba || temhash || temcifrao || temporcen || temchapeu
+        ||   temezao || temaster || temparentum || temparentois || temvirgula || temponto || teminterrogacao ||
+         temaspas || temigual || temcolcheteum || temcolchetedois || tembarrao || temmenorque || temmaiorque
+        )
+        var Maius = senha.toUpperCase();
+        var Minus = senha.toLowerCase();
+        var temminuscula = senha != Maius;
+        var temmaiuscula = senha != Minus;
+    
+
+
+        if (tamanho_senha >= 8 && ESPECIAIS && temmaiuscula && temminuscula) {
+            mensagem += `A senha é forte`
+            div_mensagem.style.color = 'green'
+        } else {
+            mensagem += `A senha deve ter pelo menos 8 caracteres, letra maiúscula e minúscula e um caractere especial.`
+            div_mensagem.style.color = 'red'
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+    function confirmar() {
+    var senha = input_senha.value;
+    var confirmar = confirmar_senha.value;
+    var mensagem = ''; 
+
+    if (senha === confirmar && senha.length > 0) {
+        mensagem = `Senhas coincidem`; 
+        confirmar_mensagem.style.color = 'green';
+    } else if (senha.length > 0) {
+        mensagem = `Senhas devem ser iguais`; 
+        confirmar_mensagem.style.color = 'red';
+    } else {
+        mensagem = ''; 
+    }
+
+    confirmar_mensagem.innerHTML = mensagem;
+}
+
+
+    function email() {
+        var mensagem = ' '
+        var email = input_email.value
+        var email_com = email.endsWith('.com')
+        var email_br = email.endsWith('.br')
+        var email_school = email.endsWith('school')
+        var arroba = email.includes('@')
+
+        if ((email_br || email_com || email_school) && arroba) {
+            mensagem += `Email Válido`
+            div_email.style.color = 'green'
+        } else {
+            mensagem += `Email Inválido`
+            div_email.style.color = 'red'
+        }
+
+        div_email.innerHTML = mensagem
+
+    }
+
+    function razao(){
+        var mensagem = '';
+        var razao_social = input_razao.value;
+        var tamanho_razao = razao_social.length;
+
+        if (tamanho_razao < 2){
+            mensagem += `A Razão Social tem que ter no mínimo 2 caracteres`
+            div_razao.style.color = 'red'
+        } else {
+            mensagem += 'Razão Social válido'
+            div_razao.style.color = 'green'
+        }
+
+        div_razao.innerHTML = mensagem
+    }
+
+    function cnpj (){
+        var mensagem = '';
+        var cnpj = input_cnpj.value;
+        var tamanho_cnpj = cnpj.length;
+
+        if (tamanho_cnpj < 14 || tamanho_cnpj >= 15){
+            mensagem += `CNPJ deve conter 14 digitos.`
+            div_cnpj.style.color = 'red'
+        } else {
+            mensagem += `CNPJ válido.`
+            div_cnpj.style.color = 'green'
+        }
+
+        div_cnpj.innerHTML = mensagem
+    }
+
+    function cep(){
+        var mensagem = '';
+        var cep = input_cep.value;
+        var tamanho_cep = cep.length;
+
+        if (tamanho_cep < 8 || tamanho_cep >=9){
+            mensagem += `CEP deve conter 8 digitos.`
+            div_cep.style.color = 'red'
+        } else {
+            mensagem += `CEP válido.`
+            div_cep.style.color = 'green'
+        }
+
+        div_cep.innerHTML = mensagem
+    }
+
+    function telefone (){
+        var mensagem = '';
+        var telefone = input_telefone.value;
+        var tamanho_telefone = telefone.length;
+
+        if (tamanho_telefone < 10 || tamanho_telefone >= 11){
+            mensagem += `Telefone inválido. Siga esse modelo: DDDXXXXXXXX`
+            div_telefone.style.color = 'red'
+        } else {
+            mensagem += `Telefone Válido`
+            div_telefone.style.color = 'green'
+        }
+
+        div_telefone.innerHTML = mensagem
+    }
+
+    function cadastrar() {
+        razao();
+        cnpj();
+        cep();
+        telefone();
+        email();
+        analisar();
+        confirmar();
+
+       
+        var  razaoValida = div_razao.style.color == 'green';
+        var  cnpjValido = div_cnpj.style.color == 'green';
+        var  cepValido = div_cep.style.color == 'green';
+        var  telefoneValido = div_telefone.style.color == 'green';
+        var  emailValido = div_email.style.color == 'green';
+        var  senhaValida = div_mensagem.style.color == 'green';
+        var  senhaConfirmada = confirmar_mensagem.style.color == 'green';
+
+        if (razaoValida && cnpjValido && cepValido && telefoneValido && emailValido && senhaValida && senhaConfirmada) {
+            window.location.href = '../LOGIN/LOGINPETCARE.html'
+        } else {
+            alert("Por favor, corrija os erros antes de cadastrar.");
+        }
+
+
+   // Enviando o valor da nova input
+   fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        cpfServer: cpfVar,
+        idEmpresaVincularServer: idEmpresaVincular
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  
+
+    }
+
+
+</script>

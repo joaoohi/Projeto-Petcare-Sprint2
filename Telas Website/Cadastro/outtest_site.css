@@ -1,0 +1,228 @@
+body {
+
+    background: linear-gradient(260deg, #B3EFFF 0%, #4cb9eb 100%);
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    cursor: url('cursor\ normal.png'), auto;
+    animation: fadeInLeftBig 1.4s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 95px auto;
+    margin-left: 0%;
+    width: 100%;
+    padding: 5px 0px 0px;
+}
+
+
+h1 {
+    margin-left: 32%;
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 13px;
+}
+
+.gato {
+    margin-top: -25%;
+    height: 400px;
+    margin-left: -13%;
+}
+.painel {
+
+    margin-top: -11%;
+    background-color: #fff;
+    border-radius: 20px;
+    border-top: 1px solid #dadde1;
+    box-sizing: border-box;
+    padding: 16px;
+    position: relative;
+    width: 432px;
+    
+}
+
+
+@keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 150px;
+    margin-bottom: 140px;
+
+}
+
+header img {
+    height: 300px;
+    margin-top: -50px;
+    filter: drop-shadow(0 8px 20px rgba(46, 45, 45, 0.5));
+    margin-right: -10px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    border-bottom: 2px solid rgb(163, 84, 236);
+    cursor: url('cursor\ pointer.png'), auto !important;
+    filter: drop-shadow(0px 0px 10px rgba(6, 69, 105, 0.5));
+
+}
+
+header a span {
+    color: rgb(163, 84, 236);
+}
+
+header a span:hover {
+    color: #fff;
+
+}
+
+header a:hover {
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    color: rgb(163, 84, 236);
+}
+
+.botao {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: rgb(163, 84, 236);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 50%;
+    margin-left: 25%;
+}
+
+footer {
+    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    width: 95.5%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    margin-top: -5%;
+    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
+}
+
+.icone {
+    display: flex;
+    align-items: center;
+}
+
+.icone img {
+    margin-right: 7px;
+    color: #fff;
+    cursor: url('cursor\ pointer.png'), auto !important;
+    margin-top: 6px;
+}
+
+.icone p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-container .input-icon {
+    position: absolute;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.input-container input {
+    padding-left: 40px;
+    border: 2px solid rgb(106, 245, 245);
+    text-align: left;
+    border-radius: 15px;
+    margin: 10px 0;
+    height: 40px;
+    width: 100%;
+}
+
+.botao:hover {
+    background-color: dodgerblue;
+}
+
+
+.email,
+.senha,
+.confirmar {
+    border: 2px solid rgb(106, 245, 245);
+    text-align: center;
+    border-radius: 15px;
+    margin: 10;
+    height: 40px;
+    width: 100%;
+    padding: 0px;
+}
+
+.nome, .sobrenome{
+    margin-left: 1px;
+    border: 2px solid rgb(106, 245, 245);
+    text-align: center;
+    border-radius: 15px;
+    margin: 10;
+    height: 40px;
+    width: 193px;
+    padding: 0px;
+}
+
+
+
+.dtnasc {
+    font-size: 12px;
+}
+
+.dia, .mes, .ano{
+    border: 2px solid rgb(106, 245, 245);
+    text-align: center;
+    border-radius: 15px;
+    margin: 10;
+    height: 40px;
+    width: 130px;
+    padding: 0px;
+
+}
+
+.conta{
+    font-size: 14px;
+    margin-left: 150px;
+}
+
+.mensagem {
+    font-size: 11px;
+}
+
+.confirmar_senha, .email_validar {
+    font-size: 11px;
+
+}
