@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem vindo</title>
+  <link rel="icon" href="./assets/Fotos/coneVirado.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
+</head>
+
+<body onload="listarDoacoes()">
+
+
+  <header id="header">
+    <div class="container">
+      <div class="conteudo">
+        <a href="index.html"><img src="./assets/Fotos/saida.png" class="foto_saida" alt=""></a>
+        <span class="nome_site">Cones Mandu</span>
+        <button onclick="abrir_dashboard()" class="botao2">Dashboard</button>
+        <button onclick="abrir_doacao()" class="botao2">Doar</button>
+        <div class="foto_logo"><img src="./assets/Fotos/foto de cones.png" alt=""></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="cadastro" id="cadastro">
+    <div class="container">
+      <div class="campo">
+
+        <span>Quantos produtos deseja doar:</span>
+        <select name="" id="select_quantidade">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+
+        <span>Qual produto deseja doar:</span>
+        <select name="" id="select_produto">
+          <option value="cone">Cone</option>
+          <option value="barra">Chocolate</option>
+        </select>
+
+        <span>Qual tipo de chocolate:</span>
+        <select name="" id="select_cor">
+          <option value="branco">Branco</option>
+          <option value="ao_leite">Ao leite</option>
+          <option value="meio_amargo">Meio Amargo</option>
+        </select>
+
+        <span>Qual sabor deseja doar:</span>
+        <select name="" id="select_sabor">
+          <option>Maracujá</option>
+          <option>Limão</option>
+          <option>Ferrero Rocher</option>
+          <option>Surpresa de uva</option>
+          <option>Dois Amores</option>
+          <option>Ninho com Nutella</option>
+          <option>Chocolate com cereja</option>
+          <option>Oreo</option>
+          <option>Pistache</option>
+          <option>Chokito</option>
+        </select>
+
+        <span>Para qual ONG:</span>
+        <select name="" id="select_ong">
+          <option>Projeto Alfa</option>
+          <option>Anjos da Leste</option>
+          <option>Casa Esperança</option>
+        </select><br>
+
+        <button onclick="doar()" class="botao">Doar</button>
+      </div>
+    </div>
+  </div>
+  <div id="div_mensagem"></div>
+
+  <div id="aparecer_dashboard">
+    <canvas id="grafico" width="400" height="200"></canvas>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <h4>Feito por Leandro Mandu de Brito &hearts; SPTech &copy; 2023</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+  function doar() {
+    var quantidade = select_quantidade.value
+    var produto = select_produto.value
+    var cor = select_cor.value
+    var sabor = select_sabor.value
+    var ong = select_ong.value
+    var fkCadastro = sessionStorage.ID_USUARIO
+
+    console.log(fkCadastro)
+
+    // Enviando o valor da nova input
+    fetch("/doacao/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        quantidadeServer: quantidade,
+        produtoServer: produto,
+        corServer: cor,
+        saborServer: sabor,
+        ongServer: ong,
+        fkCadastroServer: fkCadastro
+
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+
+          div_mensagem.innerHTML = "Doação realizada"
+          setTimeout(() => {
+            div_mensagem.innerHTML = "Faça outra doação"
+          }, "2000");
+
+
+        } else {
+          throw "Houve um erro ao tentar realizar a doação!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+      });
+
+    return false;
+
+
+  }
+
+  function listarDoacoes() {
+
+    fetch(`/doacao/listar`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+      .then(resposta => {
+        if (resposta.ok) {
+          return resposta.json();
+        } else {
+          throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+        }
+      })
+      .then(estatisticas => {
+        console.log("Estatísticas recebidas:", estatisticas);
+        renderizarGrafico(estatisticas);
+      })
+      .catch(erro => {
+        console.error("Erro ao carregar estatísticas:", erro);
+      });
+  }
+
+  function renderizarGrafico(estatisticas) {
+    const labels = estatisticas.map(est => est.sabor);
+    const dados = estatisticas.map(est => est.qtd_produto);
+
+    const ctx = document.getElementById("grafico").getContext("2d");
+
+    window.grafico = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "",
+          data: dados,
+          barThickness: 30,
+          backgroundColor: '#0ed970', // Cor das barras (verde especificado)
+          borderColor: '#0ed970',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        responsive: true,
+        scales: {
+          x: {
+            ticks: {
+              color: 'black'
+            }
+          },
+          y: {
+            ticks: {
+              color: 'black'
+            },
+            title: {
+              display: true,
+              text: 'Notas de usuarios',
+              color: 'black',
+              font: {
+                size: 15
+              }
+            },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
+
+
+  function abrir_dashboard() {
+    cadastro.style.display = 'none';
+    aparecer_dashboard.style.display = 'block';
+
+
+  }
+
+  function abrir_doacao() {
+    cadastro.style.display = 'block';
+    aparecer_dashboard.style.display = 'none';
+  }
+</script>

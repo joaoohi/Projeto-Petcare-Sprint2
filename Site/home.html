@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="./Fotos/coneVirado.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <div class="conteudo">
+                <button onclick="ir_para_colabora()" class="botao2">Colabore</button>
+                <button onclick="ir_para_login()" class="botao2">Login</button>
+                <button onclick="ir_para_cadastro()" class="botao2">Cadastre-se</button>
+                <span class="nome_site">Cones Mandu</span>
+                <div class="foto_logo"><img src="./Fotos/foto de cones.png" alt=""></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="../Site/Fotos/video chocolate.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="centro">
+        <div class="container">
+            <div class="sub-container">
+                    <div class="conteudo_centro">
+                            <h1>Sobre mim:<br></h1>
+                            Meu nome é Leandro e começei a fazer ovos de páscoa em 2016 por que meus pais já nao compravam
+                            mais.
+                            Ganhei gosto em fazer doces e desde então não parei mais.
+                            Hoje principalmente é uma fonte de renda mas fazer doces vai muito além disso, é trazer
+                            alaegria, é trazer generosidade ao dia de uma pessoa que compram
+                            e isso é o que mais me motiva a continuar fazendo e aprendendo essa arte de cozinhar
+                        </div>
+                        <img src="./Fotos/IMG-20241020-WA0044.jpg" class="img" alt="">
+                        <img src="./Fotos/IMG-20241115-WA0018.jpg" class="img_2 "alt="">
+                        <img src="./Fotos/IMG-20241115-WA0019.jpg" class="img" alt="">
+                        <img src="./Fotos/IMG-20241115-WA0020.jpg" class="img_2" alt="">
+                        <img src="./Fotos/Fotos do meu cone.png" class="img" alt="">
+                        
+                    </div>
+                </div>
+    </div>
+
+
+
+    <div class="footer">
+        <div class="container">
+            <h4>Feito por Leandro Mandu de Brito &blacktriangle; SPTech &copy; 2024</h4>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function ir_para_colabora() {
+        window.location.href = "./doacao.html";
+    }
+    function ir_para_login() {
+        window.location.href = "./login.html";
+    }
+    function ir_para_cadastro() {
+        window.location.href = "./cadastro.html";
+    } 
+</script>

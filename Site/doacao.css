@@ -1,0 +1,228 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: #f6f6f6;
+    
+}
+
+header{
+    padding: 30px;
+    margin: 20px;
+    /* background-color: rgb(20, 12, 136); */
+    width: 190vh;
+    margin-top: -3vb;
+    
+}
+
+header .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 7vb;
+    background-color:#4b3222;
+    margin-top: 24px;
+    width: 195.5vh;
+    margin-left: -2vh;
+    box-shadow: 9px 3px 14px #342518, 2px 8px 20px; 
+}
+
+.foto_logo {
+    width: 20vh;
+    display: flex;
+    height: 3vw;
+    position: relative;
+    left: -121vh;
+    top: -11.2ch;
+}
+.nome_site {
+    width: 20vh;
+    display: flex;
+    font-family: "Ga Maamli", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    position: relative;
+    color: #ffffff;
+    margin-left: -51vw;
+    top: -5.5vh;
+}
+
+.botao2 {
+    margin: 10px;
+    position: relative;
+    bottom: 0vh;
+    right: 8vh;
+    margin-top: 10px;
+    width: 8vw;
+    padding: 14px;
+    border: none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow: inset 20px 20px 60px #dacec4, inset -20px -20px 60px #bbb3ad;
+}
+
+ 
+.botao_redirecionar { 
+    background-color: white;
+    border: none; 
+    color: white; 
+    padding: 15px 32px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: flex; 
+    border-radius: 5px;
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    color: black;
+    flex-direction: row;
+    
+
+}
+
+.centro .container{
+    height:650px;
+    /* background-color: red; */
+    
+}
+
+.centro .container .sub-container{
+    display: flex;
+    justify-content:space-between;
+    background-color: white;
+    width: 195vh;
+    height: 50vb;
+    height: 50vb;
+    margin: 33px;
+    align-self: last baseline;
+    box-shadow: 24px 7px 21px #342518, -9px -6px 14px #644930;
+    border-color: #ffffff solid;
+}
+
+
+.container-texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -25vb;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+
+.container-chamativa{
+    display: flex;
+    flex-direction: column;
+   margin-top: 25vb;
+   margin-left: 30px;
+   /* background-color: blueviolet; */
+   width: 40vh;
+   height: 30vb;
+}
+
+.texto_doacao{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: -75vh;
+    font-size: 24px;
+}
+
+.texto_foto{
+    font-family: "Ga Maamli", sans-serif;
+    font-size: 52px;
+    font-style: normal;
+    position: relative;
+    top: -116px;
+  }
+
+
+button { 
+    background: #392414;; /* Cor de fundo */ 
+    border: none; /* Remover borda */ 
+    color: white; /* Cor do texto */ 
+    padding: 15px 32px; /* Espaçamento interno */ 
+    text-align: center; /* Centralizar texto */ 
+    text-decoration: none; /* Remover sublinhado */ 
+    display: inline-block; /* Manter o botão inline */ 
+    font-size: 16px; /* Tamanho da fonte */ 
+    margin: 4px 2px; /* Margens */ 
+    cursor: pointer; /* Cursor de ponteiro */ 
+    border-radius: 12px; /* Bordas arredondadas */ 
+    transition: background-color 0.3s ease; /* Transição suave */ 
+} 
+
+button:hover { 
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */ 
+} 
+
+button:active { 
+    background-color: #3e8e41; /* Cor de fundo ao clicar */
+     box-shadow: 0 5px #666; /* Sombra ao clicar */ 
+     transform: translateY(4px); /* Efeito de pressão ao clicar */
+}
+
+
+.img-2{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    height: 30vb;
+    margin-left: 60vh;
+    margin-top: -30vb;
+    border-radius: 3px;
+    border-style:dashed;
+    border-color: #4b3222;
+}
+
+.img-3{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    height: 30vb;
+    margin-left: 115vh;
+    margin-top: -30vb;
+    border-style:dashed;
+    border-color: #4b3222;
+}
+
+.img-4{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    height: 30vb;
+    margin-left: 167.9vh;
+    margin-top: -30vb;
+    border-style:dashed;
+    border-color: #4b3222;
+}
+
+
+.imagem_quadrados{
+    width: 248px;
+    margin: 15px;
+    height: 250px;
+}
+
+.imagem_quadrados_especial{
+    width: 248px;
+    margin: 15px;
+    height: 250px;
+}
+.footer{
+    display: flex;
+    /* flex-direction: row; */
+    
+    background-color:#4b3222;
+    margin-top: 28vh;
+    width: 95%;
+    margin-left: 3vh;
+    color: #ffffff;
+    justify-content: center;
+
+}

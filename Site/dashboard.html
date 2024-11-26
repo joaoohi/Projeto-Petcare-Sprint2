@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem vindo</title>
+    <link rel="icon" href="./Fotos/coneVirado.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+    <header id="header">
+        <div class="container">
+            <div class="conteudo">
+                <a href="home.html"><img src="./Fotos/saida.png" class="foto_saida" alt=""></a>
+                <span class="nome_site">Cones Mandu</span>
+                <button onclick="abrir_dashboard()" class="botao2">Dashboard</button>
+                <button onclick="abrir_doacao()" class="botao2">Doar</button>
+                <div class="foto_logo"><img src="./Fotos/foto de cones.png" alt=""></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="cadastro" id="cadastro">
+        <div class="container">
+          <div class="campo">
+    
+    <span>Quantos produtos deseja doar:</span>
+    <select name="" id="select_quantidade">
+      <option value="sim">1</option>
+      <option value="nao">2</option>
+      <option value="nao">3</option>
+      <option value="nao">4</option>
+      <option value="nao">5</option>
+      <option value="nao">6</option>
+      <option value="nao">7</option>
+      <option value="nao">8</option>
+      <option value="nao">9</option>
+    </select>
+
+    <span>Qual produto deseja doar:</span>
+    <select name="" id="select_produto">
+      <option value="cone">Cone</option>
+      <option value="barra">Chocolate</option>
+    </select>
+
+    <span>Qual tipo de chocolate:</span>
+    <select name="" id="select_cor">
+      <option value="branco">Branco</option>
+      <option value="ao_leite">Ao leite</option>
+      <option value="meio_amargo">Meio Amargo</option>
+    </select>
+
+    <span>Qual sabor deseja doar:</span>
+    <select name="" id="select_sabor">
+      <option >Maracujá</option>
+      <option >Limão</option>
+      <option >Ferrero Rocher</option>
+      <option >Surpresa de uva</option>
+      <option >Dois Amores</option>
+      <option >Ninho com Nutella</option>
+      <option >Chocolate com cereja</option>
+      <option >Oreo</option>
+      <option >Pistache</option>
+      <option >Chokito</option>
+    </select>
+
+    <span>Para qual ONG:</span>
+    <select name="" id="select_ong">
+      <option >Projeto Alfa</option>
+      <option >Anjos da Leste</option>
+      <option >Casa Esperança</option>
+    </select><br>
+
+    <button onclick="doar()" class="botao">Doar</button>
+  </div>
+</div>
+</div>
+<div id="div_mensagem"></div>
+
+<div id="aparecer_dashboard"></div>
+
+
+
+    <div class="footer">
+        <div class="container">
+          <h4>Feito por Leandro Mandu de Brito &hearts; SPTech &copy; 2023</h4>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      
+</body>
+</html>
+
+<script>
+
+  function doar(){
+    var quantidade = select_quantidade.value
+    var produto = select_produto.value
+    var cor = select_cor.value
+    var sabor = select_sabor.value
+    var ong = select_ong.value
+
+    div_mensagem.innerHTML = "Doação realizada"
+
+  }
+
+  function abrir_dashboard(){
+    cadastro.style.display = 'none';
+    aparecer_dashboard.style.display = 'block';
+  }
+
+  function abrir_doacao(){
+    cadastro.style.display = 'block';
+    aparecer_dashboard.style.display = 'none';
+  }
+</script>
