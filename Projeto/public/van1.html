@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,7 @@
     <link rel="stylesheet" href="./css/vans.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/alerta.js"></script>
-
 </head>
-
 <body onload="chama()">
     <div class="container">
         <aside>
@@ -24,86 +21,99 @@
                 <button onclick="window.location.href='dashboardGu.html'">VOLTAR</button><br><br>
                 <button onclick="window.location.href='index.html'">HOME</button><br><br>
                 <button onclick="window.location.href='login.html'">SAIR</button>
+               
             </div>
         </aside>
        
-        <div class="metricas-container">
-            <div id="metricas_dash1" class="metricas1">Métrica 1</div>
-            <div id="metricas_dash2" class="metricas2">Métrica 2</div>
-            <div id="metricas_dash" class="metricas3">Métrica 3</div>
-        </div>
-
         <section>
-            <div>
-                <canvas id="myChart2" width="400" height="200" style="margin-top: 20px;"></canvas>
+         
+            <div class="metricas-container">
+           
+                <div id="metricas_dash1" class="metricas1">Métrica 1</div>
+                <div id="metricas_dash2" class="metricas2">Métrica 2</div>
+                <div id="metricas_dash" class="metricas3">Métrica 3</div>
+                <div class="selectGrafico">
+                    <select id="selectGrafico">
+                        <option>Selecione a Gaiola:</option>
+                        <option >1</option>
+                        <option >2</option>
+                        <option >3</option>
+                        <option >4</option>
+                        <option >5</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <canvas id="myChart1" width="400" height="200"></canvas>
+            <div class="containerGrafico">
+                <div class="graficoTemp">
+                    <canvas id="myChart2" width="400" height="200" style="margin-top: 20px;"></canvas>
+                </div>
+                <div class="graficoBloq">
+                    <canvas id="myChart1" width="400" height="200"></canvas>
+                </div>
             </div>
             <!-- <div>
                 <canvas id="myChart3" width="400" height="200"></canvas>
             </div> -->
         </section>
     </div>
-    <script data-jsd-embedded data-key="367ff213-fca9-4235-8439-0194cd16ca8f" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+    <script data-jsd-embedded data-key="367ff213-fca9-4235-8439-0194cd16ca8f"
+        data-base-url="https://jsd-widget.atlassian.com"
+        src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
 </body>
-
 </html>
-
 <script>
     setInterval(buscarUltimasMedidasBloqueio, 3000);
-     setInterval(buscarUltimasMedidasTemperatura, 3000);
-
-// const ctx3 = document.getElementById('myChart3').getContext('2d');
-//     const myChart3 = new Chart(ctx3, {
-//         type: 'bar',
-//         data: {
-//             labels: [],
-//             datasets: [{
-//                 label: 'Temperatura na Van (°C)',
-//                 data: [],
-//                 borderWidth: 2,
-//                 fill: false,
-//                 pointBackgroundColor: [], // Cores dos pontos
-//                 lineTension: 0.2
-//             }]
-//         },
-//         options: {
-//             animation: {
-//                 duration: 1000,
-//                 easing: 'linear'
-//             },
-//             scales: {
-//                 x: {
-//                     title: {
-//                         display: true,
-//                         text: 'Tempo',
-//                         color: 'black'
-//                     },
-//                     type: 'category',
-//                     ticks: {
-//                         color: 'black'
-//                     }
-//                 },
-//                 y: {
-//                     min: 16,
-//                     max: 28,
-//                     ticks: {
-//                         stepSize: 2,
-//                         callback: function (value) {
-//                             return `${value}°C`;
-//                         },
-//                         color: 'black'
-//                     },
-//                     title: {
-//                         display: true,
-//                         text: 'Temperatura (°C)',
-//                         color: 'black'
-//                     }
-//                 }
-//             }
-//         }
-//     });
+    setInterval(buscarUltimasMedidasTemperatura, 3000);
+    // const ctx3 = document.getElementById('myChart3').getContext('2d');
+    //     const myChart3 = new Chart(ctx3, {
+    //         type: 'bar',
+    //         data: {
+    //             labels: [],
+    //             datasets: [{
+    //                 label: 'Temperatura na Van (°C)',
+    //                 data: [],
+    //                 borderWidth: 2,
+    //                 fill: false,
+    //                 pointBackgroundColor: [], // Cores dos pontos
+    //                 lineTension: 0.2
+    //             }]
+    //         },
+    //         options: {
+    //             animation: {
+    //                 duration: 1000,
+    //                 easing: 'linear'
+    //             },
+    //             scales: {
+    //                 x: {
+    //                     title: {
+    //                         display: true,
+    //                         text: 'Tempo',
+    //                         color: 'black'
+    //                     },
+    //                     type: 'category',
+    //                     ticks: {
+    //                         color: 'black'
+    //                     }
+    //                 },
+    //                 y: {
+    //                     min: 16,
+    //                     max: 28,
+    //                     ticks: {
+    //                         stepSize: 2,
+    //                         callback: function (value) {
+    //                             return `${value}°C`;
+    //                         },
+    //                         color: 'black'
+    //                     },
+    //                     title: {
+    //                         display: true,
+    //                         text: 'Temperatura (°C)',
+    //                         color: 'black'
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     });
     const ctx2 = document.getElementById('myChart2').getContext('2d');
     const myChart2 = new Chart(ctx2, {
         type: 'line',
@@ -154,7 +164,6 @@
             }
         }
     });
-   
     const ctx1 = document.getElementById('myChart1').getContext('2d');
     const myChart1 = new Chart(ctx1, {
         type: 'line',
@@ -170,7 +179,6 @@
                 lineTension: 0.2 // Suavidade da linha
             }]
         },
-
         options: {
             animation: {
                 duration: 1000,
@@ -216,8 +224,6 @@
             }
         }
     });
-
-
     function chama() {
         buscarUltimasMedidasBloqueio()
         buscarUltimasMedidasTemperatura()
@@ -226,7 +232,6 @@
         // atualizarGraficoPresenca()
         // atualizarGraficoTemperatura()
     }
-
     function buscarUltimasMedidasBloqueio() {
         var idEmpresa = sessionStorage.ID_USUARIO
         fetch(`/medida/presenca/${idEmpresa}`, { cache: "no-store" })
@@ -244,7 +249,6 @@
                 console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
             });
     }
-
     function buscarUltimasMedidasTemperatura() {
         var idEmpresa = sessionStorage.ID_USUARIO
         fetch(`/medida/temperatura/${idEmpresa}`, { cache: "no-store" })
@@ -261,49 +265,35 @@
             .catch(function (error) {
                 console.log(`Erro na obtenção dos dados p/ gráfico:`, erro);
             });
-
     }
-
     // Configuração do 9gráfico de presença  
     function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
-       
         // var maxRegistros = 10;
         // resposta = resposta.slice(0,maxRegistros);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-
             // myChart1.data.datasets[0].data.shift()
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
-
             // myChart1.data.labels.shift()
             myChart1.data.labels.push(registro.momento_grafico)
         }
-        
         // atualizarGraficoPresenca()
         myChart1.update();
         // myChart1.splice(0,1)
     };
-
     function plotarGraficoTemperatura(resposta) {
         console.log('cheguei')
-      
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-
             // myChart2.data.datasets[0].data.shift()
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
-            
             // myChart2.data.labels.shift()
             myChart2.data.labels.push(registro.momento_grafico)
         }
         // atualizarGraficoTemperatura()
         myChart2.update();
-
     }
-
-
-
     // function atualizarGraficoTemperatura() {
     //     fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
     //         .then(function (resposta) {
@@ -312,15 +302,12 @@
     //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
     //                     console.log(`Dados atuais do gráfico:`);
     //                     console.log(myChart2.data);
-
     //                     myChart2.data.datasets[0].data = [];
-
     //                     for (let i = 0; i < json.length; i++) {
     //                         myChart2.data.datasets[0].data.push(json[i].sensor_analogico);
     //                         // myChart2.data.datasets[0].data.push(registro.sensor_analogico);
     //                         myChart2.data.labels.push(registro.momento_grafico)
     //                     }
-
     //                     myChart2.update();
     //                 });
     //             } else {
@@ -331,7 +318,6 @@
     //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
     //         });
     // }
-
     // function atualizarGraficoPresenca() {
     //     fetch(`/medida/presencaUltimas`, { cache: "no-store" })
     //         .then(function (resposta) {
@@ -340,15 +326,12 @@
     //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
     //                     console.log(`Dados atuais do gráfico:`);
     //                     console.log(myChart1.data);
-
     //                     myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
-
     //                     for (let i = 0; i < json.length; i++) {
     //                         myChart1.data.datasets[0].data.push(json[i].sensor_digital);
     //                         // myChart1.data.datasets[0].data.push(registro.sensor_digital);
     //                         myChart1.data.labels.push(registro.momento_grafico)
     //                     }
-
     //                     myChart1.update();
     //                 });
     //             } else {
@@ -359,76 +342,64 @@
     //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
     //         });
     // }
-
     function carregarEstatisticas() {
-  
-        
-  fetch(`/medida/listarKPI`, {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json"
-      },
-  })
-      .then(resposta => {
-          if (resposta.ok) {
-              return resposta.json();
-          } else {
-              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
-          }
-      })
-      .then(estatisticas => {
-          console.log("Estatísticas recebidas:", estatisticas);
-
-          const estatistica = estatisticas[0]
-
-          metricas_dash1.innerHTML = `
+        fetch(`/medida/listarKPI`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(resposta => {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+                }
+            })
+            .then(estatisticas => {
+                console.log("Estatísticas recebidas:", estatisticas);
+                const estatistica = estatisticas[0]
+                metricas_dash1.innerHTML = `
           <div class="tag-stats">
                 QUANTIDADE DE ALERTAS
               <b><p><h3>${estatistica.quantidade_alertas}</b></p></h3>
           </div class="tag-stats">`
-
-          metricas_dash2.innerHTML = `
+                metricas_dash2.innerHTML = `
           <div class="tag-stats">
                 QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
               <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
           </div class="tag-stats">`
-
-          
-      })
-      .catch(erro => {
-          console.error("Erro ao carregar estatísticas:", erro);
-      });
-}
+            })
+            .catch(erro => {
+                console.error("Erro ao carregar estatísticas:", erro);
+            });
+    }
     function carregarEstatisticas2() {
-  
-        
-  fetch(`/medida/listarKPI2`, {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json"
-      },
-  })
-      .then(resposta => {
-          if (resposta.ok) {
-              return resposta.json();
-          } else {
-              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
-          }
-      })
-      .then(estatisticas => {
-          console.log("Estatísticas recebidas:", estatisticas);
-
-          const estatistica = estatisticas[0]
-          metricas_dash2.innerHTML = `
+        fetch(`/medida/listarKPI2`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(resposta => {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+                }
+            })
+            .then(estatisticas => {
+                console.log("Estatísticas recebidas:", estatisticas);
+                const estatistica = estatisticas[0]
+                metricas_dash2.innerHTML = `
           <div class="tag-stats">
                 QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
               <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
           </div class="tag-stats">`
-
-          
-      })
-      .catch(erro => {
-          console.error("Erro ao carregar estatísticas:", erro);
-      });
-}
+            })
+            .catch(erro => {
+                console.error("Erro ao carregar estatísticas:", erro);
+            });
+    }
 </script>
+
