@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PetCare - PetCálculo</title>
+        <link rel="stylesheet" href="./css/Calculadora.css">
+        <link rel="icon" href="IMAGENS/freepik-modern-minimalist-healthy-food-restaurant-logo-20240929232453cwc6.png" class="icone">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="icon" href="../assets/icone aba.png" class="icone">
+        <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+        
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="logo">
+    
+    
+                <img src="./assets/imgs/petcareLogoHeaderAtualizado.png" alt="">
+    
+    
+            </div>
+            <!-- <a href="../Site institucional/index.html"><span>HOME</span></a> -->
+            <a href="index.html"><span>HOME</span></a>
+            <a href="#sobre">SOBRE</a>
+            <a href="#servicos">SERVIÇOS</a>
+            <a href="#">PETCÁLCULO</a>
+            <a href="login.html">LOGIN</a>
+            <a href="cadastro.html">CADASTRO</a>
+    
+        </header>
+        
+        <div class="login">
+            <div class="tabela"></div>
+            <div class="card">          
+                <div class="formulario">
+                    <div class="campo"><span>Preço médio cobrado por km (R$):</span><input id="input_transporte" type="number"
+                        placeholder="Ex: 15R$"></div> 
+                        <div class="campo"><span>Média de distância por viagem (km):</span> <input id="input_distancia" type="number"
+                            placeholder="Ex: 10km"></div>
+                            <div class="campo"><span>Média de clientes no ano: </span><input id="input_media" type="number" placeholder="Ex: 300"> </div>
+                    <span>Quantidade de sensores necessários: <b>100R$/uni</b></span></div>
+                    
+                    <div class="campo"><span><select id="select_sensores">
+                        <option value="#">Sensor Presença</option>
+                        <option value="1">1 sensores</option>
+                        <option value="2">2 sensores</option>
+                        <option value="3">3 sensores</option>
+                        <option value="4">4 sensores</option>
+                        <option value="5">5 sensores</option>
+                        <option value="6">6 sensores</option>
+                        <option value="7">7 sensores</option>
+                        <option value="8">8 sensores</option>
+                        <option value="9">9 sensores</option>
+                        <option value="10">10 sensores</option>
+                        <option value="11">11 sensores</option>
+                        <option value="12">12 sensores</option>
+                        <option value="13">13 sensores</option>
+                        <option value="14">14 sensores</option>
+                        <option value="15">15 sensores</option>
+                        <option value="16">16 sensores</option>
+                        <option value="17">17 sensores</option>
+                        <option value="18">18 sensores</option>
+                        <option value="19">19 sensores</option>
+                        <option value="20">20 sensores</option>
+                        <option value="21">21 sensores</option>
+                        <option value="22">22 sensores</option>
+                        <option value="23">23 sensores</option>
+                        <option value="24">24 sensores</option>
+                        <option value="25">25 sensores</option>
+                        <option value="26">26 sensores</option>
+                        <option value="27">27 sensores</option>
+                        <option value="28">28 sensores</option>
+                        <option value="29">29 sensores</option>
+                        <option value="30">30 sensores</option>
+                    </select></span></div>
+
+                    <div class="campo"><span><select id="select_temp">
+                        <option value="#">Sensor Temperatura</option>
+                        <option value="1">1 sensores</option>
+                        <option value="2">2 sensores</option>
+                        <option value="3">3 sensores</option>
+                        <option value="4">4 sensores</option>
+                        <option value="5">5 sensores</option>
+                        <option value="6">6 sensores</option>
+                        <option value="7">7 sensores</option>
+                        <option value="8">8 sensores</option>
+                        <option value="9">9 sensores</option>
+                        <option value="10">10 sensores</option>
+                        <option value="11">11 sensores</option>
+                        <option value="12">12 sensores</option>
+                        <option value="13">13 sensores</option>
+                        <option value="14">14 sensores</option>
+                        <option value="15">15 sensores</option>
+                        <option value="16">16 sensores</option>
+                        <option value="17">17 sensores</option>
+                        <option value="18">18 sensores</option>
+                        <option value="19">19 sensores</option>
+                        <option value="20">20 sensores</option>
+                        <option value="21">21 sensores</option>
+                        <option value="22">22 sensores</option>
+                        <option value="23">23 sensores</option>
+                        <option value="24">24 sensores</option>
+                        <option value="25">25 sensores</option>
+                        <option value="26">26 sensores</option>
+                        <option value="27">27 sensores</option>
+                        <option value="28">28 sensores</option>
+                        <option value="29">29 sensores</option>
+                        <option value="30">30 sensores</option>
+                    </select></span></div>
+        
+                    <div class="campo"><span><b>Tipo de plano:</b></span>
+                    <select id="select_plano">
+                        <option id="option_mensal" value="120">Mensal</option>
+                        <option id="option_anual" value="1152">Anual</option> <!-- desconto de 20% -->
+                    </select></div>
+
+                    <button class="botaoCalc" onclick="A()">Calcular</button> 
+                </div>
+            </div>
+     </div>
+    
+        <div id="div_mensagem"></div>
+        <footer>
+            <div class="icone">
+                <img src="./assets/imgs/instagram.png" alt="">
+                <img src="./assets/imgs/facebook.png" alt="">
+                <img src="./assets/imgs/twitter.png" alt="">
+            </div>
+            <div class="icone">
+                <img src="./assets/imgs/icons8-carta-37 (1).png" alt="">
+    
+                <p>petcare@sptech.school</p>
+            </div>
+            <div class="icone">
+                <a href="https://wa.me/5511998508868" target="_blank">
+                    <img src="./assets/imgs/zap.png" alt="">
+                </a>
+                <p>(11) 99850-8868</p>
+            </div>
+        </footer>
+    
+</body>
+
+</html>
+
+<script>
+    function A() {
+        var ptransporte = Number(input_transporte.value);
+        var distancia = Number(input_distancia.value);
+        var mediacliente = Number(input_media.value);
+        var qtdsensorPRESEN = Number(select_sensores.value);
+        var qtdsensorTEMP = Number(select_temp.value);
+        var precosensor = qtdsensorPRESEN * 100 + qtdsensorTEMP * 100;
+        var planos = Number(select_plano.value);
+        var precoAnual = 1152;
+        var precoMensal = 120;
+
+        var precoviagem = ptransporte * distancia;
+        var precoSEM = precoviagem * mediacliente;
+        var precototalcomsensor = precoSEM + (precoSEM * 0.40);
+
+        var precofinalMensal = (precototalcomsensor - precosensor) - (precoMensal * 12);
+        var precofinalAnual = (precototalcomsensor - precosensor) - precoAnual;
+        var finalMensal = precofinalMensal - precoSEM;
+        var finalAnual = precofinalAnual - precoSEM;
+
+        var div_mensagem = document.getElementById('div_mensagem');
+
+        if (planos == precoMensal) {
+            div_mensagem.innerHTML = `Seu faturamento é de <u><b>R$${precoSEM}</b></u> anuais, multiplicando seu preço médio, média de distância e média de clientes anuais.<br>
+            Aderindo ao plano mensal monitoramento <i><b>PetCare</b></i>, é previsto um aumento em 40% no preço de transporte, seu faturamento passaria a ser de <u><b>R$${precofinalMensal}</b></u> anuais. <br>
+            Isso totaliza um lucro de: <u><b>R$${finalMensal}</b></u>! <br>
+            <b>Você, nós e os pets ficamos felizes! 🙂</b><br>
+            <img src="coelho.png" class ="coelhinho"  alt="Resultado" style = "width: 50%;" >`;
+
+            div_mensagem.style.color = `Black`;
+            
+        } else if (planos == precoAnual) {
+            div_mensagem.innerHTML = `Seu faturamento é de <u><b>R$${precoSEM}</b></u> anuais, multiplicando seu preço médio, média de distância e média de clientes anuais.<br>
+            Aderindo ao plano anual de monitoramento <i><b>PetCare</b></i>,<br> é previsto um aumento em 40% no preço de transporte, seu faturamento passaria a ser de <u><b>R$${precofinalAnual}</b></u> anuais. <br>
+            Isso totaliza um lucro de: <u><b>R$${finalAnual}</b></u>! <br>
+            <b>Você, nós e os pets ficamos felizes! 🙂</b><br>
+             <img src="coelho.png" alt="Resultado" style = "width: 50%;" >`;
+
+            div_mensagem.style.color = `Black`; 
+        }
+        div_mensagem.style.display = 'block'; 
+        div_mensagem.classList.add('show'); 
+    }
+</script>
