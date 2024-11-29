@@ -1,66 +1,101 @@
-body{
-    background: linear-gradient(260deg, #B3EFFF 0%, #4cb9eb 100%);
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Roboto", serif; */
     font-family: "Poppins", sans-serif;
-    height: 100vh;
+
+}
+
+body {
+    height: 100%;
     width: 100%;
-    cursor: url('cursor\ normal.png'), auto;
-        animation: fadeInLeftBig 1.4s ease-in-out;
-}
+    background: #ffffff;
+    overflow-x: hidden;
 
-@keyframes fadeInLeftBig {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+
 }
 
 
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        height: 150px;
-    }
-    
-    header img {
-        height: 300px; 
-        margin-top: -50px;
-        filter: drop-shadow(0 8px 20px rgba(46, 45, 45, 0.5));
-        margin-right: -10px;
-    }
-    
-    header a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 15px;
-        font-weight: 800;
-        border-bottom: 2px solid rgb(163, 84, 236);
-        cursor: url('cursor\ pointer.png'), auto !important; 
-        filter: drop-shadow(0px 0px 10px rgba(6, 69, 105, 0.5));
 
-    }
-    
-    header a span {
-        color: rgb(163, 84, 236);
-    }
-    
-    header a span:hover {
-        color: #fff;
-    
-    }
-    
-    header a:hover {
-        font-size: 20px;
-        transition: all 0.5s ease-in-out;
-        color: rgb(163, 84, 236);
-    }
-    
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: fadeInLeftBig;
+    animation-duration: 1s;
+
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);  */
+    /* 
+   background-image: url(../assets/PetcareBackground.png); */
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
+    background-size: cover;
+
+    height: 80px;
+    /* border-bottom: 2px solid rgb(163, 84, 236);  */
+    position: fixed;
+    /* Fixa o cabeçalho no topo */
+    top: 0;
+    /* Alinha ao topo */
+    left: 0;
+    /* Alinha à esquerda */
+    right: 0;
+    /* Alinha à direita */
+    z-index: 1000;
+    /* Garante que o cabeçalho fique acima de outros elementos */
+
+
+}
+
+header img {
+
+    /* height: 300px; */
+    height: 200px;
+
+    /* filter: drop-shadow(0 8px 20px rgba(46, 45, 45, 0.5)); */
+
+
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    /* border-bottom: 2px solid rgb(163, 84, 236); */
+    cursor: url(./img/cursorPathPurple.png), pointer;
+    /* filter: drop-shadow(0px 0px 10px rgba(6, 69, 105, 0.5)); */
+
+}
+
+header a span {
+    color: rgb(163, 84, 236);
+}
+
+header a span:hover {
+    color: #fff;
+
+}
+
+header a:hover {
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    color: rgb(163, 84, 236);
+    border-bottom: 2px solid rgb(163, 84, 236);
+}
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
     .login{
         height: 60%;
@@ -196,7 +231,7 @@ button:hover {
     display: none; 
     position: absolute;
     right: 44%;
-    bottom: 22px;
+   margin-top: -200px;
     width: 30%;
     background-color: #fff;
     padding: 15px;
@@ -215,20 +250,23 @@ button:hover {
 }
 
 footer {
-    /* background-color: rgb(106, 245, 245); */
-    background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);
+    /* background: linear-gradient(180deg, #B3EFFF 0%, #4cb9eb 100%);  */
 
-    width: 98.5%;
-    height: 90px;
+    background-image: url(../assets/imgs/gradient_1920_1080\ \(2\).png);
+    background-size: cover;
+
+    width: 100%;
+    height: 80px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5));
-    margin-top: 10%;
-    
+    padding: 30px;
+    /* filter: drop-shadow(0 8px 20px rgba(8, 99, 91, 0.5)); */
+    margin-top: 150px;
+
+
 }
 
-footer img{
+footer img {
     height: 30px;
     width: 30px;
 }
@@ -249,3 +287,7 @@ footer img{
     font-weight: bold;
 }
 
+p {
+    font-size: 18px;
+    color: #000;
+}
