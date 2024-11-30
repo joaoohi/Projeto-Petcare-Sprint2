@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PetCare</title>
+    <script src="../js/sessao.js"></script>
     <link rel="stylesheet" href="./css/login.css">
-    <script src="js/sessao.js"></script>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3333;">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -22,29 +23,26 @@
         <a href="cadastro.html">CADASTRO</a>
     </header>
 
-    <!-- Login Container -->
+  
     <div class="login-container">
         <h1>Login</h1>
-        <form action="/login" method="post">
-            <!-- <div class="input-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
-            </div> -->
+       
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                <input type="email" id="email_input" name="email" placeholder="Digite seu email" required>
             </div>
             <div class="input-group">
                 <label for="password">Senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <input type="password" id="senha_input" name="password" placeholder="Digite sua senha" required>
             </div>
-            <button type="submit" class="btn">Entrar</button>
-        </form>
+            <button onclick="entrar()" type="submit" class="btn">Entrar</button>
+       
         <p class="signup-link">
-            Não tem uma conta? <a href="../Cadastro/cadastro.html"><span>Cadastre-se</span></a>
+            Não tem uma conta? <a href="./cadastro.html"><span>Cadastre-se</span></a>
         </p>
     </div>
 </body>
+
 </html>
 
 <script>
@@ -56,43 +54,44 @@
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-    
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+            return false;
+        }
+          
 
-        fetch("/empresa/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+            fetch("/empresa/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(json);
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.ID_USUARIO = json.idEmpresa;
+                        window.location = "dashboardGu.html";
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
             })
-        }).then(function(resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
-            if (resposta.ok) {
-                console.log(resposta);
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.ID_USUARIO = json.senha;
-
-                        validarSessao();
-                });
-            } else {
-                console.log("Houve um erro ao tentar realizar o login!");
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
+            return false;
+        
     }
-    }
+
 </script>
