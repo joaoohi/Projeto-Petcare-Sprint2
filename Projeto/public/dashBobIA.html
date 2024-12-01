@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Presença e Temperatura</title>
+    <link rel="stylesheet" href="./css/DashBOB.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="img-aside">
+                <img src="assets\imgs\frizzaimg.jpg" alt="">
+            </div><br>
+            <div class="bemvindo">
+                Bem-Vindo, Frizza!
+            </div><br><br>
+            <div class="buttonsmeio">
+                <button onclick="window.location.href='dashboardGu.html'">VOLTAR</button><br><br>
+                <button onclick="window.location.href='index.html'">HOME</button><br><br>
+                <button onclick="window.location.href='login.html'">SAIR</button>
+            </div>
+        </aside>
+
+        <section>
+            <div>
+                <canvas id="lineChart" width="400" height="200"></canvas>
+            </div>
+            <div>
+                <canvas id="temperatureChart" width="400" height="200" style="margin-top: 20px;"></canvas>
+            </div>
+        </section>
+    </div>
+    <a href="http://localhost:3000/" target="_blank" class="boboia">
+        <img src="./assets/imgs/ICONdoBOB.png" alt="Chatbot" />
+    </a>
+
+    <script data-jsd-embedded data-key="367ff213-fca9-4235-8439-0194cd16ca8f" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+</body>
+
+</html>
+
+<script>
+    function obterDadosGrafico() {
+        fetch(`/medidas/ultimas`, { cache: "no-store" })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        plotarGrafico(resposta);
+                    });
+                } else {
+                    console.error("Nenhum dado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.error(
+                    `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+                );
+            });
+    }
+
+    // Configuração do gráfico de presença
+    function plotarGrafico(resposta) {
+        const ctx1 = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: [], // Labels atualizadas em tempo real
+                datasets: [{
+                    label: 'Presença do Pet na Van',
+                    data: [], // Dados atualizados em tempo real
+                    backgroundColor: 'rgba(106, 245, 237, 0.2)', // Fundo
+                    borderColor: 'rgba(106, 245, 237, 1)', // Cor da linha
+                    borderWidth: 2,
+                    fill: true,
+                    lineTension: 0.2 // Suavidade da linha
+                }]
+            },
+
+            options: {
+                animation: {
+                    duration: 1000,
+                    easing: 'linear'
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Tempo',
+                            color: 'black'
+                        },
+                        type: 'category',
+                        ticks: {
+                            color: 'black'
+                        }
+                    },
+                    y: {
+                        min: 0,
+                        max: 1,
+                        ticks: {
+                            stepSize: 1,
+                            callback: function (value) {
+                                return value === 1 ? 'Presente' : 'Ausente';
+                            },
+                            color: 'black'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Status',
+                            color: 'black'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.raw === 1 ? 'Presente' : 'Ausente';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Configuração do gráfico de temperatura
+        const ctx2 = document.getElementById('temperatureChart').getContext('2d');
+        const temperatureChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Temperatura na Van (°C)',
+                    data: [],
+                    borderWidth: 2,
+                    fill: false,
+                    pointBackgroundColor: [], // Cores dos pontos
+                    lineTension: 0.2
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 1000,
+                    easing: 'linear'
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Tempo',
+                            color: 'black'
+                        },
+                        type: 'category',
+                        ticks: {
+                            color: 'black'
+                        }
+                    },
+                    y: {
+                        min: 16,
+                        max: 28,
+                        ticks: {
+                            stepSize: 2,
+                            callback: function (value) {
+                                return `${value}°C`;
+                            },
+                            color: 'black'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Temperatura (°C)',
+                            color: 'black'
+                        }
+                    }
+                }
+            }
+        });
+        for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      dados.datasets[0].data.push(registro.quantidade);
+    }
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    };
+
+    function atualizarGrafico() {
+    fetch(`/medida/ultimas`, { cache: "no-store" })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (respostaJSON) {
+            console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+            console.log(`Dados atuais do gráfico:`);
+            console.log(myChart.data);
+
+            myChart.data.datasets[0].data = [];
+
+            for (let i = 0; i < respostaJSON.length; i++) {
+              myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
+            }
+          
+            myChart.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+
+</script>
