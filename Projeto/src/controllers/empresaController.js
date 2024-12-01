@@ -1,7 +1,6 @@
 // PUXA-SE OS MODELS DA EMPRESA (USUÁRIO) E
 
 var empresaModel = require("../models/empresaModel");
-var cadastroModel = require("../models/cadastroModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;

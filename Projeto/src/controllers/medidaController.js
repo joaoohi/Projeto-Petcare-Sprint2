@@ -1,18 +1,33 @@
 var medidaModel = require("../models/medidaModel");
+    
+function buscarUltimasMedidasTemperatura(req,res){
 
-function buscarUltimasMedidas(req, res) {
+    var idMedidaTemp = req.params.idMedidaTemp;
 
-    const limite_linhas = 7;
+    console.log(`Recuperando as ultimas medidas de temperatura`,idMedidaTemp);
 
-    var idAquario = req.params.idAquario;
+    medidaModel.buscarUltimasMedidasTemperatura(idMedidaTemp)
+    .then(function (resultado) {
+        res.status(200).send('Medida capturada com sucesso!');
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+}
+    
+function buscarMedidasEmTempoRealTemperatura(req,res){
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
+    console.log(`Recuperando as ultimas medidas de temperatura`,idMedidaTemp);
+
+    medidaModel.buscarUltimasMedidasTemperatura(idMedidaTemp)
+    .then(function (resultado) {
+        if (resultado.length > 0) {                           
+            console.log(resultado);                           
             res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+        }else{
+            res.status(204).send("Nenhum resultado encontrado")
         }
     }).catch(function (erro) {
         console.log(erro);
@@ -20,29 +35,48 @@ function buscarUltimasMedidas(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+   
+function buscarUltimasMedidasPresenca(req,res){
+    var idMedidaPre = req.params.idMedidaPre;
+
+    console.log(`Recuperando as ultimas medidas de temperatura`,idMedidaPre);
+
+    medidaModel.buscarUltimasMedidasPresenca(idMedidaPre)
+    .then(function (resultado) {
+        res.status(200).send('Medida capturada com sucesso!');
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 
 
-function buscarMedidasEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+}
+    
+function buscarUltimasMedidasPresenca(req,res){
 
-    console.log(`Recuperando medidas em tempo real`);
+    console.log(`Recuperando as ultimas medidas de temperatura`,idMedidaPre);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
-        if (resultado.length > 0) {
+    medidaModel.buscarUltimasMedidasPresenca(idMedidaPre)
+    .then(function (resultado) {
+        if (resultado.length > 0) {                           
+            console.log(resultado);                           
             res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+        }else{
+            res.status(204).send("Nenhum resultado encontrado")
         }
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
+
 }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarUltimasMedidasTemperatura,
+    buscarMedidasEmTempoRealTemperatura,
+    buscarUltimasMedidasTemperatura,
+    buscarUltimasMedidasPresenca
 }

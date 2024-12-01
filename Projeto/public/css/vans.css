@@ -79,6 +79,7 @@ section {
     align-items: center;
     gap: 20px;
     width: 100%;
+    background-color: #f0f0f0;
 }
 
 /* Contêiner dos gráficos */

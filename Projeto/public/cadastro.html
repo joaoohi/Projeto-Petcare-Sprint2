@@ -147,11 +147,12 @@
             emailArroba == -1 ||
             emailCaracteres >= 0 ||
             tamanhoSenha <= 6 ||
-            tamanhoCnpj < 14 && tamanhoCnpj > 14 ||
+            tamanhoCnpj < 14 || tamanhoCnpj > 14 ||
             tamanhoTelefone <= 10 || tamanhoTelefone > 20 ||
             tamanhoCelular != 11 ||
-            senhaVar != confirmarVar||
-            tamanhoCep == 9  
+            senhaVar != confirmarVar || 
+            confirmarVar != senhaVar ||
+            tamanhoCep != 9    
     ){
         cardErro.style.display = "block";
       mensagem_erro.innerHTML =
