@@ -259,11 +259,13 @@
 
     }
 
-    // Configuração do gráfico de presença  
-    function plotarGraficoBloqueio(json) {
+    // Configuração do 9gráfico de presença  
+    function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
-        for (i = 0; i < json.length; i++) {
-            var registro = json[i];
+        // var maxRegistros = 10;
+        // resposta = resposta.slice(0,maxRegistros);
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
 
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
             myChart1.data.labels.push(registro.momento_grafico)
@@ -271,17 +273,13 @@
         
         // atualizarGraficoPresenca()
         myChart1.update();
+        // myChart1.splice(0,1)
     };
 
-    function plotarGraficoTemperatura(json) {
-
-        // Configuração do gráfico de temperatura
-        // alert(JSON.stringify(json));
-        //resolvendo
-        //resolvendo
+    function plotarGraficoTemperatura(resposta) {
         console.log('cheguei')
-        for (i = 0; i < json.length; i++) {
-            var registro = json[i];
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
 
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
             myChart2.data.labels.push(registro.momento_grafico)
@@ -297,15 +295,17 @@
     //     fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
     //         .then(function (resposta) {
     //             if (resposta.ok) {
-    //                 resposta.json().then(function (respostaJSON) {
-    //                     console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+    //                 resposta.json().then( (json) =>{
+    //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
     //                     console.log(`Dados atuais do gráfico:`);
     //                     console.log(myChart2.data);
 
-    //                     myChart1.data.datasets[0].data = [];
+    //                     myChart2.data.datasets[0].data = [];
 
-    //                     for (let i = 0; i < respostaJSON.length; i++) {
-    //                         myChart2.data.datasets[0].data.push(respostaJSON[i].quantidade);
+    //                     for (let i = 0; i < json.length; i++) {
+    //                         myChart2.data.datasets[0].data.push(json[i].sensor_analogico);
+    //                         // myChart2.data.datasets[0].data.push(registro.sensor_analogico);
+    //                         myChart2.data.labels.push(registro.momento_grafico)
     //                     }
 
     //                     myChart2.update();
@@ -323,15 +323,17 @@
     //     fetch(`/medida/presencaUltimas`, { cache: "no-store" })
     //         .then(function (resposta) {
     //             if (resposta.ok) {
-    //                 resposta.json().then(function (respostaJSON) {
-    //                     console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+    //                 resposta.json().then( (json) => {
+    //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
     //                     console.log(`Dados atuais do gráfico:`);
     //                     console.log(myChart1.data);
 
     //                     myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
 
-    //                     for (let i = 0; i < respostaJSON.length; i++) {
-    //                         myChart1.data.datasets[0].data.push(respostaJSON[i].quantidade);
+    //                     for (let i = 0; i < json.length; i++) {
+    //                         myChart1.data.datasets[0].data.push(json[i].sensor_digital);
+    //                         // myChart1.data.datasets[0].data.push(registro.sensor_digital);
+    //                         myChart1.data.labels.push(registro.momento_grafico)
     //                     }
 
     //                     myChart1.update();

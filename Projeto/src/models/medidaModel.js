@@ -1,10 +1,10 @@
 var database = require("../database/config");
-
+const limite_linhas = 7
 
 function buscarUltimasMedidasTemperatura(fkEmpresaVan){
     var instrucaoSql = `select fkEmpresaVan, sensor_analogico, DATE_FORMAT(momento,'%H:%i') as momento_grafico
 from van join medidaTemperatura where fkEmpresaVan = ${fkEmpresaVan}
-ORDER BY sensor_analogico desc limit 1`;
+ORDER BY sensor_analogico desc limit 1;`;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
@@ -16,7 +16,7 @@ function buscarUltimasMedidasBloqueio(fkEmpresaVan){
 
     var instrucaoSql = `select fkEmpresaVan, sensor_digital, DATE_FORMAT(momento,'%H:%i') as momento_grafico
 from van join medidaPresenca where fkEmpresaVan = ${fkEmpresaVan} 
-ORDER BY sensor_digital desc limit 1`;
+ORDER BY sensor_digital desc limit 1;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
