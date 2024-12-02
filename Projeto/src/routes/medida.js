@@ -3,19 +3,19 @@ var router = express.Router();
 
 var medidaController = require("../controllers/medidaController");
 
-router.get("/ultimas/:idEmpresa", function (req, res) {
+router.get("/temperatura/:idEmpresa", function (req, res) {
     medidaController.buscarUltimasMedidasTemperatura(req, res);
 });
 
-router.get("/tempultimaso-real/:idEmpresa", function (req, res) {
+router.get("/temperaturaUltimas/:idEmpresa", function (req, res) {
     medidaController.buscarMedidasEmTempoRealTemperatura(req, res);
 })
 
-router.get("/ultimas/:idEmpresa", function (req, res) {
-    medidaController.buscarUltimasMedidasPresenca(req, res);
+router.get("/presenca/:idEmpresa", function (req, res) {
+    medidaController.buscarUltimasMedidasBloqueio(req, res);
 });
 
-router.get("/tempultimaso-real/:idEmpresa", function (req, res) {
+router.get("/presencaUltimas/:idEmpresa", function (req, res) {
     medidaController.buscarMedidasEmTempoRealPresenca(req, res);
 })
 

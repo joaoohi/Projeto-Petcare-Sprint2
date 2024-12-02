@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="chama()">
     <div class="container">
         <aside>
             <div class="img-aside">
@@ -24,14 +24,22 @@
                 <button onclick="window.location.href='login.html'">SAIR</button>
             </div>
         </aside>
-
+       
+        <!-- <div class="metricas-container">
+            <div class="metricas1">Métrica 1</div>
+            <div class="metricas2">Métrica 2</div>
+            <div class="metricas3">Métrica 3</div>
+        </div> -->
         <section>
             <div>
-                <canvas id="lineChart" width="400" height="200"></canvas>
+                <canvas id="myChart2" width="400" height="200" style="margin-top: 20px;"></canvas>
             </div>
             <div>
-                <canvas id="temperatureChart" width="400" height="200" style="margin-top: 20px;"></canvas>
+                <canvas id="myChart1" width="400" height="200"></canvas>
             </div>
+            <!-- <div>
+                <canvas id="myChart3" width="400" height="200"></canvas>
+            </div> -->
         </section>
     </div>
     <script data-jsd-embedded data-key="367ff213-fca9-4235-8439-0194cd16ca8f" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
@@ -40,182 +48,296 @@
 </html>
 
 <script>
-    function obterDadosGrafico() {
-        fetch(`/medidas/ultimas`, { cache: "no-store" })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                        plotarGrafico(resposta);
+// const ctx3 = document.getElementById('myChart3').getContext('2d');
+//     const myChart3 = new Chart(ctx3, {
+//         type: 'bar',
+//         data: {
+//             labels: [],
+//             datasets: [{
+//                 label: 'Temperatura na Van (°C)',
+//                 data: [],
+//                 borderWidth: 2,
+//                 fill: false,
+//                 pointBackgroundColor: [], // Cores dos pontos
+//                 lineTension: 0.2
+//             }]
+//         },
+//         options: {
+//             animation: {
+//                 duration: 1000,
+//                 easing: 'linear'
+//             },
+//             scales: {
+//                 x: {
+//                     title: {
+//                         display: true,
+//                         text: 'Tempo',
+//                         color: 'black'
+//                     },
+//                     type: 'category',
+//                     ticks: {
+//                         color: 'black'
+//                     }
+//                 },
+//                 y: {
+//                     min: 16,
+//                     max: 28,
+//                     ticks: {
+//                         stepSize: 2,
+//                         callback: function (value) {
+//                             return `${value}°C`;
+//                         },
+//                         color: 'black'
+//                     },
+//                     title: {
+//                         display: true,
+//                         text: 'Temperatura (°C)',
+//                         color: 'black'
+//                     }
+//                 }
+//             }
+//         }
+//     });
+    const ctx2 = document.getElementById('myChart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Temperatura na Van (°C)',
+                data: [],
+                borderWidth: 2,
+                fill: false,
+                pointBackgroundColor: [], // Cores dos pontos
+                lineTension: 0.2
+            }]
+        },
+        options: {
+            animation: {
+                duration: 1000,
+                easing: 'linear'
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tempo',
+                        color: 'black'
+                    },
+                    type: 'category',
+                    ticks: {
+                        color: 'black'
+                    }
+                },
+                y: {
+                    min: 16,
+                    max: 28,
+                    ticks: {
+                        stepSize: 2,
+                        callback: function (value) {
+                            return `${value}°C`;
+                        },
+                        color: 'black'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Temperatura (°C)',
+                        color: 'black'
+                    }
+                }
+            }
+        }
+    });
+   
+    const ctx1 = document.getElementById('myChart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: [], // Labels atualizadas em tempo real
+            datasets: [{
+                label: 'Presença do Pet na Van',
+                data: [], // Dados atualizados em tempo real
+                backgroundColor: 'rgba(106, 245, 237, 0.2)', // Fundo
+                borderColor: 'rgba(106, 245, 237, 1)', // Cor da linha
+                borderWidth: 2,
+                fill: true,
+                lineTension: 0.2 // Suavidade da linha
+            }]
+        },
+
+        options: {
+            animation: {
+                duration: 1000,
+                easing: 'linear'
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tempo',
+                        color: 'black'
+                    },
+                    type: 'category',
+                    ticks: {
+                        color: 'black'
+                    }
+                },
+                y: {
+                    min: 0,
+                    max: 1,
+                    ticks: {
+                        stepSize: 1,
+                        callback: function (value) {
+                            return value === 1 ? 'Presente' : 'Ausente';
+                        },
+                        color: 'black'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Status',
+                        color: 'black'
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return context.raw === 1 ? 'Presente' : 'Ausente';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
+    function chama() {
+        buscarUltimasMedidasBloqueio()
+        buscarUltimasMedidasTemperatura()
+    }
+
+    function buscarUltimasMedidasBloqueio() {
+        var idEmpresa = sessionStorage.ID_USUARIO
+        fetch(`/medida/presenca/${idEmpresa}`, { cache: "no-store" })
+            .then(function (response) {
+                if (response.status === 200) {
+                    response.json().then((json) => {
+                        console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+                        plotarGraficoBloqueio(json);
+                    })
+                } else {
+                    console.error("Nenhum dado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+            });
+    }
+
+    function buscarUltimasMedidasTemperatura() {
+        var idEmpresa = sessionStorage.ID_USUARIO
+        fetch(`/medida/temperatura/${idEmpresa}`, { cache: "no-store" })
+            .then(function (response) {
+                if (response.status == 200) {
+                    response.json().then((json) => {
+                        console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+                        plotarGraficoTemperatura(json);
                     });
                 } else {
                     console.error("Nenhum dado encontrado ou erro na API");
                 }
             })
             .catch(function (error) {
-                console.error(
-                    `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-                );
+                console.log(`Erro na obtenção dos dados p/ gráfico:`, erro);
+            });
+
+    }
+
+    // Configuração do gráfico de presença  
+    function plotarGraficoBloqueio(resposta) {
+        console.log('cheguei')
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+
+            myChart1.data.datasets[0].data.push(registro.sensor_digital);
+            myChart1.data.labels.push(registro.momento_grafico)
+        }
+
+        myChart1.update();
+    };
+
+    function plotarGraficoTemperatura(resposta) {
+
+        // Configuração do gráfico de temperatura
+        // alert(JSON.stringify(resposta));
+        //resolvendo
+        //resolvendo
+        console.log('cheguei')
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+
+            myChart2.data.datasets[0].data.push(registro.sensor_analogico);
+            myChart2.data.labels.push(registro.momento_grafico)
+        }
+
+        myChart2.update();
+
+    }
+
+
+
+    function atualizarGraficoTemperatura() {
+        fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (respostaJSON) {
+                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+                        console.log(`Dados atuais do gráfico:`);
+                        console.log(myChart2.data);
+
+                        myChart1.data.datasets[0].data = [];
+
+                        for (let i = 0; i < respostaJSON.length; i++) {
+                            myChart2.data.datasets[0].data.push(respostaJSON[i].quantidade);
+                        }
+
+                        myChart2.update();
+                    });
+                } else {
+                    console.log("Nenhum dado encontrado ou erro na API");
+                }
+            })
+            .catch(function (error) {
+                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
             });
     }
 
-    // Configuração do gráfico de presença
-    function plotarGrafico(resposta) {
-        const ctx1 = document.getElementById('lineChart').getContext('2d');
-        const lineChart = new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: [], // Labels atualizadas em tempo real
-                datasets: [{
-                    label: 'Presença do Pet na Van',
-                    data: [], // Dados atualizados em tempo real
-                    backgroundColor: 'rgba(106, 245, 237, 0.2)', // Fundo
-                    borderColor: 'rgba(106, 245, 237, 1)', // Cor da linha
-                    borderWidth: 2,
-                    fill: true,
-                    lineTension: 0.2 // Suavidade da linha
-                }]
-            },
+    function atualizarGraficoPresenca() {
+        fetch(`/medida/presencaUltimas`, { cache: "no-store" })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (respostaJSON) {
+                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+                        console.log(`Dados atuais do gráfico:`);
+                        console.log(myChart1.data);
 
-            options: {
-                animation: {
-                    duration: 1000,
-                    easing: 'linear'
-                },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Tempo',
-                            color: 'black'
-                        },
-                        type: 'category',
-                        ticks: {
-                            color: 'black'
-                        }
-                    },
-                    y: {
-                        min: 0,
-                        max: 1,
-                        ticks: {
-                            stepSize: 1,
-                            callback: function (value) {
-                                return value === 1 ? 'Presente' : 'Ausente';
-                            },
-                            color: 'black'
-                        },
-                        title: {
-                            display: true,
-                            text: 'Status',
-                            color: 'black'
-                        }
-                    }
-                },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                return context.raw === 1 ? 'Presente' : 'Ausente';
-                            }
-                        }
-                    }
-                }
-            }
-        });
+                        myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
 
-        // Configuração do gráfico de temperatura
-        const ctx2 = document.getElementById('temperatureChart').getContext('2d');
-        const temperatureChart = new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'Temperatura na Van (°C)',
-                    data: [],
-                    borderWidth: 2,
-                    fill: false,
-                    pointBackgroundColor: [], // Cores dos pontos
-                    lineTension: 0.2
-                }]
-            },
-            options: {
-                animation: {
-                    duration: 1000,
-                    easing: 'linear'
-                },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Tempo',
-                            color: 'black'
-                        },
-                        type: 'category',
-                        ticks: {
-                            color: 'black'
+                        for (let i = 0; i < respostaJSON.length; i++) {
+                            myChart1.data.datasets[0].data.push(respostaJSON[i].quantidade);
                         }
-                    },
-                    y: {
-                        min: 16,
-                        max: 28,
-                        ticks: {
-                            stepSize: 2,
-                            callback: function (value) {
-                                return `${value}°C`;
-                            },
-                            color: 'black'
-                        },
-                        title: {
-                            display: true,
-                            text: 'Temperatura (°C)',
-                            color: 'black'
-                        }
-                    }
+
+                        myChart1.update();
+                    });
+                } else {
+                    console.log("Nenhum dado encontrado ou erro na API");
                 }
-            }
-        });
-        for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      dados.datasets[0].data.push(registro.quantidade);
+            })
+            .catch(function (error) {
+                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+            });
     }
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    };
-
-    function atualizarGrafico() {
-    fetch(`/medida/ultimas`, { cache: "no-store" })
-      .then(function (resposta) {
-        if (resposta.ok) {
-          resposta.json().then(function (respostaJSON) {
-            console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
-            console.log(`Dados atuais do gráfico:`);
-            console.log(myChart.data);
-
-            myChart.data.datasets[0].data = [];
-
-            for (let i = 0; i < respostaJSON.length; i++) {
-              myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
-            }
-          
-            myChart.update();
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
 
 </script>
