@@ -48,6 +48,8 @@
 </html>
 
 <script>
+    setInterval(buscarUltimasMedidasBloqueio, 3000);
+     setInterval(buscarUltimasMedidasTemperatura, 3000);
 
 // const ctx3 = document.getElementById('myChart3').getContext('2d');
 //     const myChart3 = new Chart(ctx3, {
@@ -216,6 +218,8 @@
     function chama() {
         buscarUltimasMedidasBloqueio()
         buscarUltimasMedidasTemperatura()
+        // atualizarGraficoPresenca()
+        // atualizarGraficoTemperatura()
     }
 
     function buscarUltimasMedidasBloqueio() {
@@ -256,88 +260,90 @@
     }
 
     // Configuração do gráfico de presença  
-    function plotarGraficoBloqueio(resposta) {
+    function plotarGraficoBloqueio(json) {
         console.log('cheguei')
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
+        for (i = 0; i < json.length; i++) {
+            var registro = json[i];
 
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
             myChart1.data.labels.push(registro.momento_grafico)
         }
-
+        
+        // atualizarGraficoPresenca()
         myChart1.update();
     };
 
-    function plotarGraficoTemperatura(resposta) {
+    function plotarGraficoTemperatura(json) {
 
         // Configuração do gráfico de temperatura
-        // alert(JSON.stringify(resposta));
+        // alert(JSON.stringify(json));
         //resolvendo
         //resolvendo
         console.log('cheguei')
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
+        for (i = 0; i < json.length; i++) {
+            var registro = json[i];
 
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
             myChart2.data.labels.push(registro.momento_grafico)
         }
-
+        // atualizarGraficoTemperatura()
         myChart2.update();
 
     }
 
 
 
-    function atualizarGraficoTemperatura() {
-        fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (respostaJSON) {
-                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
-                        console.log(`Dados atuais do gráfico:`);
-                        console.log(myChart2.data);
+    // function atualizarGraficoTemperatura() {
+    //     fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then(function (respostaJSON) {
+    //                     console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+    //                     console.log(`Dados atuais do gráfico:`);
+    //                     console.log(myChart2.data);
 
-                        myChart1.data.datasets[0].data = [];
+    //                     myChart1.data.datasets[0].data = [];
 
-                        for (let i = 0; i < respostaJSON.length; i++) {
-                            myChart2.data.datasets[0].data.push(respostaJSON[i].quantidade);
-                        }
+    //                     for (let i = 0; i < respostaJSON.length; i++) {
+    //                         myChart2.data.datasets[0].data.push(respostaJSON[i].quantidade);
+    //                     }
 
-                        myChart2.update();
-                    });
-                } else {
-                    console.log("Nenhum dado encontrado ou erro na API");
-                }
-            })
-            .catch(function (error) {
-                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
-            });
-    }
+    //                     myChart2.update();
+    //                 });
+    //             } else {
+    //                 console.log("Nenhum dado encontrado ou erro na API");
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+    //         });
+    // }
 
-    function atualizarGraficoPresenca() {
-        fetch(`/medida/presencaUltimas`, { cache: "no-store" })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (respostaJSON) {
-                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
-                        console.log(`Dados atuais do gráfico:`);
-                        console.log(myChart1.data);
+    // function atualizarGraficoPresenca() {
+    //     fetch(`/medida/presencaUltimas`, { cache: "no-store" })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then(function (respostaJSON) {
+    //                     console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+    //                     console.log(`Dados atuais do gráfico:`);
+    //                     console.log(myChart1.data);
 
-                        myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
+    //                     myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
 
-                        for (let i = 0; i < respostaJSON.length; i++) {
-                            myChart1.data.datasets[0].data.push(respostaJSON[i].quantidade);
-                        }
+    //                     for (let i = 0; i < respostaJSON.length; i++) {
+    //                         myChart1.data.datasets[0].data.push(respostaJSON[i].quantidade);
+    //                     }
 
-                        myChart1.update();
-                    });
-                } else {
-                    console.log("Nenhum dado encontrado ou erro na API");
-                }
-            })
-            .catch(function (error) {
-                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
-            });
-    }
+    //                     myChart1.update();
+    //                 });
+    //             } else {
+    //                 console.log("Nenhum dado encontrado ou erro na API");
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+    //         });
+    // }
+
 
 </script>
