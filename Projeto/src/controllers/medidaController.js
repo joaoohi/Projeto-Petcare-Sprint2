@@ -33,24 +33,6 @@ function buscarUltimasMedidasTemperatura(req,res){
 
 }
     
-// function buscarMedidasEmTempoRealTemperatura(req,res){
-
-//     console.log(`Recuperando as ultimas medidas de temperatura`,idMedidaTemp);
-
-//     medidaModel.buscarUltimasMedidasTemperatura(idMedidaTemp)
-//     .then(function (resultado) {
-//         if (resultado.length > 0) {                           
-//             console.log(resultado);                           
-//             res.status(200).json(resultado);
-//         }else{
-//             res.status(204).send("Nenhum resultado encontrado")
-//         }
-//     }).catch(function (erro) {
-//         console.log(erro);
-//         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-//         res.status(500).json(erro.sqlMessage);
-//     });
-// }
    
 function listarKPI(req, res) {
     const { fkEmpresaVan } = req.params;
@@ -79,12 +61,26 @@ function listarKPI2(req, res) {
       res.status(500).json(erro.sqlMessage); // Erro interno
     });
   }
+
+function listarKPI3(req, res) {
+    const { fkEmpresaVan } = req.params;
+    medidaModel.listarKPI3().then((resultado) => {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado); // Sucesso: retorna quantidade de cones doados
+      } else {
+        res.status(204).json([]); // Sem conteúdo
+      }
+    }).catch((erro) => {
+      console.error("Houve um erro ao buscar os jogos: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage); // Erro interno
+    });
+  }
     
 
 module.exports = {
     buscarUltimasMedidasBloqueio,
     buscarUltimasMedidasTemperatura,
-    // buscarMedidasEmTempoRealTemperatura,
     listarKPI,
-    listarKPI2
+    listarKPI2,
+    // listarKPI3
 }

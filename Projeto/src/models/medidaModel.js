@@ -2,11 +2,12 @@ var database = require("../database/config");
 const limite_linhas = 7
 
 function buscarUltimasMedidasTemperatura(fkEmpresaVan){
-    var instrucaoSql = `      select v.fkEmpresaVan, mt.sensor_analogico, DATE_FORMAT(mt.momento,'%H:%i') as momento_grafico
-from van as v join sensorTemperatura on idVan = fkVanSensor
-join medidaTemperatura as mt on idSensorTemperatura = fkSensorTemperatura
-order by mt.momento ASC
-limit 1;`;
+    var instrucaoSql = ` SELECT v.fkEmpresaVan, mt.sensor_analogico, DATE_FORMAT(mt.momento, '%H:%i:%s') AS momento_grafico
+FROM van AS v
+JOIN sensorTemperatura ON idVan = fkVanSensor
+JOIN medidaTemperatura AS mt ON idSensorTemperatura = fkSensorTemperatura
+ORDER BY mt.momento desc
+limit 7 `;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
@@ -51,36 +52,29 @@ WHERE
     return database.executar(instrucaoSql);
 }
 
-
-
-// function buscarMedidasEmTempoRealTemperatura(idSensorPresenca){
-//     var instrucaoSql = `SELECT 
-//     sensor_digital as presenca, 
-//                     momento,
-//                     DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-//                 FROM medidaTemperatura
-//                 WHERE fkSensorPresenca = ${idSensorPresenca}`;
-
-// console.log("Executando a instrução SQL: \n" + instrucaoSql);
-// return database.executar(instrucaoSql);
-// }
-// function buscarMedidasEmTempoRealPresenca(idSensorPresenca){
+// function listarKPI3(fkEmpresaVan){
 
 //     var instrucaoSql = `SELECT 
-//         dht11_temperatura as temperatura, 
-//                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-//                         fkSensorPresenca 
-//                         FROM medidaPresenca WHERE fkSensorPresenca = ${idAquario} `;
+//     fkSensorTemperatura 
+// FROM 
+//     MedidaTemperatura
+// WHERE 
+//     sensor_analogico = 1;
+// `;
+//     if (sensor_analogico )
 
 //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 //     return database.executar(instrucaoSql);
+
+    
 // }
+
+
 
 module.exports = {
     buscarUltimasMedidasTemperatura,
     buscarUltimasMedidasBloqueio,
     listarKPI,
     listarKPI2
-    // buscarMedidasEmTempoRealTemperatura,
-    // buscarMedidasEmTempoRealPresenca
+
 }
