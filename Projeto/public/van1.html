@@ -262,10 +262,13 @@
     // Configuração do 9gráfico de presença  
     function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
+        
         // var maxRegistros = 10;
         // resposta = resposta.slice(0,maxRegistros);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+            myChart1.data.datasets[0].data = [];
+            myChart1.data.labels = [];
 
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
             myChart1.data.labels.push(registro.momento_grafico)
@@ -280,6 +283,8 @@
         console.log('cheguei')
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
+            myChart2.data.datasets[0].data = [];
+            myChart2.data.labels = [];
 
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
             myChart2.data.labels.push(registro.momento_grafico)
