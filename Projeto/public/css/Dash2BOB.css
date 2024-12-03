@@ -200,8 +200,9 @@ section h5 {
 
 .boboia {
     position: fixed; 
-    bottom: 80px;
-    right: 20px;
+    bottom: 30px;
+    right: 1225px;
+
     width: 70px;
     height: 70px;
     background-color: #fff;
