@@ -220,6 +220,7 @@
         buscarUltimasMedidasBloqueio()
         buscarUltimasMedidasTemperatura()
         carregarEstatisticas()
+        carregarEstatisticas2()
         // atualizarGraficoPresenca()
         // atualizarGraficoTemperatura()
     }
@@ -384,11 +385,41 @@
 
           metricas_dash2.innerHTML = `
           <div class="tag-stats">
-                QUANTIDADE DE ALERTAS
-              <b><p><h3>${estatistica.quantidades_alertas}</b></p></h3>
+                QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
+              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
           </div class="tag-stats">`
 
+          
+      })
+      .catch(erro => {
+          console.error("Erro ao carregar estatísticas:", erro);
+      });
+}
+    function carregarEstatisticas2() {
+  
         
+  fetch(`/medida/listarKPI2`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+      .then(resposta => {
+          if (resposta.ok) {
+              return resposta.json();
+          } else {
+              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+          }
+      })
+      .then(estatisticas => {
+          console.log("Estatísticas recebidas:", estatisticas);
+
+          const estatistica = estatisticas[0]
+          metricas_dash2.innerHTML = `
+          <div class="tag-stats">
+                QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
+              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
+          </div class="tag-stats">`
 
           
       })

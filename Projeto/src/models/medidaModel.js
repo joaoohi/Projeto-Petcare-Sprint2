@@ -30,25 +30,25 @@ limit 1`;
 function listarKPI(fkEmpresaVan){
 
     var instrucaoSql = `select COUNT(sensor_analogico) as quantidade_alertas from medidaTemperatura
-where sensor_analogico > 27;`;
+where sensor_analogico > 26;`;
 
-var instrucaoSql2 = `select COUNT(sensor_analogico) as quantidades_alertas from medidaTemperatura
-where sensor_analogico > 22;`;
-
-    
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql, instrucaoSql2);
-    return database.executar(instrucaoSql, instrucaoSql2);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 function listarKPI2(fkEmpresaVan){
 
-    var instrucaoSql = `select COUNT(sensor_analogico) as quantidade_alertas from medidaTemperatura
-where sensor_analogico > 27;`;
+    var instrucaoSql = `SELECT 
+    TIMEDIFF(MAX(momento), MIN(momento)) AS diferenca_tempo
+FROM 
+    medidaPresenca
+WHERE 
+    sensor_digital = 1;
+`;
     
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql, instrucaoSql2);
-    return database.executar(instrucaoSql, instrucaoSql2);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 

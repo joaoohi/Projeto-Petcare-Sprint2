@@ -68,7 +68,7 @@ function listarKPI(req, res) {
 
 function listarKPI2(req, res) {
     const { fkEmpresaVan } = req.params;
-    medidaModel.listarKPI().then((resultado) => {
+    medidaModel.listarKPI2().then((resultado) => {
       if (resultado.length > 0) {
         res.status(200).json(resultado); // Sucesso: retorna quantidade de cones doados
       } else {
