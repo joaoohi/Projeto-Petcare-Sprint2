@@ -7,6 +7,8 @@
     <title>Dashboard de Presença e Temperatura</title>
     <link rel="stylesheet" href="./css/vans.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/alerta.js"></script>
+
 </head>
 
 <body onload="chama()">
@@ -25,11 +27,12 @@
             </div>
         </aside>
        
-        <!-- <div class="metricas-container">
-            <div class="metricas1">Métrica 1</div>
-            <div class="metricas2">Métrica 2</div>
-            <div class="metricas3">Métrica 3</div>
-        </div> -->
+        <div class="metricas-container">
+            <div id="metricas_dash1" class="metricas1">Métrica 1</div>
+            <div id="metricas_dash2" class="metricas2">Métrica 2</div>
+            <div id="metricas_dash" class="metricas3">Métrica 3</div>
+        </div>
+
         <section>
             <div>
                 <canvas id="myChart2" width="400" height="200" style="margin-top: 20px;"></canvas>
@@ -48,6 +51,8 @@
 </html>
 
 <script>
+    setInterval(buscarUltimasMedidasBloqueio, 3000);
+     setInterval(buscarUltimasMedidasTemperatura, 3000);
 
 // const ctx3 = document.getElementById('myChart3').getContext('2d');
 //     const myChart3 = new Chart(ctx3, {
@@ -216,6 +221,10 @@
     function chama() {
         buscarUltimasMedidasBloqueio()
         buscarUltimasMedidasTemperatura()
+        carregarEstatisticas()
+        carregarEstatisticas2()
+        // atualizarGraficoPresenca()
+        // atualizarGraficoTemperatura()
     }
 
     function buscarUltimasMedidasBloqueio() {
@@ -255,89 +264,171 @@
 
     }
 
-    // Configuração do gráfico de presença  
+    // Configuração do 9gráfico de presença  
     function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
+       
+        // var maxRegistros = 10;
+        // resposta = resposta.slice(0,maxRegistros);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
+            // myChart1.data.datasets[0].data.shift()
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
+
+            // myChart1.data.labels.shift()
             myChart1.data.labels.push(registro.momento_grafico)
         }
-
+        
+        // atualizarGraficoPresenca()
         myChart1.update();
+        // myChart1.splice(0,1)
     };
 
     function plotarGraficoTemperatura(resposta) {
-
-        // Configuração do gráfico de temperatura
-        // alert(JSON.stringify(resposta));
-        //resolvendo
-        //resolvendo
         console.log('cheguei')
+      
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
+            // myChart2.data.datasets[0].data.shift()
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
+            
+            // myChart2.data.labels.shift()
             myChart2.data.labels.push(registro.momento_grafico)
         }
-
+        // atualizarGraficoTemperatura()
         myChart2.update();
 
     }
 
 
 
-    function atualizarGraficoTemperatura() {
-        fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (respostaJSON) {
-                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
-                        console.log(`Dados atuais do gráfico:`);
-                        console.log(myChart2.data);
+    // function atualizarGraficoTemperatura() {
+    //     fetch(`/medida/temperaturaUltimas`, { cache: "no-store" })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then( (json) =>{
+    //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+    //                     console.log(`Dados atuais do gráfico:`);
+    //                     console.log(myChart2.data);
 
-                        myChart1.data.datasets[0].data = [];
+    //                     myChart2.data.datasets[0].data = [];
 
-                        for (let i = 0; i < respostaJSON.length; i++) {
-                            myChart2.data.datasets[0].data.push(respostaJSON[i].quantidade);
-                        }
+    //                     for (let i = 0; i < json.length; i++) {
+    //                         myChart2.data.datasets[0].data.push(json[i].sensor_analogico);
+    //                         // myChart2.data.datasets[0].data.push(registro.sensor_analogico);
+    //                         myChart2.data.labels.push(registro.momento_grafico)
+    //                     }
 
-                        myChart2.update();
-                    });
-                } else {
-                    console.log("Nenhum dado encontrado ou erro na API");
-                }
-            })
-            .catch(function (error) {
-                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
-            });
-    }
+    //                     myChart2.update();
+    //                 });
+    //             } else {
+    //                 console.log("Nenhum dado encontrado ou erro na API");
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+    //         });
+    // }
 
-    function atualizarGraficoPresenca() {
-        fetch(`/medida/presencaUltimas`, { cache: "no-store" })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (respostaJSON) {
-                        console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
-                        console.log(`Dados atuais do gráfico:`);
-                        console.log(myChart1.data);
+    // function atualizarGraficoPresenca() {
+    //     fetch(`/medida/presencaUltimas`, { cache: "no-store" })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then( (json) => {
+    //                     console.log(`Dados recebidos: ${JSON.stringify(json)}`);
+    //                     console.log(`Dados atuais do gráfico:`);
+    //                     console.log(myChart1.data);
 
-                        myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
+    //                     myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length);
 
-                        for (let i = 0; i < respostaJSON.length; i++) {
-                            myChart1.data.datasets[0].data.push(respostaJSON[i].quantidade);
-                        }
+    //                     for (let i = 0; i < json.length; i++) {
+    //                         myChart1.data.datasets[0].data.push(json[i].sensor_digital);
+    //                         // myChart1.data.datasets[0].data.push(registro.sensor_digital);
+    //                         myChart1.data.labels.push(registro.momento_grafico)
+    //                     }
 
-                        myChart1.update();
-                    });
-                } else {
-                    console.log("Nenhum dado encontrado ou erro na API");
-                }
-            })
-            .catch(function (error) {
-                console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
-            });
-    }
+    //                     myChart1.update();
+    //                 });
+    //             } else {
+    //                 console.log("Nenhum dado encontrado ou erro na API");
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.log(`Erro na obtenção dos dados p/ gráfico:`, error);
+    //         });
+    // }
 
+    function carregarEstatisticas() {
+  
+        
+  fetch(`/medida/listarKPI`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+      .then(resposta => {
+          if (resposta.ok) {
+              return resposta.json();
+          } else {
+              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+          }
+      })
+      .then(estatisticas => {
+          console.log("Estatísticas recebidas:", estatisticas);
+
+          const estatistica = estatisticas[0]
+
+          metricas_dash1.innerHTML = `
+          <div class="tag-stats">
+                QUANTIDADE DE ALERTAS
+              <b><p><h3>${estatistica.quantidade_alertas}</b></p></h3>
+          </div class="tag-stats">`
+
+          metricas_dash2.innerHTML = `
+          <div class="tag-stats">
+                QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
+              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
+          </div class="tag-stats">`
+
+          
+      })
+      .catch(erro => {
+          console.error("Erro ao carregar estatísticas:", erro);
+      });
+}
+    function carregarEstatisticas2() {
+  
+        
+  fetch(`/medida/listarKPI2`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+      .then(resposta => {
+          if (resposta.ok) {
+              return resposta.json();
+          } else {
+              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+          }
+      })
+      .then(estatisticas => {
+          console.log("Estatísticas recebidas:", estatisticas);
+
+          const estatistica = estatisticas[0]
+          metricas_dash2.innerHTML = `
+          <div class="tag-stats">
+                QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
+              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
+          </div class="tag-stats">`
+
+          
+      })
+      .catch(erro => {
+          console.error("Erro ao carregar estatísticas:", erro);
+      });
+}
 </script>
