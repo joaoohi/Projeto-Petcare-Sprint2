@@ -25,11 +25,12 @@
             </div>
         </aside>
        
-        <!-- <div class="metricas-container">
-            <div class="metricas1">Métrica 1</div>
-            <div class="metricas2">Métrica 2</div>
-            <div class="metricas3">Métrica 3</div>
-        </div> -->
+        <div class="metricas-container">
+            <div id="metricas_dash1" class="metricas1">Métrica 1</div>
+            <div id="metricas_dash2" class="metricas2">Métrica 2</div>
+            <div id="metricas_dash" class="metricas3">Métrica 3</div>
+        </div>
+
         <section>
             <div>
                 <canvas id="myChart2" width="400" height="200" style="margin-top: 20px;"></canvas>
@@ -218,6 +219,7 @@
     function chama() {
         buscarUltimasMedidasBloqueio()
         buscarUltimasMedidasTemperatura()
+        carregarEstatisticas()
         // atualizarGraficoPresenca()
         // atualizarGraficoTemperatura()
     }
@@ -262,13 +264,13 @@
     // Configuração do 9gráfico de presença  
     function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
-        
+        myChart1.data.datasets[0].data = [];
+        myChart1.data.labels = [];
+
         // var maxRegistros = 10;
         // resposta = resposta.slice(0,maxRegistros);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            myChart1.data.datasets[0].data = [];
-            myChart1.data.labels = [];
 
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
             myChart1.data.labels.push(registro.momento_grafico)
@@ -281,13 +283,14 @@
 
     function plotarGraficoTemperatura(resposta) {
         console.log('cheguei')
+        myChart2.data.datasets[0].data = [];
+        myChart2.data.labels = [];
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            myChart2.data.datasets[0].data = [];
-            myChart2.data.labels = [];
 
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
             myChart2.data.labels.push(registro.momento_grafico)
+            myChart1.data.datasets[0].data.splice(0,1)
         }
         // atualizarGraficoTemperatura()
         myChart2.update();
@@ -352,5 +355,45 @@
     //         });
     // }
 
+    function carregarEstatisticas() {
+  
+        
+  fetch(`/medida/listarKPI`, {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+  })
+      .then(resposta => {
+          if (resposta.ok) {
+              return resposta.json();
+          } else {
+              throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
+          }
+      })
+      .then(estatisticas => {
+          console.log("Estatísticas recebidas:", estatisticas);
 
+          const estatistica = estatisticas[0]
+
+          metricas_dash1.innerHTML = `
+          <div class="tag-stats">
+                QUANTIDADE DE ALERTAS
+              <b><p><h3>${estatistica.quantidade_alertas}</b></p></h3>
+          </div class="tag-stats">`
+
+          metricas_dash2.innerHTML = `
+          <div class="tag-stats">
+                QUANTIDADE DE ALERTAS
+              <b><p><h3>${estatistica.quantidades_alertas}</b></p></h3>
+          </div class="tag-stats">`
+
+        
+
+          
+      })
+      .catch(erro => {
+          console.error("Erro ao carregar estatísticas:", erro);
+      });
+}
 </script>

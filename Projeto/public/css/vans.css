@@ -98,3 +98,38 @@ section {
     width: 100%; /* Ocupa toda a largura do contêiner */
     height: 500px; /* Define uma altura maior para o gráfico */
 }
+
+.metricas-container {
+    display: flex;
+    gap: 20px; /* Espaço entre as métricas */
+    justify-content: center; /* Centraliza as métricas na página */
+    margin-bottom: 50px;
+  
+}
+
+/* CSS para apagar depois */
+
+.metricas-container div {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.metricas-container div:hover {
+    transform: scale(1.05);
+}
+
+
+.metricas1, .metricas2, .metricas3 {
+    background-color: #444;
+    height: 100px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}

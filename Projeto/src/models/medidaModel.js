@@ -27,6 +27,30 @@ limit 1`;
     return database.executar(instrucaoSql);
 }
 
+function listarKPI(fkEmpresaVan){
+
+    var instrucaoSql = `select COUNT(sensor_analogico) as quantidade_alertas from medidaTemperatura
+where sensor_analogico > 27;`;
+
+var instrucaoSql2 = `select COUNT(sensor_analogico) as quantidades_alertas from medidaTemperatura
+where sensor_analogico > 22;`;
+
+    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql, instrucaoSql2);
+    return database.executar(instrucaoSql, instrucaoSql2);
+}
+
+function listarKPI2(fkEmpresaVan){
+
+    var instrucaoSql = `select COUNT(sensor_analogico) as quantidade_alertas from medidaTemperatura
+where sensor_analogico > 27;`;
+    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql, instrucaoSql2);
+    return database.executar(instrucaoSql, instrucaoSql2);
+}
+
 
 
 // function buscarMedidasEmTempoRealTemperatura(idSensorPresenca){
@@ -55,6 +79,8 @@ limit 1`;
 module.exports = {
     buscarUltimasMedidasTemperatura,
     buscarUltimasMedidasBloqueio,
+    listarKPI,
+    listarKPI2
     // buscarMedidasEmTempoRealTemperatura,
     // buscarMedidasEmTempoRealPresenca
 }
