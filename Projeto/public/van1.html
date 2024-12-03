@@ -7,6 +7,8 @@
     <title>Dashboard de Presença e Temperatura</title>
     <link rel="stylesheet" href="./css/vans.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/alerta.js"></script>
+
 </head>
 
 <body onload="chama()">
@@ -265,15 +267,16 @@
     // Configuração do 9gráfico de presença  
     function plotarGraficoBloqueio(resposta) {
         console.log('cheguei')
-        myChart1.data.datasets[0].data = [];
-        myChart1.data.labels = [];
-
+       
         // var maxRegistros = 10;
         // resposta = resposta.slice(0,maxRegistros);
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
+            myChart1.data.datasets[0].data.shift()
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
+
+            myChart1.data.labels.shift()
             myChart1.data.labels.push(registro.momento_grafico)
         }
         
@@ -284,14 +287,15 @@
 
     function plotarGraficoTemperatura(resposta) {
         console.log('cheguei')
-        myChart2.data.datasets[0].data = [];
-        myChart2.data.labels = [];
+      
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
+            myChart2.data.datasets[0].data.shift()
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
+            
+            myChart2.data.labels.shift()
             myChart2.data.labels.push(registro.momento_grafico)
-            myChart1.data.datasets[0].data.splice(0,1)
         }
         // atualizarGraficoTemperatura()
         myChart2.update();
