@@ -141,12 +141,12 @@
     const senhaValida = div_mensagem_erro_senha.style.color === 'green';
     const senhaConfirmar = div_mensagem_erro_confirmar.style.color === 'green';
 
-    if (razaoValida && fantasiaValida && cnpjValido && cepValido && telefoneValido && celularValido && emailValido && senhaValida && senhaConfirmar) {
-      alert("Cadastro realizado com sucesso!");
-      // Aqui, você pode adicionar lógica para salvar os dados
-    } else {
-      alert("Por favor, corrija os erros antes de cadastrar.");
-    }
+    // if (razaoValida && fantasiaValida && cnpjValido && cepValido && telefoneValido && celularValido && emailValido && senhaValida && senhaConfirmar) {
+    //   alert("Cadastro realizado com sucesso!");
+    //   // Aqui, você pode adicionar lógica para salvar os dados
+    // } else {
+    //   alert("Por favor, corrija os erros antes de cadastrar.");
+    // }
 
 
     var razaoVar = input_razao.value;
@@ -265,7 +265,7 @@
             cardErro.style.display = "block";
 
             mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+              "Cadastro realizado com sucesso! Vamos te levar para tela de Login...";
 
             setTimeout(() => {
               window.location = "login.html";
