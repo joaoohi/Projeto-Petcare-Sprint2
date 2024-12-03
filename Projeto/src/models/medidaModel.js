@@ -6,7 +6,7 @@ function buscarUltimasMedidasTemperatura(fkEmpresaVan){
 from van as v join sensorTemperatura on idVan = fkVanSensor
 join medidaTemperatura as mt on idSensorTemperatura = fkSensorTemperatura
 order by mt.momento ASC
-;`;
+limit 1;`;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);

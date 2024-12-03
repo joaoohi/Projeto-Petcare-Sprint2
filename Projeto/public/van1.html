@@ -273,10 +273,10 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
-            myChart1.data.datasets[0].data.shift()
+            // myChart1.data.datasets[0].data.shift()
             myChart1.data.datasets[0].data.push(registro.sensor_digital);
 
-            myChart1.data.labels.shift()
+            // myChart1.data.labels.shift()
             myChart1.data.labels.push(registro.momento_grafico)
         }
         
@@ -291,10 +291,10 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
 
-            myChart2.data.datasets[0].data.shift()
+            // myChart2.data.datasets[0].data.shift()
             myChart2.data.datasets[0].data.push(registro.sensor_analogico);
             
-            myChart2.data.labels.shift()
+            // myChart2.data.labels.shift()
             myChart2.data.labels.push(registro.momento_grafico)
         }
         // atualizarGraficoTemperatura()
