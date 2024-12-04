@@ -168,21 +168,31 @@ section h5 {
 
 .div_alerta div {
     height: 80px;
-    width: 150px;
+    width: 135px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 18px;
     color: #fff;
     font-weight: bold;
     border-radius: 8px;
+    padding: 20px;
+    
 }
+
+
+
+
 
 .alerta1 { background-color: #ed0000; }
 .alerta2 { background-color: #ffc107; }
 .alerta3 { background-color: #3cde06; }
 .alerta4 { background-color: #ffc107; }
 .alerta5 { background-color: #ed0000; }
+.alerta6 { background-color: #ed0000; }
+.alerta7 { background-color: #3cde06; }
+.alerta8{ background-color: #ffc107; }
 
 
 .van-1 img{
@@ -201,13 +211,13 @@ section h5 {
 /* Animação de alerta piscando */
 @keyframes piscarAlerta {
     0% {
-        background-color: #ed0000; /* Cor vermelha */
+        background-color: #c60000; /* Cor vermelha */
     }
     50% {
         background-color: transparent; /* Cor transparente */
     }
     100% {
-        background-color: #ed0000; /* Cor vermelha */
+        background-color:  #c60000; /* Cor vermelha */
     }
 }
 
