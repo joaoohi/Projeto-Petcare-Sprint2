@@ -17,7 +17,7 @@ return database.executar(instrucaoSql);
 
 function buscarUltimasMedidasBloqueio(fkEmpresaVan){
 
-    var instrucaoSql = `select v.fkEmpresaVan, g.fkVanGaiola , mp.sensor_digital, DATE_FORMAT(mp.momento,'%H:%i') as momento_grafico
+    var instrucaoSql = `select v.fkEmpresaVan, g.fkVanGaiola , mp.sensor_digital, DATE_FORMAT(mp.momento,'%H:%i:%s') as momento_grafico
 from van as v join gaiola as g on idVan = fkVanGaiola 
 join sensorPresenca on idGaiola = fkGaiolaSensorPresenca
 join medidaPresenca as mp on idSensorPresenca = fkSensorPresenca 
@@ -39,12 +39,15 @@ where sensor_analogico > 26;`;
 
 function listarKPI2(fkEmpresaVan){
 
-    var instrucaoSql = `SELECT 
-    TIMEDIFF(MAX(momento), MIN(momento)) AS diferenca_tempo
-FROM 
-    medidaPresenca
-WHERE 
-    sensor_digital = 1;
+    var instrucaoSql = ` 
+    SELECT TIMESTAMPDIFF(MINUTE,
+        (
+            SELECT MIN(momento) FROM medidaPresenca 
+            WHERE sensor_digital = 1 
+            AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0)
+        ),
+        (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+    )  tempoGaiola;
 `;
     
 
@@ -52,22 +55,7 @@ WHERE
     return database.executar(instrucaoSql);
 }
 
-// function listarKPI3(fkEmpresaVan){
 
-//     var instrucaoSql = `SELECT 
-//     fkSensorTemperatura 
-// FROM 
-//     MedidaTemperatura
-// WHERE 
-//     sensor_analogico = 1;
-// `;
-//     if (sensor_analogico )
-
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
-
-    
-// }
 
 
 

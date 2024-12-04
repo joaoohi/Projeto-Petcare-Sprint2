@@ -16,19 +16,8 @@ create table empresa(
     emailEmpresa varchar(45) not null unique,
     senha varchar(45)
 );
+select * from empresa;
 
--- Tabela onde armazenaremos os dados do funcionario da empresa,
--- create table usuario(
--- idUsuario int primary key auto_increment,
--- nome varchar(45) not null,
--- dtNascimento date,
--- cpf char(12) not null,
--- email varchar(45) not null,
--- senha varchar(45) not null,
--- cargo varchar(45) not null,
--- fkEmpresa int, constraint fkUsuarioEmpresa foreign key (fkEmpresa)
--- references empresa(idEmpresa)
--- );
 
 -- Tabela onde armazenaremos as informações do transporte
     create table van(
@@ -77,6 +66,10 @@ create table sensorPresenca(
 					references gaiola(idGaiola)
     );
     
+    
+    
+ 
+    
     -- Tabela onde será armazenaremos as leituras do sensor de Presenca
     create table medidaPresenca (
     idMedidaPresenca int auto_increment,
@@ -87,37 +80,22 @@ create table sensorPresenca(
     foreign key (fkSensorPresenca) references sensorPresenca(idSensorPresenca)
 );
 
+select * from sensorPresenca;
+
+
 insert into empresa values
 (default, 'PetShop Vida Animal', 'Vida Animal', '12345678000199', '12345-678', '1234567890', '958746958', 'vida.animal@email.com', 'senha123'),
 (default, 'Cão e Gato Pet Store', 'Cão & Gato', '98765432000188', '23456-789', '0987654321','924783241', 'cao.gato@email.com', 'senha456'),
 (default, 'Pet Amigo LTDA', 'Pet Amigo', '11122233000177', '34567-890', '1122334455', '934724169', 'pet.amigo@email.com', 'senha789');
 
  
--- insert into usuario  values
--- Funcionários da empresa 1
--- (default, 'Ana Silva',  '1985-02-10', '123456789012', 'ana.silva@vida.animal.com', 'senhaAna', 'Motorista', 1),
--- (default, 'Carlos Souza',  '1990-06-20', '987654321012', 'carlos.souza@vida.animal.com', 'senhaCarlos', 'Cuidador de Pets', 1),
-
--- Funcionários da empresa 2
--- (default, 'Roberto Lima',  '1982-03-05', '789123456012', 'roberto.lima@cao.gato.com', 'senhaRoberto', 'Motorista', 2),
--- (default, 'Fernanda Oliveira',  '1987-07-18', '321654987012', 'fernanda.oliveira@cao.gato.com', 'senhaFernanda', 'Cuidadora de Pets', 2),
-
--- Funcionários da empresa 3
--- (default, 'Pedro Ramos',  '1988-01-08', '159753486012', 'pedro.ramos@pet.amigo.com', 'senhaPedro', 'Motorista', 3),
--- (default, 'Lucas Mendes',  '1991-04-12', '753951486012','lucas.mendes@pet.amigo.com', 'senhaLucas', 'Cuidador de Pets', 3);
-
--- Inserindo dados dos transportes de cada empresa 
     insert into van values
 -- Transportes da empresa 1
 (default, 1),
 (default, 1),
 (default, 1);
 
--- Transportes da empresa 2
--- (default, 2, 'Positivo', '500mb'),
 
--- Transportes da empresa 3
--- (default, 3, 'Positivo', '500mb');
 
 -- Inserindo dados dos sensorTemperatura utilizado   
 insert into sensorTemperatura values
@@ -129,6 +107,9 @@ insert into sensorTemperatura values
 -- Inserindo dados das leituras do sensor de temperatura
 insert into medidaTemperatura values
 (default, 22.1, default, default);
+
+
+
 
 -- Inserindo dados na tabela gaiola
 insert into gaiola values
@@ -158,6 +139,20 @@ insert into sensorPresenca values
 (default, 'tcrt-5000', 'Ativo', 1),
 (default, 'tcrt-5000', 'Ativo', 2),
 (default, 'tcrt-5000', 'Ativo', 3);
+
+insert into medidaPresenca(sensor_digital, momento) values
+(0, '2020-02-02 21:04:09' ),
+(1, '2020-02-02 21:04:20' ),
+(1, '2020-02-02 21:04:30' ),
+(1, '2020-02-02 21:04:40' ),
+(1, '2020-02-02 21:04:50' ),
+(1, '2020-02-02 22:04:59' ),
+(1, '2020-02-02 23:04:59' ),
+(1, '2020-02-02 00:04:59' ),
+(1, '2020-02-02 01:04:59' ),
+(1, '2020-02-02 02:05:00' );
+
+
 
 -- Inserindo dados das leituras do sensor de temperatura
 insert into medidaPresenca values
@@ -219,6 +214,80 @@ left join medidaPresenca as p on idSensorPresenca = fkSensorPresenca;
 
 
 
+SELECT 
+    TIMEDIFF(MAX(momento), MIN(momento)) AS diferenca_tempo
+FROM 
+    medidaPresenca
+WHERE 
+    sensor_digital = 1;
+    
+    select COUNT(sensor_analogico) as quantidade_alertas from medidaTemperatura
+where sensor_analogico > 26;
+
+select * from medidaPresenca;
+
+insert into medidaTemperatura (sensor_analogico, momento )values
+(23, '2024-12-04 21:05:55' );
+
+
+select * from medidaTemperatura;
+SELECT TIMEDIFF(
+    (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1), 
+    (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0 
+        AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+    ));
+    
+    SELECT TIMEDIFF(
+    (SELECT MIN(momento) FROM medidaPresenca WHERE sensor_digital = 1 AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0)),
+    (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+)  tempoGaiola;
+
+
+SELECT MIN(momento) FROM medidaPresenca WHERE sensor_digital = 1 AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0);
+select * from medidaPresenca;
+insert into medidaPresenca (sensor_digital, momento) values
+(0, '2024-12-04 00:10:00');
 
 
 
+
+ SELECT v.fkEmpresaVan, mt.sensor_analogico,mt.momento AS momento_grafico
+FROM van AS v
+JOIN sensorTemperatura ON idVan = fkVanSensor
+JOIN medidaTemperatura AS mt ON idSensorTemperatura = fkSensorTemperatura
+ORDER BY mt.momento desc
+;
+
+ SELECT TIMESTAMPDIFF(MINUTE,
+        (
+            SELECT MIN(momento) FROM medidaPresenca 
+            WHERE sensor_digital = 1 
+            AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0)
+        ),
+        (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+    )  tempoGaiola;
+    
+    
+    
+      SELECT TIMESTAMPDIFF(MINUTE,
+        (
+            SELECT MIN(momento) FROM medidaPresenca 
+            WHERE sensor_digital = 1 and fkEmpresaVan = 1 
+            AND momento > (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 0
+            and fkEmpresaVan = 1)
+
+        ),
+        (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+    )  tempoGaiola;
+    
+    SELECT TIMESTAMPDIFF(MINUTE,
+        (
+            SELECT MIN(momento) FROM van v join sensorPresenca on idVan = fkVanSensor 
+            join medidaPresenca mt on idSensorTemperatura = fkSensorTemperatura
+            WHERE mt.sensor_digital = 1 and v.fkEmpresaVan = 1 
+            AND mt.momento > (SELECT MAX(mt.momento) FROM medidaPresenca WHERE sensor_digital = 0
+            and fkEmpresaVan = 1)
+
+        ),
+        (SELECT MAX(momento) FROM medidaPresenca WHERE sensor_digital = 1)
+    )  tempoGaiola;

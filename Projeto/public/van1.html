@@ -15,7 +15,7 @@
                 <img src="./assets/imgs/frizzaimg.jpg" alt="">
             </div><br>
             <div class="bemvindo">
-                Bem-Vindo, Frizza!
+                Bem-Vindo!
             </div><br><br>
             <div class="buttonsmeio">
                 <button onclick="window.location.href='dashboardGu.html'">VOLTAR</button><br><br>
@@ -24,14 +24,14 @@
                
             </div>
         </aside>
-       
         <section>
-         
+           
             <div class="metricas-container">
            
                 <div id="metricas_dash1" class="metricas1">Métrica 1</div>
                 <div id="metricas_dash2" class="metricas2">Métrica 2</div>
-                <div id="metricas_dash" class="metricas3">Métrica 3</div>
+                <div id="metricas_dash3" class="metricas3">Métrica 3</div>
+                <div id="metricas_dash4" class="metricas3">Métrica 4</div>
                
             </div>
             <div class="containerGrafico">
@@ -56,56 +56,7 @@
     setInterval(buscarUltimasMedidasBloqueio, 3000);
     setInterval(buscarUltimasMedidasTemperatura, 3000);
     setInterval(carregarEstatisticas2, 1000)
-    // const ctx3 = document.getElementById('myChart3').getContext('2d');
-    //     const myChart3 = new Chart(ctx3, {
-    //         type: 'bar',
-    //         data: {
-    //             labels: [],
-    //             datasets: [{
-    //                 label: 'Temperatura na Van (°C)',
-    //                 data: [],
-    //                 borderWidth: 2,
-    //                 fill: false,
-    //                 pointBackgroundColor: [], // Cores dos pontos
-    //                 lineTension: 0.2
-    //             }]
-    //         },
-    //         options: {
-    //             animation: {
-    //                 duration: 1000,
-    //                 easing: 'linear'
-    //             },
-    //             scales: {
-    //                 x: {
-    //                     title: {
-    //                         display: true,
-    //                         text: 'Tempo',
-    //                         color: 'black'
-    //                     },
-    //                     type: 'category',
-    //                     ticks: {
-    //                         color: 'black'
-    //                     }
-    //                 },
-    //                 y: {
-    //                     min: 16,
-    //                     max: 28,
-    //                     ticks: {
-    //                         stepSize: 2,
-    //                         callback: function (value) {
-    //                             return `${value}°C`;
-    //                         },
-    //                         color: 'black'
-    //                     },
-    //                     title: {
-    //                         display: true,
-    //                         text: 'Temperatura (°C)',
-    //                         color: 'black'
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     });
+   
     const ctx2 = document.getElementById('myChart2').getContext('2d');
     const myChart2 = new Chart(ctx2, {
         type: 'line',
@@ -275,6 +226,11 @@
             myChart1.data.labels.push(registro.momento_grafico)
         }
 
+        if (myChart1.data.datasets[0].data.length > 7) {
+            myChart1.data.datasets[0].data.splice(0, myChart1.data.datasets[0].data.length - 7);
+            myChart1.data.labels.splice(0, myChart1.data.labels.length - 7);
+        } 
+
         
         // atualizarGraficoPresenca()
         myChart1.update();
@@ -284,24 +240,33 @@
         console.log('cheguei')
         var dados =[]
         var rotulos =[]
+        let critCount = 0;
 
         for (i = resposta.length -1; i >= 0;  i--) {
             var registro = resposta[i];
-            
+            if (Number(registro.sensor_analogico) > 26) critCount++;
             dados.push(registro.sensor_analogico);
-            
-            
         }
 
         for (i = resposta.length -1; i >= 0;  i--) {
             var registro = resposta[i];
-            
-           
-            
             rotulos.push(registro.momento_grafico)
         }
 
-        myChart2.data.datasets[0].data= dados
+        if (myChart2.data.datasets[0].data.length > 7) {
+            myChart2.data.datasets[0].data.splice(0, myChart2.data.datasets[0].data.length - 7);
+            myChart2.data.labels.splice(0, myChart2.data.labels.length - 7);
+        } 
+
+        const metrica1_elem = document.getElementById('metricas_dash1');
+        const metrica3_elem = document.getElementById('metricas_dash3');
+        metrica1_elem.innerHTML = "Críticos: " + critCount;
+    
+        metrica3_elem.innerHTML = (
+            Number(dados[dados.length - 1]) > 26 ?  `<b style="color: red;">STATUS CRÍTICO DE TEMPERATURA!</b>` 
+            : Number(dados[dados.length - 1]) >= 24 ? `<b style ="color: yellow;">STATUS ALERTA DE TEMPERATURA!</b>` : `STATUS DE TEMPERATURA NORMAL`)
+
+        myChart2.data.datasets[0].data = dados
         myChart2.data.labels = rotulos
         myChart2.update();
 
@@ -323,13 +288,6 @@
                 }
             })
             .then(estatisticas => {
-                console.log("Estatísticas recebidas:", estatisticas);
-                const estatistica = estatisticas[0]
-                metricas_dash1.innerHTML = `
-          <div class="tag-stats">
-                QUANTIDADE DE ALERTAS
-              <b><p><h3>${estatistica.quantidade_alertas}</b></p></h3>
-          </div class="tag-stats">`
                 metricas_dash2.innerHTML = `
           <div class="tag-stats">
                 QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
@@ -357,39 +315,17 @@
             .then(estatisticas => {
                 console.log("Estatísticas recebidas:", estatisticas);
                 const estatistica = estatisticas[0]
+                const metrica4_elem = document.getElementById('metricas_dash4');
                 metricas_dash2.innerHTML = `
           <div class="tag-stats">
                 QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
-              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
-          </div class="tag-stats">`
-            })
-            .catch(erro => {
-                console.error("Erro ao carregar estatísticas:", erro);
-            });
-    }
+              <b><p><h3>${Number(estatistica.tempoGaiola) ?? 0} minutos</b></p></h3>
+          </div class="tag-stats">`;
 
-    function carregarEstatisticas3() {
-        fetch(`/medida/listarKPI3`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-            .then(resposta => {
-                if (resposta.ok) {
-                    return resposta.json();
-                } else {
-                    throw new Error(`Erro ao buscar estatísticas: ${resposta.status}`);
-                }
-            })
-            .then(estatisticas => {
-                console.log("Estatísticas recebidas:", estatisticas);
-                const estatistica = estatisticas[0]
-                metricas_dash2.innerHTML = `
-          <div class="tag-stats">
-                QUANTO TEMPO O ANIMAL ESTÁ NA GAIOLA
-              <b><p><h3>${estatistica.diferenca_tempo}</b></p></h3>
-          </div class="tag-stats">`
+                metrica4_elem.innerHTML = Number(estatistica.tempoGaiola) >= 60 ? "CRÍTICO"
+                : Number(estatistica.tempoGaiola) >= 45 ? "ALERTA" : "NORMAL"
+
+          document.getElementById('')
             })
             .catch(erro => {
                 console.error("Erro ao carregar estatísticas:", erro);
