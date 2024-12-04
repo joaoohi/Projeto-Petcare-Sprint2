@@ -250,3 +250,23 @@ section h5 {
     transform: translateY(-5px);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
 }
+
+
+.div_alerta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  
+}
+
+.temp{
+    display: flex;
+    gap: 20px;
+}
+
+.presenca{
+    display: flex;
+    gap: 20px;
+}
